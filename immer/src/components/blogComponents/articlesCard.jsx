@@ -17,10 +17,10 @@ const ArticlesCard = ({
   return (
     <div
       style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
-      className={"flex flex-col mb-8 p-4 h-[515px] bg-white rounded-md"}
+      className={"flex flex-col mb-8 p-4 pb-2 h-[490px] bg-white rounded-md"}
     >
       <div
-        className="mb-3 w-full h-[259px] rounded-lg bg-cover bg-center"
+        className="mb-3 w-full h-[229px] rounded-lg bg-cover bg-center"
         style={{
           backgroundImage: `url(${img})`,
         }}
@@ -50,7 +50,7 @@ const ArticlesCard = ({
       </div>
 
       <Link href="/author">
-        <hr className="my-5" />
+        <hr className="my-2" />
         <div id="host-section" className="flex flex-row">
           <Image
             className="rounded-full border-none ml-1"

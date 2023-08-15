@@ -5,7 +5,10 @@ import MainContent from "@/components/blogComponents/mainContent";
 import BlogCTA from "@/components/blogComponents/blogCTA";
 import BlogFooter from "@/components/blogComponents/blogFooter";
 
-import { ArticlesContent, BloggersData } from "@/components/blogComponents/demoData";
+import {
+  ArticlesContent,
+  BloggersData,
+} from "@/components/blogComponents/demoData";
 
 const Blog = () => {
   const LatestArticlesContentData = ArticlesContent;

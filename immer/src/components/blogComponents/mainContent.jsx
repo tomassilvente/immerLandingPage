@@ -1,12 +1,14 @@
 import Link from "next/link";
 import BloggersCard from "./bloggersCard";
 import ArticlesCard from "./articlesCard";
+import SecondBloggersCard from "./secondBloggerCard";
 
 const MainContent = ({ LatestArticles, PopularBloggers }) => {
   const maxArticlesToShow = 4;
-  const maxBloggersToShow = 5;
+  const maxBloggersToShow = 3;
   const displayedArticles = LatestArticles.slice(0, maxArticlesToShow);
   const displayedBloggers = PopularBloggers.slice(0, maxBloggersToShow);
+  const secondBloggers = LatestArticles.slice(0, 2);
 
   return (
     <main id="main-content" className="p-8 sm:p-12 lg:pl-32 lg:pr-32">
@@ -65,7 +67,21 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
                 key={content.id}
               />
             ))}
-          </div>
+            {secondBloggers.map((content) => (
+              <SecondBloggersCard
+                img={content.img}
+                category={content.category}
+                eventDate={content.eventDate}
+                title={content.title}
+                details={content.details}
+                id={content.id}
+                hostTitle={content.hostTitle}
+                hostName={content.hostName}
+                hostImage={content.hostImage}
+                key={content.id}
+              />
+            ))}
+            </div>
         </section>
       </div>
     </main>

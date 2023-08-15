@@ -33,9 +33,9 @@ const BloggersCard = ({
   return (
     <div
       style={{ boxShadow: " 0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
-      className="flex flex-col bg-white h-[190px] content-center p-2 pb-3 pt-3 mb-7"
+      className="flex flex-col bg-white h-[145px] content-center p-2 pb-3 pt-3 mb-7"
     >
-      <div id="TopBloggerProfile" className="mb-3 flex flex-raw">
+      <div id="TopBloggerProfile" className="mb-3 flex flex-row">
         <div id="imageRow">
           <Image
             className="rounded-full border-none ml-1"
@@ -82,14 +82,6 @@ const BloggersCard = ({
             </p>
           </div>
         </div>
-      </div>
-      <div
-        id="DownBioTitle"
-        className=" h-[35px] justify-start items-start mb-2"
-      >
-        <p className="text-left text-lg font-semibold text-[#2B262C] leading-[25px]">
-          Blogger Brief Bio
-        </p>
       </div>
       <div id="bio">
         <p className="text-[#747474] text-sm font-normal not not-italic leading-[18px] line-clamp-2">
