@@ -1,6 +1,6 @@
 
 // main content articles demo data
-export const ArticlesContent = [
+export const DummyContent = [
   {
     id: "95m",
     hostImage: "/assets/blog/host1.svg",
@@ -120,5 +120,25 @@ export const BloggersData = [
     followers: 4500,
     bloggerName: "Frank Sinatra",
     bloggerImage: "/assets/blog/b5.svg",
+  },
+];
+
+
+export const BtnProps = [
+  {
+    btnName: "For Entertainers",
+    btnAddress: "/blog",
+  },
+  {
+    btnName: "For Vendors",
+    btnAddress: "/blog",
+  },
+  {
+    btnName: "For Organizers",
+    btnAddress: "/blog",
+  },
+  {
+    btnName: "For Administrator",
+    btnAddress: "/blog",
   },
 ];

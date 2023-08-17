@@ -6,18 +6,19 @@ import BlogCTA from "@/components/blogComponents/blogCTA";
 import BlogFooter from "@/components/blogComponents/blogFooter";
 
 import {
-  ArticlesContent,
+  DummyContent,
   BloggersData,
 } from "@/components/blogComponents/demoData";
 
 const Blog = () => {
-  const LatestArticlesContentData = ArticlesContent;
+  const LatestArticlesContentData = DummyContent;
+  const featuredContent = DummyContent;
   const mostPopularBloggers = BloggersData;
   return (
     <div className="min-h-screen items-center justify-center w-full bg-white">
       <BlogHeader />
       <BlogHero />
-      <FeatureContent />
+      <FeatureContent FeatureContent={featuredContent} />
       <MainContent
         LatestArticles={LatestArticlesContentData}
         PopularBloggers={mostPopularBloggers}

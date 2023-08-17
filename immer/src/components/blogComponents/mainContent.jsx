@@ -1,9 +1,10 @@
 import Link from "next/link";
 import BloggersCard from "./bloggersCard";
-import ArticlesCard from "./articlesCard";
 import SecondBloggersCard from "./secondBloggerCard";
+import ContentCard from "./ContentCard";
 
 const MainContent = ({ LatestArticles, PopularBloggers }) => {
+  const showHost = true;
   const maxArticlesToShow = 4;
   const maxBloggersToShow = 3;
   const displayedArticles = LatestArticles.slice(0, maxArticlesToShow);
@@ -11,7 +12,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
   const secondBloggers = LatestArticles.slice(0, 2);
 
   return (
-    <main id="main-content" className="p-8 sm:p-12 lg:pl-32 lg:pr-32">
+    <main id="main-content" className="p-8 sm:p-12 lg:pl-20 lg:pr-20">
       <div className="flex lg:flex-row flex-col lg:gap-8 gap-6 w-full">
         <section id="articles" className="lg:w-[55%] w-full">
           <div className="flex flex-row justify-between mb-6">
@@ -26,13 +27,14 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
           </div>
           <div className="grid gap-x-3 md:grid-cols-2 lg:grid-cols-2 lg:gap-x-3 pl-1 pr-1">
             {displayedArticles.map((content) => (
-              <ArticlesCard
+              <ContentCard
                 img={content.img}
                 category={content.category}
                 eventDate={content.eventDate}
                 title={content.title}
                 details={content.details}
                 id={content.id}
+                showHost={showHost}
                 hostTitle={content.hostTitle}
                 hostName={content.hostName}
                 hostImage={content.hostImage}
@@ -81,7 +83,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
                 key={content.id}
               />
             ))}
-            </div>
+          </div>
         </section>
       </div>
     </main>

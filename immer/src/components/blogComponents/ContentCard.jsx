@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const ArticlesCard = ({
+const ContentCard = ({
   img,
   category,
   eventDate,
@@ -10,6 +10,7 @@ const ArticlesCard = ({
   hostTitle,
   hostName,
   hostImage,
+  showHost,
   id,
 }) => {
   const truncatedDetails = details.split("\n").slice(0, 3).join("\n");
@@ -17,7 +18,9 @@ const ArticlesCard = ({
   return (
     <div
       style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
-      className={"flex flex-col mb-8 p-4 pb-2 h-[490px] bg-white rounded-md"}
+      className={`flex flex-col mb-8 p-4 pb-2 h-[421px] bg-white rounded-md ${
+        showHost ? "min-h-[490px]" : "h-[421px]"
+      }`}
     >
       <div
         className="mb-3 w-full h-[229px] rounded-lg bg-cover bg-center"
@@ -48,30 +51,31 @@ const ArticlesCard = ({
           {truncatedDetails}
         </p>
       </div>
-
-      <Link href="/author">
-        <hr className="my-2" />
-        <div id="host-section" className="flex flex-row">
-          <Image
-            className="rounded-full border-none ml-1"
-            src={hostImage}
-            width={55}
-            height={55}
-            alt="host-image"
-            priority
-          />
-          <div className="flex flex-col w-full">
-            <p className="ml-3 mt-2 leading-5 text-left text-xs font-bold not-italic text-[#343A40]">
-              By {hostName}
-            </p>
-            <p className="text-xs ml-3 text-left leading-5 font-normal not-italic text-[#6C757D]">
-              {hostTitle}
-            </p>
+      {showHost && (
+        <Link href="/author">
+          <hr className="my-2" />
+          <div id="host-section" className="flex flex-row">
+            <Image
+              className="rounded-full border-none ml-1"
+              src={hostImage}
+              width={55}
+              height={55}
+              alt="host-image"
+              priority
+            />
+            <div className="flex flex-col w-full">
+              <p className="ml-3 mt-2 leading-5 text-left text-xs font-bold not-italic text-[#343A40]">
+                By {hostName}
+              </p>
+              <p className="text-xs ml-3 text-left leading-5 font-normal not-italic text-[#6C757D]">
+                {hostTitle}
+              </p>
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      )}
     </div>
   );
 };
 
-export default ArticlesCard;
+export default ContentCard;

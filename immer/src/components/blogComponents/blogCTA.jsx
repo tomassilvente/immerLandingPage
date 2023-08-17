@@ -11,7 +11,7 @@ const BlogCTA = () => {
   const CTABackground = CTAImg;
   return (
     <div
-      className="sm:h-[490px] h-auto w-full p-8 sm:p-12 lg:pl-32 lg:pr-32 flex flex-col"
+      className="sm:h-[490px] h-auto w-full p-8 sm:p-12 lg:pl-20 lg:pr-20 flex flex-col"
       style={{
         backgroundImage: `url(${CTABackground[0].img})`,
         backgroundRepeat: "no-repeat",

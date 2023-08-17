@@ -13,6 +13,7 @@
     "@firebase/auth": "^1.1.0",
     "@firebase/firestore": "^4.1.0",
     "@firebase/storage": "^0.11.2",
+    "@heroicons/react": "^2.0.18",
     "autoprefixer": "10.4.14",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
