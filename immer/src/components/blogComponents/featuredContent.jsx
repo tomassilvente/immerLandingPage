@@ -8,8 +8,6 @@ import { BtnProps } from "./demoData";
 const FeatureContent = ({ FeatureContent }) => {
   const buttonData = BtnProps;
   const showHost = false;
-  const maxCardsToShow = 4;
-  const displayedContent = FeatureContent.slice(0, maxCardsToShow);
 
   return (
     <div
@@ -47,7 +45,7 @@ const FeatureContent = ({ FeatureContent }) => {
 
         <div id="cards" className="gap-1">
           <div className="grid gap-x-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-6">
-            {displayedContent.map((content) => (
+            {FeatureContent.map((content) => (
                 <ContentCard
                   img={content.img}
                   category={content.category}
@@ -62,8 +60,7 @@ const FeatureContent = ({ FeatureContent }) => {
                   key={content.id}
                 />
             ))}
-          </div>
-
+          </div>          
         </div>
       </section>
     </div>
