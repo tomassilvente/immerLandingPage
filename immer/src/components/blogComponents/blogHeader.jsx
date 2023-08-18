@@ -56,6 +56,11 @@ export default function BlogHeader() {
           <p
             key={NavData.NavAddress}
             className="lg:text-xl text-base not-italic font-normal"
+            id={
+              NavData.NavName === selectedNav
+              ? "headerUnderline"
+              : "none"
+            }
             style={{
               color:
                 NavData.NavName === selectedNav
