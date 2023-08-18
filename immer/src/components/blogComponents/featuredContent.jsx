@@ -8,6 +8,8 @@ import { BtnProps } from "./demoData";
 const FeatureContent = ({ FeatureContent }) => {
   const buttonData = BtnProps;
   const showHost = false;
+  const maxCardsToShow = 4;
+  const displayedContent = FeatureContent.slice(0, maxCardsToShow);
 
   return (
     <div
@@ -15,7 +17,7 @@ const FeatureContent = ({ FeatureContent }) => {
         background: "var(--light-color-base-tertiary-normal, #EDEEF1)",
         boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
       }}
-      className="flex justify-center p-8 sm:p-12 lg:pl-20 lg:pr-20"
+      className="w-full flex justify-center p-8 sm:p-12 lg:pl-20 lg:pr-20"
     >
       <section className="w-full text-center">
         <div
@@ -45,22 +47,22 @@ const FeatureContent = ({ FeatureContent }) => {
 
         <div id="cards" className="gap-1">
           <div className="grid gap-x-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-x-6">
-            {FeatureContent.map((content) => (
-                <ContentCard
-                  img={content.img}
-                  category={content.category}
-                  eventDate={content.eventDate}
-                  title={content.title}
-                  details={content.details}
-                  id={content.id}
-                  showHost={showHost}
-                  hostTitle={content.hostTitle}
-                  hostName={content.hostName}
-                  hostImage={content.hostImage}
-                  key={content.id}
-                />
+            {displayedContent.map((content) => (
+              <ContentCard
+                img={content.img}
+                category={content.category}
+                eventDate={content.eventDate}
+                title={content.title}
+                details={content.details}
+                id={content.id}
+                showHost={showHost}
+                hostTitle={content.hostTitle}
+                hostName={content.hostName}
+                hostImage={content.hostImage}
+                key={content.id}
+              />
             ))}
-          </div>          
+          </div>
         </div>
       </section>
     </div>
