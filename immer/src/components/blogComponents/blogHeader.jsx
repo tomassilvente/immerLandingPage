@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { AiOutlineMenu } from "react-icons/ai"
 import { useState } from "react";
 
 export const NavigationList = [
@@ -34,7 +35,7 @@ export default function BlogHeader() {
     >
       <div
         id="company-name"
-        className="text-left w-1/5 text-xl md:text-2xl lg:text-3xl font-bold not-italic"
+        className="text-left md:w-1/5 text-xl md:text-2xl lg:text-3xl font-bold not-italic"
       >
         <Link href="/blog" className="w-full">
           <Image
@@ -50,7 +51,7 @@ export default function BlogHeader() {
 
       <div
         id="Nav-container"
-        className="hidden sm:flex sm:flex-row w-3/5 gap-4 lg:gap-12 md:gap-5 justify-center"
+        className="hidden md:flex md:flex-row w-3/5 gap-4 lg:gap-12 md:gap-5 justify-center"
       >
         {NavList.map((NavData) => (
           <p
@@ -80,7 +81,7 @@ export default function BlogHeader() {
 
       <div
         id="btn-container"
-        className="w-1/5 hidden sm:flex sm:flex-row md:gap-2 lg:gap-4 justify-end"
+        className="w-1/5 hidden md:flex md:flex-row md:gap-2 lg:gap-4 sm:justify-end"
       >
         <Link
           href="/blog"
@@ -95,24 +96,9 @@ export default function BlogHeader() {
       {/* Menu Icon shown on small devices */}
       <div
         id="btn-container"
-        className="w-1/5 flex flex-row gap-4 justify-end sm:hidden"
+        className="text-primary text-2xl sm:text-3xl flex flex-row gap-4 justify-end md:hidden"
       >
-        <button>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          </svg>
-        </button>
+        <AiOutlineMenu />
       </div>
     </header>
   );

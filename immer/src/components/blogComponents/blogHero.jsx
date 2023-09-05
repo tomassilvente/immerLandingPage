@@ -43,7 +43,7 @@ const BlogHero = () => {
             </Link>
           </div> 
         </div>
-        <div className="md:w-[45%]">
+        <div className="flex flex-col items-center sm:block md:w-[45%]">
           <Image
             className="rounded-xl sm:rounded-md"
             src={BlogHeroImg[1].img}
