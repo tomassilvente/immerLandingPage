@@ -11,6 +11,8 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        "homepage-hero": "url('/assets/LandingPage/home-bg.png')",
+        "homepage-mobile": "url('/assets/LandingPage/home-hero-mobile.png')",
       },
     },
   },
