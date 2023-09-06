@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutSection = () => {
   return (
-    <section className="bg-[#FFFFFF] py-16 w-[1926px] h-[777px] left-0 top-[4326px]">
+    <section className="bg-[#FFFFFF] py-16">
       <div className="container mx-auto w-[1540px] h-[477px] left-[191px] top-[140px] gap-[20px]">
         <div className="flex items-center">
           <div className="lg:w-[605px] h-[477px] ">
