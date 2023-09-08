@@ -2,33 +2,31 @@ import React from 'react';
 
 const AboutSection = () => {
   return (
-    <section className="bg-[#FFFFFF] py-16">
-      <div className="container mx-auto w-[1540px] h-[477px] left-[191px] top-[140px] gap-[20px]">
-        <div className="flex items-center">
-          <div className="lg:w-[605px] h-[477px] ">
+    <section className="w-full px-8 sm:px-10 lg:px-20 py-16">
+        <div className="flex flex-col-reverse sm:flex-row gap-8 items-center">
+          <div className="sm:w-[40%]">
             <img
               src="/iStock-1366076847 1.png"
               alt="About Us"
               className="rounded-lg w-full"
             />
           </div>
-          <div className="lg:w-[924px] h-[477px] lg:px-[48px]">
-            <div className="mb-4 w-[795px] h-[116px]">
-              <h2 className="text-[#232323] w-[795px] h-[72px] font-bold text-inter text-5xl line-height: 1 tracking-[0.4%]">Introducing a New Era with Immer</h2>
-              <div className="w-[669px] h-[20px] bg-gradient-to-r from-[#FF6C00] to-[#FF6C0000] mt-2"></div>
+          <div className="sm:w-[60%] flex flex-col">
+            <div className="mb-4">
+              <h2 className="text-[#232323] font-bold text-2xl xl:text-4xl tracking-[0.4%]">Introducing a New Era with Immer</h2>
+              <div className="mt-5 w-[75vw] sm:w-[35vw] h-3 bg-gradient-to-r from-[#FF6C00] to-[#FF6C0000]"></div>
             </div>
-            <p className="text-[#555555] mb-12 text-inter w-[924px] h-[72px] font-normal text-2xl leading-9 tracking-[0.4%]">
+            <p className="text-[#555555] text-justify font-normal text-sm xl:text-base sm:pr-28 leading-normal">
             Shake off the old. Embrace evolution. With Immer, control and creativity return to the rightful hands: Yours.
             </p>
             <a
               href="/about"
-              className="text-[#FF7711] w-[126px] h-[36px] hover:underline transition font-bold text-2xl leading-9 tracking-[0.4%]"
+              className="mt-3 sm:mt-0 text-[#FF7711] hover:underline transition font-bold text-sm xl:text-base"
             >
               Read More
             </a>
           </div>
         </div>
-      </div>
     </section>
   );
 };
