@@ -1,3 +1,4 @@
+import Link from "next/link";
 import CtaSignUp from "./ctaSignup";
 
 const CTAImg = [
@@ -38,7 +39,17 @@ const BlogCTA = () => {
           opportunity to redefine the way you experience live events.
         </p>
       </div>
-      <CtaSignUp />
+      <div className="hidden sm:block">
+        <CtaSignUp />
+      </div>
+        <Link
+          href="/signup"
+          className="bg-primary p-4 w-full lg:hidden md:hidden block rounded-full mb-16"
+        >
+          <p className="text-white font-medium text-base not-italic text-center">
+            Sign up
+          </p>
+        </Link>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import BloggersCard from "./bloggersCard";
 import SecondBloggersCard from "./secondBloggerCard";
 import ContentCard from "./ContentCard";
@@ -19,10 +20,22 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
             <p className="text-2xl font-bold not-italic text-[#1E1E1E] leading-6 tracking-[0.5px]">
               Latest Articles
             </p>
-            <Link href="/articles">
+            <Link href="/bloggers" className="hidden sm:block">
               <p className="font-normal text-[#1E1E1E] text-base not-italic tracking-[0.5px] leading-6">
                 View All
               </p>
+            </Link>
+            <Link
+              href="https://www.instagram.com"
+              className="block lg:hidden md:hidden"
+            >
+              <Image
+                src="/assets/blog/arrow.svg"
+                width={24}
+                height={24}
+                alt="arrow-icon"
+                priority
+              />
             </Link>
           </div>
           <div className="grid gap-x-3 md:grid-cols-2 lg:grid-cols-2 lg:gap-x-3 pl-1 pr-1">
@@ -48,10 +61,22 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
             <p className="text-2xl font-bold not-italic text-[#1E1E1E] leading-6 tracking-[0.5px]">
               Popular Bloggers
             </p>
-            <Link href="/bloggers">
+            <Link href="/bloggers" className="hidden sm:block">
               <p className="font-normal text-[#1E1E1E] text-base not-italic tracking-[0.5px] leading-6">
                 View All
               </p>
+            </Link>
+            <Link
+              href="https://www.instagram.com"
+              className="block lg:hidden md:hidden"
+            >
+              <Image
+                src="/assets/blog/arrow.svg"
+                width={24}
+                height={24}
+                alt="arrow-icon"
+                priority
+              />
             </Link>
           </div>
           <div className="grid gap-x-3 md:grid-cols-2 lg:grid-cols-1 lg:gap-x-3 pl-1 pr-1">

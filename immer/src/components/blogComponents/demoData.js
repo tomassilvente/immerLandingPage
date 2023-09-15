@@ -50,7 +50,7 @@ export const DummyContent = [
     img: "/assets/blog/m4.png",
   },
   {
-    id: "55j",
+    id: "55jm",
     hostImage: "/assets/blog/host4.svg",
     hostName: "Anna .W",
     hostTitle: "Entertainer",
@@ -60,6 +60,18 @@ export const DummyContent = [
     details:
       "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. ",
     img: "/assets/blog/m4.png",
+  },
+  {
+    id: "05llm",
+    hostImage: "/assets/blog/host2.svg",
+    hostName: "Taylor Huston",
+    hostTitle: "Event Organizer",
+    eventDate: "12/12/23",
+    category: "Trending",
+    title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    details:
+      "Dorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.",
+    img: "/assets/blog/m2.png",
   },
 ];
 

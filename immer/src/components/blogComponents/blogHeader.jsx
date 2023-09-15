@@ -51,7 +51,7 @@ export default function BlogHeader() {
 
       <div
         id="Nav-container"
-        className="hidden md:flex md:flex-row w-3/5 gap-4 lg:gap-12 md:gap-5 justify-center"
+        className="hidden lg:flex md:flex-row w-3/5 gap-4 lg:gap-12 md:gap-5 justify-center"
       >
         {NavList.map((NavData) => (
           <p
@@ -81,7 +81,7 @@ export default function BlogHeader() {
 
       <div
         id="btn-container"
-        className="w-1/5 hidden md:flex md:flex-row md:gap-2 lg:gap-4 sm:justify-end"
+        className="w-1/5 hidden lg:flex md:flex-row md:gap-2 lg:gap-4 sm:justify-end"
       >
         <Link
           href="/blog"
@@ -96,7 +96,7 @@ export default function BlogHeader() {
       {/* Menu Icon shown on small devices */}
       <div
         id="btn-container"
-        className="text-primary text-2xl sm:text-3xl flex flex-row gap-4 justify-end md:hidden"
+        className="text-2xl text-slate-800 hover:text-primary sm:text-3xl flex flex-row gap-4 justify-end lg:hidden"
       >
         <AiOutlineMenu />
       </div>
