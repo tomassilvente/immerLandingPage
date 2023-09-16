@@ -8,7 +8,7 @@ import { useState } from "react";
 export const NavigationList = [
   {
     NavName: "Home",
-    NavAddress: "/home",
+    NavAddress: "/",
   },
   {
     NavName: "Updates",
@@ -84,7 +84,7 @@ export default function BlogHeader() {
         className="w-1/5 hidden lg:flex md:flex-row md:gap-2 lg:gap-4 sm:justify-end"
       >
         <Link
-          href="/blog"
+          href="/signup"
           className="bg-primary p-[14px] lg:pl-6 pl-2 lg:pr-6 pr-2 rounded-[8px]"
         >
           <p className="text-white lg:text-base text-xs font-bold">
