@@ -4,17 +4,21 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const CtaSignUp = () => {
-  const signUpUser = (data) => {
-    console.log("Form data:", data);
-  };
 
+  // validate form input
   const initialValues = {
     email: "",
   };
-
   const validationSchema = Yup.object({
-    email: Yup.string().email("Invalid email address").required("Email Address Required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email Address Required"),
   });
+
+  // sign user function
+  const signUpUser = (data) => {
+    console.log("Form data:", data);
+  };
 
   return (
     <div className="pb-20">

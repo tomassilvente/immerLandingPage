@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
-function Page() {
+function SignUp() {
   const [email, setEmail] = React.useState("");
   const [username, setUser] = React.useState("");
   const [success, setSuccess] = React.useState(false);
@@ -158,4 +158,4 @@ function Page() {
   );
 }
 
-export default Page;
+export default SignUp;
