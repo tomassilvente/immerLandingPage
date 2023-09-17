@@ -24,7 +24,7 @@ export const NavigationList = [
   },
 ];
 
-export default function BlogHeader() {
+export default function BlogHeader({immerIconLink, iconUrl, iconWidth, iconHeight}) {
   const NavList = NavigationList;
   const [selectedNav, setSelectedNav] = useState("Updates");
 
@@ -35,15 +35,15 @@ export default function BlogHeader() {
     >
       <div
         id="company-name"
-        className="text-left md:w-1/5 text-xl md:text-2xl lg:text-3xl font-bold not-italic"
+        className="text-left md:w-1/5"
       >
-        <Link href="/blog" className="w-full">
+        <Link href={immerIconLink} className="w-full">
           <Image
-            className=""
-            src="/assets/blog/immerNews.svg"
-            width={190}
-            height={180}
-            alt="host-image"
+            className="mt-0"
+            src={iconUrl}
+            width={iconWidth}
+            height={iconHeight}
+            alt="immer-image"
             priority
           />
         </Link>

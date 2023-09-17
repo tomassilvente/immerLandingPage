@@ -7,7 +7,12 @@ export default function Home() {
       <Link href="/blog" className="text-primary text-base">
         Blog Updates
       </Link>
-      <Link href="/signup" className="text-primary text-base">Sign Up</Link>
+      <Link href="/signup" className="text-primary text-base">
+        Sign Up
+      </Link>
+      <Link href="/landingPage" className="text-primary text-base">
+        Landing Ppage
+      </Link>
     </div>
   );
 }

@@ -17,7 +17,7 @@ const Blog = () => {
   const mostPopularBloggers = BloggersData;
   return (
     <div className="min-h-screen items-center justify-center w-full bg-white">
-      <BlogHeader />
+      <BlogHeader iconUrl={"/assets/blog/immerNews.svg"} immerIconLink={"/blog"} iconWidth={190} iconHeight={180}/>
       <BlogHero />
       <FeatureContent FeatureContent={featuredContent} />
       <MainContent

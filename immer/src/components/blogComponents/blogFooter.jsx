@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const BlogFooter = () => {
   return (
-    <footer className="bg-[#0D0D0D] p-8 sm:p-12 lg:pl-20 lg:pr-20">
+    <footer className="bg-[#0D0D0D] p-8 lg:pl-28 lg:pr-28 px-5 sm:px-20">
       <section id="upper-footer" className="w-full">
         <div className="w-full flex flex-col gap-4 lg:flex-row text-white pb-8">
           <div className="lg:w-[55%] w-full flex flex-col">

@@ -26,10 +26,13 @@ const FeatureContent = ({ FeatureContent }) => {
         background: "var(--light-color-base-tertiary-normal, #EDEEF1)",
         boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
       }}
-      className="w-full flex justify-center p-8 sm:p-12 lg:pl-24 lg:pr-24"
+      className="w-full flex justify-center p-8 sm:p-12 lg:pl-24 lg:pr-24 px-5 sm:px-20"
     >
       <section className="w-full text-center">
-        <div id="content-buttons" className="w-full  relative flex items-center pt-3 pb-12">
+        <div
+          id="content-buttons"
+          className="w-full  relative flex items-center pt-3 pb-12"
+        >
           <div
             className="h-full w-full flex flex-row  gap-[7%] lg:ml-20 pl-1 pr-1
             overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"

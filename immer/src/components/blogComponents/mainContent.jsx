@@ -13,7 +13,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
   const secondBloggers = LatestArticles.slice(0, 2);
 
   return (
-    <main id="main-content" className="p-8 sm:p-12 lg:pl-20 lg:pr-20">
+    <main id="main-content" className="p-8 sm:p-12 lg:pl-28 lg:pr-28 px-5 sm:px-20">
       <div className="flex lg:flex-row flex-col lg:gap-8 gap-6 w-full">
         <section id="articles" className="lg:w-[55%] w-full">
           <div className="flex flex-row justify-between mb-6">

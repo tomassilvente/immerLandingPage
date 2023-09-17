@@ -12,7 +12,7 @@ const BlogCTA = () => {
   const CTABackground = CTAImg;
   return (
     <div
-      className="sm:h-[490px] h-auto w-full p-8 sm:p-12 lg:pl-20 lg:pr-20 flex flex-col"
+      className="sm:h-[490px] h-auto w-full p-8 lg:pl-28 lg:pr-28 px-5 sm:px-20 flex flex-col"
       style={{
         backgroundImage: `url(${CTABackground[0].img})`,
         backgroundRepeat: "no-repeat",
@@ -42,14 +42,14 @@ const BlogCTA = () => {
       <div className="hidden sm:block">
         <CtaSignUp />
       </div>
-        <Link
-          href="/signup"
-          className="bg-primary p-4 w-full lg:hidden md:hidden block rounded-full mb-16"
-        >
-          <p className="text-white font-medium text-base not-italic text-center">
-            Sign up
-          </p>
-        </Link>
+      <Link
+        href="/signup"
+        className="bg-primary p-4 w-full lg:hidden md:hidden block rounded-full mb-16"
+      >
+        <p className="text-white font-medium text-base not-italic text-center">
+          Sign up
+        </p>
+      </Link>
     </div>
   );
 };
