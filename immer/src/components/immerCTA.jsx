@@ -8,7 +8,7 @@ const CTAImg = [
   },
 ];
 
-const BlogCTA = () => {
+const ImmerCTA = () => {
   const CTABackground = CTAImg;
   return (
     <div
@@ -54,4 +54,4 @@ const BlogCTA = () => {
   );
 };
 
-export default BlogCTA;
+export default ImmerCTA;

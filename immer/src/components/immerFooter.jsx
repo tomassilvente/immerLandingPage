@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const BlogFooter = () => {
+const ImmerFooter = () => {
   return (
     <footer className="bg-[#0D0D0D] p-8 lg:pl-28 lg:pr-28 px-5 sm:px-20">
       <section id="upper-footer" className="w-full">
@@ -188,4 +188,4 @@ const BlogFooter = () => {
   );
 };
 
-export default BlogFooter;
+export default ImmerFooter;

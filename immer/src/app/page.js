@@ -1,18 +1,28 @@
-import Link from "next/link";
+import AboutSection from "@/components/landingPageComponents/aboutSection";
+import LandingPageHero from "@/components/landingPageComponents/LandingPageHero";
+import LandingPageCTA from "@/components/landingPageComponents/landingPageCTA";
+import MainContent from "@/components/landingPageComponents/mainContent";
+import ArticlesSection from "@/components/landingPageComponents/articlesSection";
+import ImmerFooter from "@/components/immerFooter";
+import ImmerCTA from "@/components/immerCTA";
+import ImmerHeader from "@/components/immerHeader";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex gap-8 justify-center bg-white p-10">
-      <p className="text-lg font-bold">Home Page Testing</p>
-      <Link href="/blog" className="text-primary text-base">
-        Blog Updates
-      </Link>
-      <Link href="/signup" className="text-primary text-base">
-        Sign Up
-      </Link>
-      <Link href="/landingPage" className="text-primary text-base">
-        Landing Ppage
-      </Link>
+    <div className="min-h-screen items-center justify-center w-full bg-white">
+      <ImmerHeader
+        iconUrl={"/immer logo_orange.svg"}
+        immerIconLink="/"
+        iconWidth={120}
+        iconHeight={100}
+      />
+      <LandingPageHero />
+      <LandingPageCTA />
+      <MainContent />
+      <AboutSection />
+      <ArticlesSection />
+      <ImmerCTA />
+      <ImmerFooter />
     </div>
   );
 }

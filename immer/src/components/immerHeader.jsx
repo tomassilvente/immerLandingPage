@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { AiOutlineMenu } from "react-icons/ai"
-import { useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
 
 export const NavigationList = [
   {
@@ -24,19 +24,18 @@ export const NavigationList = [
   },
 ];
 
-export default function BlogHeader({immerIconLink, iconUrl, iconWidth, iconHeight}) {
+export default function ImmerHeader({
+  immerIconLink,
+  iconUrl,
+  iconWidth,
+  iconHeight,
+}) {
   const NavList = NavigationList;
-  const [selectedNav, setSelectedNav] = useState("Updates");
+  const currentPath = usePathname();
 
   return (
-    <header
-      className="flex flex-row w-full sm:h-24 h-20 fixed z-20 top-0 left-0 justify-between items-center
-        p-4 pt-1 pb-1 pr-4 md:pr-10 md:p-12 md:pt-7 md:pb-7 mt-0 sm:p-12 lg:pl-20 lg:pr-20  bg-white"
-    >
-      <div
-        id="company-name"
-        className="text-left md:w-1/5"
-      >
+    <header className="flex flex-row w-full sm:h-24 h-20 fixed z-20 top-0 left-0 justify-between items-center p-4 pt-1 pb-1 pr-4 md:pr-10 md:p-12 md:pt-7 md:pb-7 mt-0 sm:p-12 lg:pl-20 lg:pr-20  bg-white">
+      <div id="company-name" className="text-left md:w-1/5 lg:-mt-2 -mt-0">
         <Link href={immerIconLink} className="w-full">
           <Image
             className="mt-0"
@@ -57,24 +56,15 @@ export default function BlogHeader({immerIconLink, iconUrl, iconWidth, iconHeigh
           <p
             key={NavData.NavAddress}
             className="lg:text-xl text-base not-italic font-normal"
-            id={
-              NavData.NavName === selectedNav
-              ? "headerUnderline"
-              : "none"
-            }
+            id={currentPath === NavData.NavAddress ? "headerUnderline" : "none"}
             style={{
               color:
-                NavData.NavName === selectedNav
+                currentPath === NavData.NavAddress
                   ? "#ff6c00"
                   : "var(--light-color-base-primary-dark, #000)",
             }}
           >
-            <Link
-              href={NavData.NavAddress}
-              onClick={() => setSelectedNav(NavData.NavName)}
-            >
-              {NavData.NavName}
-            </Link>
+            <Link href={NavData.NavAddress}>{NavData.NavName}</Link>
           </p>
         ))}
       </div>
