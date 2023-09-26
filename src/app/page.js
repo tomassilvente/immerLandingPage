@@ -3,9 +3,9 @@ import LandingPageHero from "@/components/landingPageComponents/LandingPageHero"
 import LandingPageCTA from "@/components/landingPageComponents/landingPageCTA";
 import MainContent from "@/components/landingPageComponents/mainContent";
 import ArticlesSection from "@/components/landingPageComponents/articlesSection";
-import ImmerFooter from "@/components/immerFooter";
-import ImmerCTA from "@/components/immerCTA";
-import ImmerHeader from "@/components/immerHeader";
+import ImmerFooter from "@/components/Footer";
+import ImmerCTA from "@/components/CTA";
+import ImmerHeader from "@/components/Header";
 
 export default function Home() {
   return (

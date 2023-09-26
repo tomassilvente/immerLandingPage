@@ -1,13 +1,14 @@
-import BlogHero from "@/components/blogComponents/blogHero";
-import FeatureContent from "@/components/blogComponents/featuredContent";
-import MainContent from "@/components/blogComponents/mainContent";
-import ImmerFooter from "@/components/immerFooter";
-import ImmerCTA from "@/components/immerCTA";
-import ImmerHeader from "@/components/immerHeader";
+import BlogHero from "./components/blogHero";
+import FeatureContent from "./components/featuredContent";
+import MainContent from "./components/mainContent";
+
+import ImmerFooter from "@/components/Footer";
+import ImmerCTA from "@/components/CTA";
+import ImmerHeader from "@/components/Header";
 import {
   DummyContent,
   BloggersData,
-} from "@/components/blogComponents/demoData";
+} from "./components/demoData";
 
 
 const Blog = () => {
