@@ -4,19 +4,19 @@ import React, { useState, useEffect } from "react";
 import getData from "@/firebase/firestore/getData";
 
 function Blogs() {
-  const [documentData, setDocumentData] = useState(null);
+  const [documentData, setDocumentData] = useState([]);
 
   useEffect(() => {
     // Fetch a specific document from Firestore and set it to the state
     const fetchData = async () => {
       try {
-        const { result, error } = await getData("blogs", "blogs-id");
+        const { result, error } = await getData("users", null);
 
         if (error) {
           console.error("Error fetching document:", error);
         } else {
-          if (result && typeof result.data === "function") {
-            setDocumentData(result.data());
+          if (Array.isArray(result)) {
+            setDocumentData(result);
           } else {
             console.error("Document data is not valid:", result);
           }
@@ -31,16 +31,20 @@ function Blogs() {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Uploaded Document</h2>
-      {documentData ? (
-        <div className="border border-gray-300 p-4 rounded shadow">
-          <h3 className="text-lg font-bold mb-2">{documentData.title}</h3>
-          <p>{documentData.description}</p>
-          
-          <img src={documentData.imageUrl} alt={documentData.title} /> 
-        </div>
+      <h2 className="text-2xl font-bold mb-4">
+        Here you can find all mails registers in the waitlist 
+      </h2>
+      {documentData.length > 0 ? (
+        documentData.map((usermail) => (
+          <div
+            key={usermail.id}
+            className="border border-gray-300 p-4 rounded shadow mb-4"
+          >
+            <h3 className="text-lg font-bold mb-2">{usermail.title}</h3>
+          </div>
+        ))
       ) : (
-        <p>No document found.</p>
+        <p>No users founded :C.</p>
       )}
     </div>
   );

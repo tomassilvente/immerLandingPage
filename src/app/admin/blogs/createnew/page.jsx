@@ -31,12 +31,13 @@ function CreateNew() {
       }
 
       // Add the data to the Firestore collection
-      await addData("blogs", "blogs-id", data);
-
+      await addData("blogs", null, data);
+ 
       // Reset the form
       setTitle("");
       setDescription("");
       setImage(null);
+      console.log(data)
     } catch (error) {
       console.error("Error uploading data:", error);
     }
@@ -44,7 +45,7 @@ function CreateNew() {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-bold mb-4">Create New User</h2>
+      <h2 className="text-2xl font-bold mb-4">Create New Blog</h2>
       <div className="flex flex-col space-y-2">
         <label htmlFor="title">title:</label>
         <input
