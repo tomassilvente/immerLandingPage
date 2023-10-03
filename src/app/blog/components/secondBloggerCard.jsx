@@ -20,7 +20,7 @@ const SecondBloggersCard = ({
   return (
     <div
       style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
-      className="p-4 pb-2 w-full mt-1 mb-3 bg-white rounded-md hidden lg:flex lg:flex-row "
+      className="p-4 pb-2 w-full mt-1 mb-3 bg-white rounded-md hidden lg:flex lg:flex-row hover:scale-105 ease-out duration-300 cursor-pointer"
     >
       <div id="image-section" className="">
         <div

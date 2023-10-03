@@ -33,7 +33,7 @@ const BloggersCard = ({
   return (
     <div
       style={{ boxShadow: " 0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
-      className="flex flex-col bg-white h-[145px] content-center p-2 pb-3 pt-3 mb-7"
+      className="flex flex-col bg-white h-[145px] content-center p-2 pb-3 pt-3 mb-7 hover:scale-105 ease-out duration-300 cursor-pointer"
     >
       <div id="TopBloggerProfile" className="mb-3 flex flex-row">
         <div id="imageRow">

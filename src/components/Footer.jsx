@@ -76,20 +76,21 @@ const ImmerFooter = () => {
             </div>
           </div>
           <div className="lg:w-[45%] md:w-[80%]  w-full flex flex-row pt-2">
-            <div className=" lg:w-2/4 md:w-[40%] w-2/4 flex flex-col text-white">
-              <p className="text-primary mb-4 text-2xl font-semibold not-italic leading-[39px] tracking-[-0.52px]">
-                Navigate
-              </p>
-              <p className="mb-4  sm:text-[17px] text-[13px] not-italic font-medium leading-[31px] tracking-[-0.42px]">
-                Home
-              </p>
-              <p className="mb-4  sm:text-[17px] text-[13px] not-italic font-medium leading-[31px] tracking-[-0.42px]">
-                Updates
-              </p>
-              <p className="mb-4 sm:text-[17px] text-[13px] not-italic font-medium leading-[31px] tracking-[-0.42px]">
-                Our Mission
-              </p>
-            </div>
+          <div className=" lg:w-2/4 md:w-[40%] w-2/4 flex flex-col text-white">
+    <p className="text-primary mb-4 text-2xl font-semibold not-italic leading-[39px] tracking-[-0.52px]">
+        Navigate
+    </p>
+    <a href="/home" className="mb-4 sm:text-[17px] text-[13px] not-italic font-medium leading-[31px] tracking-[-0.42px] hover:text-[#FF6C00]">
+        Home
+    </a>
+    <a href="/blog" className="mb-4 sm:text-[17px] text-[13px] not-italic font-medium leading-[31px] tracking-[-0.42px] hover:text-[#FF6C00]">
+        Updates
+    </a>
+    <a href="/our-mission" className="mb-4 sm:text-[17px] text-[13px] not-italic font-medium leading-[31px] tracking-[-0.42px] hover:text-[#FF6C00]">
+        Our Mission
+    </a>
+</div>
+
             <div className="lg:w-2/4 md:w-[60%] w-2/4 flex flex-col">
               <p className="text-primary mb-4 text-2xl font-semibold not-italic leading-[39px] tracking-[-0.52px]">
                 Contact Us

@@ -50,12 +50,12 @@ export default function ImmerHeader({
 
       <div
         id="Nav-container"
-        className="hidden lg:flex md:flex-row w-3/5 gap-4 lg:gap-12 md:gap-5 justify-center"
+        className="hidden lg:flex md:flex-row w-3/5 gap-4 lg:gap-12 md:gap-5 justify-center text-red-800"
       >
         {NavList.map((NavData) => (
           <p
             key={NavData.NavAddress}
-            className="lg:text-xl text-base not-italic font-normal"
+            className="lg:text-xl text-base not-italic font-normal "
             id={currentPath === NavData.NavAddress ? "headerUnderline" : "none"}
             style={{
               color:
@@ -64,7 +64,7 @@ export default function ImmerHeader({
                   : "var(--light-color-base-primary-dark, #000)",
             }}
           >
-            <Link href={NavData.NavAddress}>{NavData.NavName}</Link>
+            <Link className="hover:text-[#FF6C00]" href={NavData.NavAddress}>{NavData.NavName}</Link>
           </p>
         ))}
       </div>
@@ -75,7 +75,7 @@ export default function ImmerHeader({
       >
         <Link
           href="/signup"
-          className="bg-primary p-[14px] lg:pl-6 pl-2 lg:pr-6 pr-2 rounded-[8px]"
+          className="bg-primary hover:bg-[#d6844a] p-[14px] lg:pl-6 pl-2 lg:pr-6 pr-2 rounded-[8px]"
         >
           <p className="text-white lg:text-base text-xs font-bold">
             Join the Waitlist

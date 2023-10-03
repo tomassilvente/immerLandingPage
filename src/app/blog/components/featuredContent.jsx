@@ -59,7 +59,7 @@ const FeatureContent = ({ FeatureContent }) => {
           <div className="w-full relative flex items-center">
             <Image
               onClick={slideLeft}
-              className="rounded-full border-none cursor-pointer hidden lg:block"
+              className="rounded-full border-none cursor-pointer hidden lg:block hover:bg-primary"
               src="/assets/blog/left.svg"
               width={40}
               height={40}
@@ -89,7 +89,7 @@ const FeatureContent = ({ FeatureContent }) => {
             </div>
             <Image
               onClick={slideRight}
-              className="rounded-full border-none ml-1 cursor-pointer hidden lg:block"
+              className="rounded-full border-none ml-1 cursor-pointer hidden lg:block hover:bg-primary"
               src="/assets/blog/right.svg"
               width={40}
               height={40}

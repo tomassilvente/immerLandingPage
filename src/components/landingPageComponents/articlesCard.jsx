@@ -35,7 +35,7 @@ const ArticlesCard = ({ id, img, btnTitle, tittle, desc, learnMoreLink }) => {
         <Link
           href={learnMoreLink}
           className="w-[120px] p-1 flex flex-row gap-2 justify-start bg-[#F6F7F8] border-none text-start
-             text-primary text-sm font-normal not-italic leading-normal mb-0"
+             text-primary text-sm font-normal not-italic leading-normal mb-0 hover:underline transition"
         >
           Learn more
           <AiOutlineArrowRight className="mt-[5px]" />

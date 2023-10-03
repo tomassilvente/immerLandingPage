@@ -43,7 +43,7 @@ const SecondArticlesCard = ({
         <Link
           href={learnMoreLink}
           className="w-[120px] p-1 flex flex-row gap-2 justify-start bg-[#F6F7F8] border-none text-start
-             text-primary text-sm font-normal not-italic leading-normal mb-8 lg:mt-10"
+             text-primary text-sm font-normal not-italic leading-normal mb-8 lg:mt-10 hover:underline transition"
         >
           Learn more
           <AiOutlineArrowRight className="mt-[5px]"/>

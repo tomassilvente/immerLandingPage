@@ -66,7 +66,7 @@ const ArticlesSection = () => {
           <Link
             href="/blog"
             className="flex flex-row gap-2 w-[200px] justify-center bg-white border-[2px] border-solid rounded-[8px] border-primary text-center
-             text-primary text-base font-medium leading-[24px] tracking-[0.064px] p-3 mb-10"
+             text-primary text-base font-medium leading-[24px] tracking-[0.064px] p-3 mb-10 hover:underline transition"
           >
             See All Articles
             <Image

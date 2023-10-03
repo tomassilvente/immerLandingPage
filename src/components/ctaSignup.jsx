@@ -4,7 +4,6 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 const CtaSignUp = () => {
-
   // validate form input
   const initialValues = {
     email: "",
@@ -34,15 +33,16 @@ const CtaSignUp = () => {
             className="text-primary font-semibold text-md mt-2"
           />
           <div className="flex flex-row">
-            <Field
-              type="email"
-              name="email"
-              className="p-2 bg-white sm:w-[480px] w-[200px] sm:h-16 h-12 rounded-tl-md rounded-bl-md"
-            />
+          <Field
+  type="email"
+  name="email"
+  className="p-2 bg-white sm:w-[480px] w-[200px] sm:h-16 h-12 rounded-tl-md rounded-bl-md border border-gray-300"
+/>
+
             <button
               type="submit"
-              className="bg-primary text-xl font-bold not-italic
-             rounded-r-md rounded-br-md text-white px-4 py-2 mr-2 sm:w-[232px] w-[150px] sm:h-16 h-12"
+              className="bg-primary hover:bg-[#d6844a] text-xl font-bold not-italic
+             border rounded-r-md rounded-br-md text-white px-4 py-2 mr-2 sm:w-[232px] w-[150px] sm:h-16 h-12"
             >
               Signup
             </button>

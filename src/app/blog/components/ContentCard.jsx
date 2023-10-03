@@ -18,7 +18,7 @@ const ContentCard = ({
   return (
     <div
       style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
-      className={`flex flex-col mb-8 p-4 pb-2 h-[421px] bg-white rounded-md ${
+      className={`flex flex-col mb-8 p-4 pb-2 h-[421px] bg-white rounded-md hover:scale-105 ease-out duration-300 cursor-pointer ${
         showHost ? "min-h-[490px]" : "h-[421px]"
       }`}
     >
