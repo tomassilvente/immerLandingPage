@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 import {  getAuth } from "@firebase/auth";
 
 import React, { useState } from "react";
@@ -20,41 +22,30 @@ function CreateNew() {
 
   const [image, setImage] = useState(null);
 
- 
+  const router = useRouter()
 
   const handleForm = async () => {
 
- 
-
     console.log("Selected image:", image);
-
-    
 
     // Getting User from Database
 
-    let user = getAuth().currentUser //.displayName
+    let user = getAuth().currentUser 
+    console.log(user)
 
-    let profilePic = getAuth().currentUser //.photoURL
-
- 
-
-    //While we don't have users working
-
-    if(!user){
-
-      user = "Random Profile"
-
-      profilePic = "../../../../assets/blog/m1.png"
-
-    }
-
- 
+    let userName = 'Still not working LMAO'
+    let profilePic = 'none'
+    
+    if(user){
+       userName = user.displayName
+       profilePic = user.photoURL
+     }
 
     // Create the data object with title and description
 
     const data = {
 
-      user: user,
+      user: userName,
 
       profilePic: profilePic,
 
@@ -75,30 +66,18 @@ function CreateNew() {
       if (image) {
 
         // Upload the image to Firebase Storage and get its URL
-
         const imageURL = await uploadImage(image);
-
         setImageUrl(imageURL);
 
       }
-
- 
-
       // Add the data to the Firestore collection
 
       await addData("blogs", null, data);
 
- 
+      // 
+      return router.push("/admin/blogs");
 
-      // Reset the form
-
-      setTitle("");
-
-      setDescription("");
-
-      setImage(null);
-
-      console.log(data)
+      
 
     } catch (error) {
 

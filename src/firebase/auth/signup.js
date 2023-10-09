@@ -1,14 +1,21 @@
 import { app } from "../config";
-import { createUserWithEmailAndPassword, getAuth } from "@firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, updateProfile } from "@firebase/auth";
+import { uploadImage } from "../firestore/uploadImage";
 
 const auth = getAuth(app);
 
-
-export default async function signUp(email, password) {
+export default async function signUp(email, password, fullName, photoUrl) {
     let result = null,
         error = null;
     try {
-        result = await createUserWithEmailAndPassword(auth, email, password);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential)=>{
+                const user = userCredential.user
+                updateProfile(user, {
+                    displayName: fullName,
+                    photoURL: photoUrl
+                })
+            });
     } catch (e) {
         error = e;
     }

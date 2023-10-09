@@ -1,20 +1,26 @@
 "use client";
-
- 
-
 import React, { useState, useEffect } from "react";
-
+import { getAuth } from "@firebase/auth";
 import getData from "../../../firebase/firestore/getData";
-
 import deleteBlog from "../../../firebase/firestore/deleteDoc";
+import Link from "next/link";
 
- 
+
+
+const user =  getAuth().currentUser
+
+
+let userName = 'Non User Logged in'
+let photoURL = 'Non User Logged in'
+
+if(user){
+  userName = user.displayName
+  photoURL = user.photoURL
+}
 
 function Blogs() {
-
   const [documentData, setDocumentData] = useState([]);
 
- 
 
   useEffect(() => {
 
@@ -27,7 +33,6 @@ function Blogs() {
         const { result, error } = await getData("blogs", null);
 
  
-
         if (error) {
 
           console.error("Error fetching document:", error);
@@ -84,11 +89,20 @@ function Blogs() {
 
     <div className="p-4">
 
-      <h2 className="text-2xl text-center font-bold my-5">
+      <div className="flex">
+        <img className="h-[45px] w-[45px] rounded-full mt-5 mr-2 ml-5" src={photoURL}/>
+        <p className="mt-7 ml-3 font-semibold">{userName}</p>
 
-        Admin Blog
+      </div>
 
-      </h2>
+      <div className="grid grid-cols-12">
+        <h2 className="text-2xl text-center font-bold mb-5 ml-12 col-start-4 col-end-9">
+          Admin Blog
+        </h2>
+        <Link className="border-[#158406] border rounded-md text-[#158406] text-center col-start-9 col-end-11 mr-12 pt-3 ml-10" href='/admin/blogs/createnew'>Post a Blog</Link>
+      </div>
+      
+
 
       {documentData.length > 0 ? (
 
@@ -121,6 +135,8 @@ function Blogs() {
           </div>
 
           <div className="my-5 md:w-[43vw] h-3 bg-gradient-to-r from-[#FF6C00] to-[#FF6C0000]"></div>
+
+          <p className="font-semibold mb-5 text-2xl">{blog.title}</p>
 
           <div className="flex md:grid lg:flex justify-items-center ">
 
