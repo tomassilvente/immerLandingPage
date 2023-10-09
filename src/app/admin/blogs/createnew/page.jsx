@@ -10,8 +10,6 @@ import addData from "../../../../firebase/firestore/addData";
 
 import { uploadImage } from "../../../../firebase/firestore/uploadImage";
 
- 
-
 function CreateNew() {
 
   const [title, setTitle] = useState("");

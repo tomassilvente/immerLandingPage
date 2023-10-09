@@ -5,10 +5,7 @@ import getData from "../../../firebase/firestore/getData";
 import deleteBlog from "../../../firebase/firestore/deleteDoc";
 import Link from "next/link";
 
-
-
 const user =  getAuth().currentUser
-
 
 let userName = 'Non User Logged in'
 let photoURL = 'Non User Logged in'
@@ -21,9 +18,9 @@ if(user){
 function Blogs() {
   const [documentData, setDocumentData] = useState([]);
 
-
   useEffect(() => {
 
+  
     // Fetch a specific document from Firestore and set it to the state
 
     const fetchData = async () => {
@@ -59,7 +56,6 @@ function Blogs() {
 
     };
 
- 
 
     fetchData();
 
@@ -83,18 +79,17 @@ function Blogs() {
 
   };
 
- 
-
   return (
 
     <div className="p-4">
 
       <div className="flex">
         <img className="h-[45px] w-[45px] rounded-full mt-5 mr-2 ml-5" src={photoURL}/>
-        <p className="mt-7 ml-3 font-semibold">{userName}</p>
-
+        <div className="mt-5 ml-3 "> 
+          <p className="font-semibold">{userName}</p>
+          <Link className="text-xs" href='/admin/editProfile'>Edit profile</Link >
+        </div>
       </div>
-
       <div className="grid grid-cols-12">
         <h2 className="text-2xl text-center font-bold mb-5 ml-12 col-start-4 col-end-9">
           Admin Blog

@@ -1,6 +1,6 @@
 import { app } from "../config";
 import { createUserWithEmailAndPassword, getAuth, updateProfile } from "@firebase/auth";
-import { uploadImage } from "../firestore/uploadImage";
+
 
 const auth = getAuth(app);
 

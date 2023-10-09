@@ -11,7 +11,6 @@ function Blogs() {
     const fetchData = async () => {
       try {
         const { result, error } = await getData("users", null);
-
         if (error) {
           console.error("Error fetching document:", error);
         } else {
