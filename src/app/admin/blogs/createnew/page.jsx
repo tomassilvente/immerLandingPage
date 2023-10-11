@@ -28,7 +28,7 @@ function CreateNew() {
 
     // Getting User from Database
 
-    let user = getAuth().currentUser 
+    let user = getAuth().currentUser
     console.log(user)
 
     let userName = 'Still not working LMAO'
@@ -89,13 +89,13 @@ function CreateNew() {
 
   return (
 
-    <div className="p-4">
+    <div className="p-20">
 
-      <h2 className="text-2xl font-bold mb-4">Create New Blog</h2>
+      <h2 className="text-2xl font-bold  text-center my-14">Create New Blog</h2>
 
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col space-y-2 my-5">
 
-        <label htmlFor="title">title:</label>
+        <label className="text-lg font-semibold" htmlFor="title">TITLE</label>
 
         <input
 
@@ -107,15 +107,15 @@ function CreateNew() {
 
           onChange={(e) => setTitle(e.target.value)}
 
-          className="border border-gray-300 p-2"
+          className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#f2f2f2]"
 
         />
 
       </div>
 
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col space-y-2 my-5">
 
-        <label htmlFor="description">description:</label>
+        <label className="text-lg font-semibold"  htmlFor="description">DESCRIPTION</label>
 
         <input
 
@@ -127,13 +127,13 @@ function CreateNew() {
 
           onChange={(e) => setDescription(e.target.value)}
 
-          className="border border-gray-300 p-2"
+          className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#f2f2f2]"
 
         />
 
       </div>
 
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col space-y-2 my-5">
 
         <label htmlFor="image">Image:</label>
 
@@ -145,7 +145,7 @@ function CreateNew() {
 
           onChange={(e) => setImage(e.target.files[0])}
 
-          className="border border-gray-300 p-2"
+         
 
         />
 

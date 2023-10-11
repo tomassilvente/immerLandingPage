@@ -4,6 +4,7 @@ import React from "react";
 import editProfile from "@/firebase/firestore/editProfile";
 import { uploadImage } from "../../../firebase/firestore/uploadImage";
 import { getAuth } from "@firebase/auth";
+import { deleteImage } from "@/firebase/firestore/deleteImage";
 
 const user =  getAuth().currentUser
 
@@ -18,6 +19,7 @@ export default function Page() {
         event.preventDefault();
         // Upload the image to Firebase Storage and get its URL
         if(image){
+            await deleteImage(user.photoURL)
             const imageURL = await uploadImage(image);
             const { result, error } = await editProfile(user, email, fullName, imageURL);
             if (error) {
