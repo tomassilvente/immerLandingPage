@@ -5,6 +5,7 @@ import { getAuth } from "@firebase/auth";
 import React, { useState } from "react";
 import addData from "../../../../firebase/firestore/addData";
 import { uploadImage } from "../../../../firebase/firestore/uploadImage";
+import withAuth from "@/app/hoc/withAuth";
 
 function CreateNew() {
   const [title, setTitle] = useState("");
@@ -114,4 +115,4 @@ function CreateNew() {
   );
 }
 
-export default CreateNew;
+export default withAuth(CreateNew);

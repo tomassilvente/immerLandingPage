@@ -1,32 +1,42 @@
 "use client";
 
-import React from "react";
-import { onAuthStateChanged, getAuth as auth } from "@firebase/auth";
+import React, { createContext, useState, useEffect, useContext } from "react";
+import { getAuth, onAuthStateChanged } from "@firebase/auth";
+import { firebaseConfig } from "@/firebase/config";
+import { initializeApp } from "@firebase/app";
 
-export const AuthContext = React.createContext({});
+initializeApp(firebaseConfig);
 
-export const useAuthContext = () => React.useContext(AuthContext);
+const AuthContext = createContext({ user: null });
 
-export const AuthContextProvider = ({ children }) => {
-  const [user, setUser] = React.useState(null);
-  const [loading, setLoading] = React.useState(true);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+  const auth = getAuth();
 
-  React.useEffect(() => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-      setLoading(false);
+        if (user) {
+            setUser(user);
+            console.log('User set:', user);
+        } else {
+            setUser(null);
+            console.log('User not found, set to null');
+        }
     });
 
     return () => unsubscribe();
-  }, []);
+}, [auth]);
+
 
   return (
-    <AuthContext.Provider value={{ user }}>
-      {loading ? <div>Loading...</div> : children}
+    <AuthContext.Provider value={{ user, loading }}>
+      {children}
     </AuthContext.Provider>
   );
+};
+
+export const useAuth = () => {
+  return useContext(AuthContext);
 };

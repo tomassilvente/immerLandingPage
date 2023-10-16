@@ -4,13 +4,11 @@ import { signInWithEmailAndPassword, getAuth, setPersistence, browserLocalPersis
 const auth = getAuth(app);
 
 export default async function signIn(email, password) {
-    let result = null,
-        error = null;
+    let result = null;
+    let error = null;
     try {
-        setPersistence(auth, browserLocalPersistence)
-            .then(() => {
-                return signInWithEmailAndPassword(auth, email, password)
-            })
+        await setPersistence(auth, browserLocalPersistence);
+        result = await signInWithEmailAndPassword(auth, email, password);
     } catch (e) {
         error = e;
     }

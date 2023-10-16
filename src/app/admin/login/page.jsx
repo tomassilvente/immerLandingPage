@@ -8,22 +8,23 @@ import signIn from "@/firebase/auth/signin";
 export default function Page() {
     const [email, setEmail] = React.useState("");
     const [Password, setPassword] = React.useState("");
-    const [success, setSuccess] = React.useState(false)
-    const [error, setError] = React.useState(false)
+    const [success, setSuccess] = React.useState(false);
+    const [error, setError] = React.useState(false);
 
     const router = useRouter();
 
     const handleForm = async (event) => {
-        event.preventDefault();
-    
-        const { result, error } = await signIn(email, Password);
-    
-        if (error) {
-          setError(true)
-        }
-
-        return router.push("/admin/blogs");
-    }
+      event.preventDefault();
+  
+      const { result, error } = await signIn(email, Password);
+  
+      if (error) {
+          setError(true);
+      } else {
+          router.push("/admin/blogs");
+      }
+  }
+  
 
     return(
     <div className="grid m-5 h-screen bg-white place-content-center place-items-center">
@@ -86,7 +87,5 @@ export default function Page() {
                 Log In
             </button>
           </form>
-          
     </div>
-
 )}

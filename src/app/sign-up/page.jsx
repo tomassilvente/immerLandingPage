@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import addData from "@/firebase/firestore/addData";
-import { getAuth } from "@firebase/auth";
+
 
 function SignUp() {
   const [email, setEmail] = React.useState("");

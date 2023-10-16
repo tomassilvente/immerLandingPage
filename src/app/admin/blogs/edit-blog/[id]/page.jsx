@@ -1,3 +1,4 @@
+import withAuth from "@/app/hoc/withAuth";
 import React from "react";
 
 function EditBlog({ params }) {
@@ -8,4 +9,4 @@ function EditBlog({ params }) {
   );
 }
 
-export default EditBlog;
+export default withAuth(EditBlog);

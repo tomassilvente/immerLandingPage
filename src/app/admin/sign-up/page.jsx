@@ -12,10 +12,10 @@ export default function Page() {
     const [Password, setPassword] = React.useState("");
     const [fullName, setFullName] = React.useState("");
     const [image, setImage] = React.useState(null);
-    const [success, setSuccess] = React.useState(false)
-    const [error, setError] = React.useState(false)
+    const [success, setSuccess] = React.useState(false);
+    const [error, setError] = React.useState(false);
 
-    const router = useRouter()
+    const router = useRouter();
 
     const handleForm = async (event) => {
         event.preventDefault();
@@ -33,7 +33,7 @@ export default function Page() {
     }
 
     return(
-    <div className="grid m-5 h-screen bg-white place-content-center place-items-center">
+    <div className="grid m-5 h-screen bg-white place-content-center place-items-center my-16">
         <Image className="" src='../assets/LandingPage/immer.svg' width={300} height={1}/>
         {
             error
@@ -113,7 +113,5 @@ export default function Page() {
                 Sign Up!
             </button>
           </form>
-          
     </div>
-
 )}

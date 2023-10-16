@@ -5,6 +5,7 @@
 #headerUnderline {
   font-weight: bold;
 }
+
 #headerUnderline:after { 
   content:"";
   position: relative;
