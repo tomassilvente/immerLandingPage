@@ -1,3 +1,5 @@
+"use client";
+
 import withAuth from "@/app/hoc/withAuth";
 import React from "react";
 
