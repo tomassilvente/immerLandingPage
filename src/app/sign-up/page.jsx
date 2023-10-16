@@ -1,9 +1,10 @@
 "use client";
 import React from "react";
-import signIn from "@/firebase/auth/signin";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import addData from "@/firebase/firestore/addData";
+import { getAuth } from "@firebase/auth";
 
 function SignUp() {
   const [email, setEmail] = React.useState("");
@@ -12,18 +13,28 @@ function SignUp() {
   const router = useRouter();
 
   const SignInImg = "/assets/sign/signUp.svg";
-
+  
   const handleForm = async (event) => {
     event.preventDefault();
-
-    const { result, error } = await signIn(email, username);
-
+  
+    const userData = {
+      email: email,
+      username: username,
+    };
+  
+    const { result, error } = await addData("users", null, userData);
+  
     if (error) {
-      return console.log(error);
+      console.error("Error saving user to Firestore:", error);
+      return;
     }
-    console.log(result);
-    return router.push("/adminblog");
+  
+    console.log("User saved successfully:", result);
+    setSuccess(true);
+    return router.push("/");
   };
+  
+
   return (
     <div className="w-full flex flex-row h-screen bg-white">
       <div

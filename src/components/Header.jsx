@@ -74,7 +74,7 @@ export default function ImmerHeader({
         className="w-1/5 hidden lg:flex md:flex-row md:gap-2 lg:gap-4 sm:justify-end"
       >
         <Link
-          href="/signup"
+          href="/sign-up"
           className="bg-primary hover:bg-[#d6844a] p-[14px] lg:pl-6 pl-2 lg:pr-6 pr-2 rounded-[8px]"
         >
           <p className="text-white lg:text-base text-xs font-bold">
