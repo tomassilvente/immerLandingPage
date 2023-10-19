@@ -12,6 +12,7 @@ const user = getAuth().currentUser;
 
 let userName = "Non User Logged in";
 let photoURL = "Non User Logged in";
+console.log(user)
 
 if (user) {
   userName = user.displayName;

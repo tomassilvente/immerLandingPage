@@ -20,24 +20,8 @@ function Page() {
 
   const handleForm = async (event) => {
     event.preventDefault();
-    // Upload the image to Firebase Storage and get its URL
-    if (image) {
-      // await deleteImage(user.photoURL);
-      // const imageURL = await uploadImage(image);
-      const imageURL = await replaceImage(user.photoURL, image)
-      const { result, error } = await editProfile(
-        user,
-        email,
-        fullName,
-        imageURL
-      );
-      if (error) {
-        setError(true);
-      }
-    } else {
-      const { result, error } = await editProfile(user, email, fullName);
-    }
-
+    if (image) await replaceImage(user.photoURL, image)
+    const { result, error } = await editProfile(user, email, fullName);
     return router.push("/admin/blogs");
   };
 

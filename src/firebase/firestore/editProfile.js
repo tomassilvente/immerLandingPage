@@ -3,14 +3,13 @@ import {getAuth, updateProfile} from '@firebase/auth'
 
 const auth = getAuth(app);
 
-export default async function editProfile(user,email, fullName, photoUrl) {
+export default async function editProfile(user,email, fullName) {
     let result = null,
         error = null;
     try{
     result = updateProfile((user), {
         displayName: fullName,
         email:email,
-        photoURL: photoUrl
     })
 }
 catch (e) {
