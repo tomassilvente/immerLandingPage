@@ -7,6 +7,7 @@ import { uploadImage } from "../../../firebase/firestore/uploadImage";
 import { getAuth } from "@firebase/auth";
 import { deleteImage } from "@/firebase/firestore/deleteImage";
 import withAuth from "@/app/hoc/withAuth";
+import { replaceImage } from "@/firebase/firestore/replaceImage";
 
 const user = getAuth().currentUser;
 
@@ -21,8 +22,9 @@ function Page() {
     event.preventDefault();
     // Upload the image to Firebase Storage and get its URL
     if (image) {
-      await deleteImage(user.photoURL);
-      const imageURL = await uploadImage(image);
+      // await deleteImage(user.photoURL);
+      // const imageURL = await uploadImage(image);
+      const imageURL = await replaceImage(user.photoURL, image)
       const { result, error } = await editProfile(
         user,
         email,

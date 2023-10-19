@@ -76,7 +76,7 @@ function Blogs() {
         </h2>
         <Link
           className="border-[#158406] border rounded-md text-[#158406] text-center col-start-9 col-end-12 lg:col-end-11 md:mr-12 pt-3 ml-10"
-          href="/admin/blogs/createnew"
+          href="/admin/blogs/create-new"
         >
           Post a Blog
         </Link>
