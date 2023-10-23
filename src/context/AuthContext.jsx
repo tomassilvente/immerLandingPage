@@ -32,7 +32,9 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ user, loading }}>
-      {children}
+      
+        {children}
+   
     </AuthContext.Provider>
   );
 };
@@ -40,3 +42,7 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => {
   return useContext(AuthContext);
 };
+
+export const getLoading = () =>{
+  return loading
+}

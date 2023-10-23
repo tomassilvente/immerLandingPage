@@ -1,7 +1,8 @@
-
+"use client"
 import ImmerHeader from "@/components/Header";
 import PrivacyHeader from "./components/PrivacyHeader";
 import ImmerFooter from "@/components/Footer";
+import { useEffect, useState } from "react";
 
 const CTAImg = [
     {
@@ -10,16 +11,30 @@ const CTAImg = [
     },
   ];
 
+ 
+
 const PrivacyPolicy = () => {
     const CTABackground = CTAImg;
+
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+      if (loading === true) {
+        const timeout = setTimeout(() => {
+          setLoading(false);
+        }, 1);
+        return () => clearTimeout(timeout);
+      }
+    }, [loading]);
+  
   return (
-    <div>
+    <div className={`${loading ? 'slide-enter' : 'slide-active'}`}>
         <ImmerHeader iconUrl={"/assets/blog/immerNews.svg"}
         immerIconLink={"/blog"}
         iconWidth={190}
         iconHeight={180}/>
         <PrivacyHeader titleWhite={'Privacy'} titleOrange={'Policy'} links={['Home >', ' Privacy >',' Privacy Policy']}/>
-        <div className="m-5 lg:m-20 font-light">
+        <div className="m-5 md:m-20 font-light">
             <p>Effective Date: [Insert Date]</p>
             <p className="mt-4">At <span className=" text-primary font-semibold"> immer</span>, we understand that your privacy is of utmost importance. This Privacy Policy aims to provide you with clear and comprehensive information about how we collect, use, and protect your personal data when you use our website.</p>
             <p className="font-semibold mt-4">1. Information We Collect:</p>

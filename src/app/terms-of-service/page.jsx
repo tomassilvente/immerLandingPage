@@ -1,7 +1,8 @@
-
+"use client"
 import ImmerHeader from "@/components/Header";
 import PrivacyHeader from "../privacy-policy/components/PrivacyHeader";
 import ImmerFooter from "@/components/Footer";
+import { useEffect, useState } from "react";
 
 const CTAImg = [
     {
@@ -10,18 +11,27 @@ const CTAImg = [
     },
   ];
 
-
-
 const TermsOfService = () => {
     const CTABackground = CTAImg;
+
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+      if (loading === true) {
+        const timeout = setTimeout(() => {
+          setLoading(false);
+        }, 1);
+        return () => clearTimeout(timeout);
+      }
+    }, [loading]);
   return (
-    <div>
+    <div className={`${loading ? 'slide-enter' : 'slide-active'}`}>
         <ImmerHeader iconUrl={"/assets/blog/immerNews.svg"}
         immerIconLink={"/blog"}
         iconWidth={190}
         iconHeight={180}/>
         <PrivacyHeader titleWhite={'Terms of '} titleOrange={' Service'} links={['Home >', 'Terms & Conditions >','Terms of Service']}/>
-        <div className="m-5 lg:m-20 font-light">
+        <div className="m-5 md:m-20 font-light">
             <p>Effective Date: [Insert Date]</p>
             <p className="mt-4">At <span className=" text-primary font-semibold"> immer</span>, Please read these Terms of Service ("Agreement" or "TOS") carefully before using our website or any of ourservices.</p>
             <p className="font-semibold mt-4">1. Acceptance of Terms:</p>
