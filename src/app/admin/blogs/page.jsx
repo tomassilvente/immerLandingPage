@@ -8,16 +8,8 @@ import Link from "next/link";
 import { deleteImage } from "@/firebase/firestore/deleteImage";
 import withAuth from "@/app/hoc/withAuth";
 
-const user = getAuth().currentUser;
-
 let userName = "Non User Logged in";
 let photoURL = "Non User Logged in";
-console.log(user)
-
-if (user) {
-  userName = user.displayName;
-  photoURL = user.photoURL;
-}
 
 function Blogs() {
   const [documentData, setDocumentData] = useState([]);
@@ -47,17 +39,36 @@ function Blogs() {
   }, []);
 
   const handleDelete = async (id, image) => {
+    if(image){
+      await deleteImage(image);
+    }
     const wasDeleted = await deleteBlog(id);
 
     if (wasDeleted) {
-      await deleteImage(image);
       setDocumentData((prevBlogs) =>
         prevBlogs.filter((blog) => blog.id !== id)
       );
     }
   };
 
+
+  const [user, setUser] = useState(getAuth().currentUser)
+
+  const [loading, setLoading] = useState(true)  
+
+  useEffect(() => {
+    if (loading === true) {
+      const timeout = setTimeout(() => {
+        setLoading(false);
+        userName = user.displayName;
+        photoURL = user.photoURL;
+      }, 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [loading]);
+
   return (
+    
     <div className="p-4">
       <div className="flex">
         <img

@@ -174,14 +174,18 @@ const ImmerFooter = () => {
         </div>
         <div className="lg:w-[45%] justify-between w-full flex lg:flex-row md:flex-row flex-col sm:pt-0 text-end ">
           <div className="lg:w-2/4">
-            <p className="lg:text-base text-sm text-left leading-[31px] font-semibold not-italic">
-              Terms & Conditions
-            </p>
+            <Link href='/terms-of-service'>
+              <p className="lg:text-base text-sm text-left leading-[31px] font-semibold not-italic">
+                Terms & Conditions
+              </p>
+            </Link>
           </div>
           <div className="lg:w-2/4">
-            <p className="lg:text-base text-sm text-left md:text-right lg:text-left leading-[31px] font-semibold not-italic ">
-              Privacy & Policy
-            </p>
+            <Link href='/privacy-policy'>
+              <p className="lg:text-base text-sm text-left md:text-right lg:text-left leading-[31px] font-semibold not-italic ">
+                Privacy & Policy
+              </p>
+            </Link>
           </div>
         </div>
       </section>
