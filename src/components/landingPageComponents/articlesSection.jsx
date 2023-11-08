@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ArticlesCard from "./articlesCard";
 import SecondArticlesCard from "./secondArticleCard";
+import getData from "../../firebase/firestore/getData";
 
 const MainContentImg = [
   {
@@ -15,35 +18,30 @@ const MainContentImg = [
   },
 ];
 
-const ArticlesData = [
-  {
-    id: "card-1",
-    img: "/jazz-img.png",
-    btnTitle: "Behind the Scenes",
-    title: "Transparent Pricing: How immer Puts Ticket Pricing in Your Hands",
-    desc: "Explore the intuitive immer platform that allows organizers to manage all aspects of their events effortlessly.",
-    learnMoreLink: "/learn",
-  },
-  {
-    id: "card-2",
-    img: "/event-img.png",
-    btnTitle: "App Features",
-    title: "immer as Your Event Companion: Enhancing Your Live Experience",
-    desc: "Check out our interactive features and opportunities to engage with other event-goers during live events!",
-    learnMoreLink: "/learn",
-  },
-  {
-    id: "card-3",
-    img: "/event2-img.png",
-    btnTitle: "Empowering Entertainers",
-    title:
-      "Say Goodbye to Event Coordinators: How immer Empowers Independent Entertainers",
-    desc: "immer eliminates the need for dedicated event coordinators or promoters",
-    learnMoreLink: "/learn",
-  },
-];
-
 const ArticlesSection = () => {
+  const [documentData, setDocumentData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { result, error } = await getData("blogs", null);
+        if (error) {
+          console.error("Error fetching document:", error);
+        } else {
+          if (Array.isArray(result)) {
+            setDocumentData(result.slice(0, 3));
+          } else {
+            console.error("Document data is not valid:", result);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching document:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <section
       className="w-full lg:pl-28 lg:pr-28 px-5 sm:px-20 pb-16 py-16"
@@ -81,32 +79,30 @@ const ArticlesSection = () => {
         <div className="flex lg:flex-row flex-col gap-4 w-full mt-6">
           <div className="flex flex-col gap-8 sm:gap-4 w-full lg:w-[60%]">
             <ArticlesCard
-              id={ArticlesData[0].id}
-              img={ArticlesData[0].img}
-              btnTitle={ArticlesData[0].btnTitle}
-              tittle={ArticlesData[0].title}
-              desc={ArticlesData[0].desc}
-              learnMoreLink={ArticlesData[0].learnMoreLink}
-              flexDirection={ArticlesData[0].flexDirection}
+              id={documentData[0]?.id}
+              img={documentData[0]?.imageUrl}
+              btnTitle={documentData[0]?.category}
+              tittle={documentData[0]?.title}
+              desc={documentData[0]?.description}
+              learnMoreLink={`/blog/${documentData[0]?.id}`}
             />
             <ArticlesCard
-              id={ArticlesData[1].id}
-              img={ArticlesData[1].img}
-              btnTitle={ArticlesData[1].btnTitle}
-              tittle={ArticlesData[1].title}
-              desc={ArticlesData[1].desc}
-              learnMoreLink={ArticlesData[1].learnMoreLink}
-              flexDirection={ArticlesData[1].flexDirection}
+              id={documentData[1]?.id}
+              img={documentData[1]?.imageUrl}
+              btnTitle={documentData[1]?.category}
+              tittle={documentData[1]?.title}
+              desc={documentData[1]?.description}
+              learnMoreLink={`/blog/${documentData[1]?.id}`}
             />
           </div>
           <div className="lg:w-[40%] gap-8 sm:gap-4 w-full">
             <SecondArticlesCard
-              id={ArticlesData[2].id}
-              img={ArticlesData[2].img}
-              btnTitle={ArticlesData[2].btnTitle}
-              tittle={ArticlesData[2].title}
-              desc={ArticlesData[2].desc}
-              learnMoreLink={ArticlesData[2].learnMoreLink}
+              id={documentData[2]?.id}
+              img={documentData[2]?.imageUrl}
+              btnTitle={documentData[2]?.category}
+              tittle={documentData[2]?.title}
+              desc={documentData[2]?.description}
+              learnMoreLink={`/blog/${documentData[3]?.id}`}
             />
           </div>
         </div>

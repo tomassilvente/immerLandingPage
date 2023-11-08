@@ -14,7 +14,7 @@ const FeaturedContentCard = ({
   id,
 }) => {
   const truncatedDetails = details.split("\n").slice(0, 3).join("\n");
-  const truncatedTitle= title.split("\n").slice(0, 2).join("\n");
+  const truncatedTitle = title.split("\n").slice(0, 2).join("\n");
   return (
     <div
       style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
@@ -31,7 +31,7 @@ const FeaturedContentCard = ({
       >
         <div className="flex justify-end p-3">
           <div className="text-white bg-primary w-20 p-2 h-7 rounded-lg">
-            <Link href={`/event/${category}`}>
+            <Link href={`/blog/${category}`}>
               <p className="text-[10px] font-bold uppercase text-center">
                 {category}
               </p>
@@ -42,7 +42,7 @@ const FeaturedContentCard = ({
       <p className="mb-1 text-[#232323] text-xs font-normal text-left ml-1">
         {eventDate}
       </p>
-      <Link href={`/event/${id}`}>
+      <Link href={`/blog/${id}`}>
         <p className="mb-3 text-lg font-bold line-clamp-2 text-primary text-left ml-1 whitespace-normal">
           {truncatedTitle}
         </p>

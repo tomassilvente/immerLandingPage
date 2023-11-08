@@ -1,7 +1,9 @@
+"use client"
+
 import BlogHero from "./components/blogHero";
 import FeatureContent from "./components/featuredContent";
 import MainContent from "./components/mainContent";
-
+import React, { useEffect, useState } from "react";
 import ImmerFooter from "@/components/Footer";
 import ImmerCTA from "@/components/CTA";
 import ImmerHeader from "@/components/Header";
@@ -12,9 +14,32 @@ import {
 
 
 const Blog = () => {
-  const LatestArticlesContentData = DummyContent;
-  const featuredContent = DummyContent;
-  const mostPopularBloggers = BloggersData;
+  const mostPopularBloggers = BloggersData
+
+
+  const [documentData, setDocumentData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { result, error } = await getData("blogs", null);
+        if (error) {
+          console.error("Error fetching document:", error);
+        } else {
+          if (Array.isArray(result)) {
+            setDocumentData(result);
+          } else {
+            console.error("Document data is not valid:", result);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching document:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="min-h-screen items-center justify-center w-full bg-white">
       <ImmerHeader
@@ -24,9 +49,9 @@ const Blog = () => {
         iconHeight={180}
       />
       <BlogHero />
-      <FeatureContent FeatureContent={featuredContent} />
+      <FeatureContent FeatureContent={documentData} />
       <MainContent
-        LatestArticles={LatestArticlesContentData}
+        LatestArticles={documentData}
         PopularBloggers={mostPopularBloggers}
       />
       <ImmerCTA />

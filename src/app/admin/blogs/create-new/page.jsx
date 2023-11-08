@@ -9,6 +9,7 @@ import withAuth from "@/app/hoc/withAuth";
 
 function CreateNew() {
   const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState(null);
   const [image, setImage] = useState(null);
@@ -38,6 +39,8 @@ function CreateNew() {
       profilePic: profilePic,
 
       title: title,
+
+      category: category,
 
       description: description,
 
@@ -79,6 +82,23 @@ function CreateNew() {
           onChange={(e) => setTitle(e.target.value)}
           className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#f2f2f2]"
         />
+      </div>
+      <div className="flex flex-col space-y-2 my-5">
+        <label className="text-lg font-semibold" htmlFor="category">
+          CATEGORY
+        </label>
+
+        <select
+          id="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#f2f2f2]"
+        >
+          <option value="For Entertainers">For Entertainers</option>
+          <option value="For Vendors">For Vendors</option>
+          <option value="For Organizers">For Organizers</option>
+          <option value="For Administrator">For Administrator</option>
+        </select>
       </div>
 
       <div className="flex flex-col space-y-2 my-5">

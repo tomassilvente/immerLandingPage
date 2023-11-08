@@ -1,14 +1,39 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useState, useEffect } from "react"
 import FeaturedContentCard from "./featuredContentCard";
 import FeatureContentButton from "./contentBtn";
 import { BtnProps } from "./demoData";
+import getData from "../../../firebase/firestore/getData";
 
-const FeatureContent = ({ FeatureContent }) => {
+// ! Encontré dos bug, el primero: al situarse ligeramente sobre el borde del filtrado aparece todo naranja, no permitiendo leer el texto. Segundo: Deberíamos agregar scheleton dummy pre-loading en varias partes
+
+const FeatureContent = () => {
   const buttonData = BtnProps;
   const showHost = false;
+  const [documentData, setDocumentData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { result, error } = await getData("blogs", null);
+        if (error) {
+          console.error("Error fetching document:", error);
+        } else {
+          if (Array.isArray(result)) {
+            setDocumentData(result);
+          } else {
+            console.error("Document data is not valid:", result);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching document:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const slideLeft = () => {
     var slider = document.getElementById("slider");
@@ -39,7 +64,7 @@ const FeatureContent = ({ FeatureContent }) => {
           >
             <Link
               href="/all"
-              className="bg-primary w-full sm:w-[auto] h-auto p-3 pt-2 pb-2 rounded-[8px]"
+              className="bg-primary w-full sm:w-[auto] h-auto p-3 pt-2 pb-2 rounded-[8px] "
             >
               <p className="text-white text-center gap-2 not-italic lg:text-base text-sm font-bold">
                 All
@@ -71,18 +96,15 @@ const FeatureContent = ({ FeatureContent }) => {
               className="h-full lg:p-8 p-0 flex flex-row gap-4 
               overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
             >
-              {FeatureContent.map((content) => (
+              {documentData.map((content) => (
                 <FeaturedContentCard
-                  img={content.img}
+                  img={content.imageUrl}
                   category={content.category}
                   eventDate={content.eventDate}
                   title={content.title}
-                  details={content.details}
+                  details={content.description}
                   id={content.id}
                   showHost={showHost}
-                  hostTitle={content.hostTitle}
-                  hostName={content.hostName}
-                  hostImage={content.hostImage}
                   key={content.id}
                 />
               ))}

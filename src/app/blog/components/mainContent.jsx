@@ -1,8 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import BloggersCard from "./bloggersCard";
 import SecondBloggersCard from "./secondBloggerCard";
 import ContentCard from "./ContentCard";
+import { useState, useEffect } from "react";
+import getData from "../../../firebase/firestore/getData";
 
 const MainContent = ({ LatestArticles, PopularBloggers }) => {
   const showHost = true;
@@ -11,9 +15,34 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
   const displayedArticles = LatestArticles.slice(0, maxArticlesToShow);
   const displayedBloggers = PopularBloggers.slice(0, maxBloggersToShow);
   const secondBloggers = LatestArticles.slice(0, 2);
+  const [documentData, setDocumentData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { result, error } = await getData("blogs", null);
+        if (error) {
+          console.error("Error fetching document:", error);
+        } else {
+          if (Array.isArray(result)) {
+            setDocumentData(result);
+          } else {
+            console.error("Document data is not valid:", result);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching document:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
-    <main id="main-content" className="p-8 sm:p-12 lg:pl-28 lg:pr-28 px-5 sm:px-20">
+    <main
+      id="main-content"
+      className="p-8 sm:p-12 lg:pl-28 lg:pr-28 px-5 sm:px-20"
+    >
       <div className="flex lg:flex-row flex-col lg:gap-8 gap-6 w-full">
         <section id="articles" className="lg:w-[55%] w-full">
           <div className="flex flex-row justify-between mb-6">
@@ -39,18 +68,15 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
             </Link>
           </div>
           <div className="grid gap-x-3 md:grid-cols-2 lg:grid-cols-2 lg:gap-x-3 pl-1 pr-1">
-            {displayedArticles.map((content) => (
+            {documentData.map((content) => (
               <ContentCard
-                img={content.img}
+                img={content.imageUrl}
                 category={content.category}
                 eventDate={content.eventDate}
                 title={content.title}
-                details={content.details}
+                details={content.description}
                 id={content.id}
                 showHost={showHost}
-                hostTitle={content.hostTitle}
-                hostName={content.hostName}
-                hostImage={content.hostImage}
                 key={content.id}
               />
             ))}
