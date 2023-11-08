@@ -38,7 +38,7 @@ const SecondArticlesCard = ({
           {tittle}
         </p>
         <p className="text-[#555555] text-sm font-normal not-italic leading-5 tracking-[0.056px] mb-6">
-          {desc.slice(0, 280) + "..."}
+          {desc?.slice(0, 280) + "..."}
         </p>
         <Link
           href={learnMoreLink}

@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function PrivacyHeader({titleWhite, titleOrange, links }){
+export default function OurMissionHeader({titleWhite, titleOrange, links }){
 
     const [currentLink, setCurrentLink] = useState('/privacy-policy')
 

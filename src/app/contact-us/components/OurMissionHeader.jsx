@@ -1,8 +1,10 @@
+// ! Tranquilamente podríamos re-usar este componente en vez de tenerlo copiado 4 veces xd
+
 "use client"
 import Link from "next/link";
 import { useState } from "react";
 
-export default function PrivacyHeader({titleWhite, titleOrange, links }){
+export default function OurMissionHeader({titleWhite, titleOrange, links }){
 
     const [currentLink, setCurrentLink] = useState('/privacy-policy')
 
@@ -46,6 +48,7 @@ export default function PrivacyHeader({titleWhite, titleOrange, links }){
                 <option value="/privacy-policy">Privacy Policy</option>
                 <option value="/terms-of-service">Terms of Services</option>
                 <option value="/our-mission">Our Mission</option>
+                <option value="/contact-us">Contact</option>
             </select>
             <Link
               href={currentLink}

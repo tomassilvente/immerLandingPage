@@ -3,8 +3,6 @@
 import ImmerCTA from "@/components/CTA";
 import ImmerFooter from "@/components/Footer";
 import ImmerHeader from "@/components/Header";
-// ! Obviamente hay que modificar el nombre de la carpeta y hacer que renderice cada blog, de momento me centro en el diseño
-
 import React from "react";
 
 function Page() {
