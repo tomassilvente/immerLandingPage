@@ -16,6 +16,7 @@ const FeaturedContentCard = ({
   const truncatedDetails = details.split("\n").slice(0, 3).join("\n");
   const truncatedTitle = title.split("\n").slice(0, 2).join("\n");
   return (
+    <Link href={`/blog/${id}`}>
     <div
       style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
       className={`w-[245px] flex flex-col cursor-pointer hover:scale-105 ease-out duration-300
@@ -42,16 +43,13 @@ const FeaturedContentCard = ({
       <p className="mb-1 text-[#232323] text-xs font-normal text-left ml-1">
         {eventDate}
       </p>
-      <Link href={`/blog/${id}`}>
+      
         <p className="mb-3 text-lg font-bold line-clamp-2 text-primary text-left ml-1 whitespace-normal">
           {truncatedTitle}
         </p>
-      </Link>
-      <div className="h-[66px] w-[235px]">
-        <p className="text-xs font-normal text-[#232323] line-clamp-3 whitespace-normal text-left ml-1">
+        <p className="text-xs font-normal text-[#232323] line-clamp-3 whitespace-normal text-left mx-2">
           {truncatedDetails}
         </p>
-      </div>
       {showHost && (
         <Link href="/author">
           <hr className="my-2" />
@@ -76,6 +74,7 @@ const FeaturedContentCard = ({
         </Link>
       )}
     </div>
+    </Link>
   );
 };
 

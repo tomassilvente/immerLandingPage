@@ -55,11 +55,9 @@ const ContentCard = ({
         <Link href="/author">
           <hr className="my-2" />
           <div id="host-section" className="flex flex-row">
-            <Image
-              className="rounded-full border-none ml-1"
+            <img
+              className="rounded-full border-none ml-1 h-[45px] w-[55px]"
               src={hostImage}
-              width={55}
-              height={55}
               alt="host-image"
               priority
             />

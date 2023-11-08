@@ -77,6 +77,8 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
                 details={content.description}
                 id={content.id}
                 showHost={showHost}
+                hostName={content.user}
+                hostImage={content.profilePic}
                 key={content.id}
               />
             ))}
