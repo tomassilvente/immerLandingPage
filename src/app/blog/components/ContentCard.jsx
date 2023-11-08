@@ -16,6 +16,7 @@ const ContentCard = ({
   const truncatedDetails = details.split("\n").slice(0, 3).join("\n");
 
   return (
+    <Link href={`/blog/${id}`}>
     <div
       style={{ boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
       className={`flex flex-col mb-8 p-4 pb-2 h-[421px] bg-white rounded-md hover:scale-105 ease-out duration-300 cursor-pointer ${
@@ -41,26 +42,26 @@ const ContentCard = ({
       <p className="mb-1 text-[#232323] text-xs font-normal text-left ml-1">
         {eventDate}
       </p>
-      <Link href={`/event/${id}`}>
         <p className="mb-3 text-lg font-bold text-primary text-left ml-1">
           {title}
         </p>
-      </Link>
       <div className="h-[66px]">
         <p className="text-xs font-normal text-[#232323]  line-clamp-3 text-left ml-1">
           {truncatedDetails}
         </p>
       </div>
       {showHost && (
-        <Link href="/author">
-          <hr className="my-2" />
-          <div id="host-section" className="flex flex-row">
+        <>
+        <hr className="my-2" />
+          <Link href="/author">
+        <div id="host-section" className="flex flex-row">
             <img
               className="rounded-full border-none ml-1 h-[45px] w-[55px]"
               src={hostImage}
               alt="host-image"
               priority
             />
+            
             <div className="flex flex-col w-full">
               <p className="ml-3 mt-2 leading-5 text-left text-xs font-bold not-italic text-[#343A40]">
                 By {hostName}
@@ -70,9 +71,11 @@ const ContentCard = ({
               </p>
             </div>
           </div>
-        </Link>
+          </Link>
+          </>
       )}
     </div>
+    </Link>
   );
 };
 
