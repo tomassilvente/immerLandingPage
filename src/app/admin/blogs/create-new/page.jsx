@@ -9,7 +9,7 @@ import withAuth from "@/app/hoc/withAuth";
 
 function CreateNew() {
   const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("For Vendors");
   const [description, setDescription] = useState("");
   const [imageUrl, setImageUrl] = useState(null);
   const [image, setImage] = useState(null);
@@ -32,11 +32,6 @@ function CreateNew() {
         userName = user.displayName;
         profilePic = user.photoURL;
       }
-    if (user) {
-      console.log(user)
-      userName = user.displayName;
-      profilePic = user.photoURL;
-    }
 
       let imageURL = null;
 
@@ -94,8 +89,8 @@ function CreateNew() {
           onChange={(e) => setCategory(e.target.value)}
           className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#f2f2f2]"
         >
-          <option value="For Entertainers">For Entertainers</option>
           <option value="For Vendors">For Vendors</option>
+          <option value="For Entertainers">For Entertainers</option>
           <option value="For Organizers">For Organizers</option>
           <option value="For Administrator">For Administrator</option>
         </select>

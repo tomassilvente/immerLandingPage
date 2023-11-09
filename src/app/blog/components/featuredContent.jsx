@@ -48,8 +48,7 @@ const FeatureContent = () => {
   return (
     <div
       style={{
-        background: "var(--light-color-base-tertiary-normal, #EDEEF1)",
-        boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+        background: "var(--light-color-base-tertiary-normal, #EDEEF1)"
       }}
       className="w-full flex justify-center p-8 sm:p-12 lg:pl-24 lg:pr-24 px-5 sm:px-20"
     >

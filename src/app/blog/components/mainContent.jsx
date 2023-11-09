@@ -10,12 +10,12 @@ import getData from "../../../firebase/firestore/getData";
 
 const MainContent = ({ LatestArticles, PopularBloggers }) => {
   const showHost = true;
-  const maxArticlesToShow = 4;
+  const maxArticlesToShow = 2;
   const maxBloggersToShow = 3;
-  const displayedArticles = LatestArticles.slice(0, maxArticlesToShow);
   const displayedBloggers = PopularBloggers.slice(0, maxBloggersToShow);
   const secondBloggers = LatestArticles.slice(0, 2);
   const [documentData, setDocumentData] = useState([]);
+  const displayedArticles = documentData.slice(0, maxArticlesToShow);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,10 +38,12 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
     fetchData();
   }, []);
 
+  
+
   return (
     <main
     style={{
-      backgroundImage: `url(/assets/LandingPage/home-content-bg.png), url(/assets/LandingPage/home-content-bg-r.png), url(/assets/LandingPage/what-is-entertainment.png)`,
+      backgroundImage: `url(/assets/LandingPage/home-content-bg.png), url(/assets/LandingPage/home-content-bg-r.png)`,
       backgroundRepeat: "no-repeat",
       backgroundPosition: "left top, right center, left bottom",
     }}
@@ -73,7 +75,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
             </Link>
           </div>
           <div className="grid gap-x-3 md:grid-cols-2 lg:grid-cols-2 lg:gap-x-3 pl-1 pr-1">
-            {documentData.map((content) => (
+            {displayedArticles.map((content) => (
               <ContentCard
                 img={content.imageUrl}
                 category={content.category}

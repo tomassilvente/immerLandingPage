@@ -39,7 +39,7 @@ function Page() {
 
   return (
     <div style={{
-      backgroundImage: `url(/assets/LandingPage/home-content-bg-r.png)`,
+      backgroundImage: `url(/assets/LandingPage/home-content-bg.png)`,
       backgroundRepeat: "no-repeat",
       backgroundPosition: "bottom right",
     }}>
@@ -89,26 +89,23 @@ function Page() {
           </div>
         </article>
         <div>
-          <div className="flex flex-wrap py-6 space-x-2 border-t border-dashed dark:border-gray-400">
+          <div className="flex flex-wrap py-6 space-x-2 border-t border-dashed text-white dark:border-gray-400">
             <a
               rel="noopener noreferrer"
               href="#"
-              className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-400 dark:text-gray-900"
-            >
+              className="px-3 py-1 rounded-sm hover:underline  bg-primary">
               #Design
             </a>
             <a
               rel="noopener noreferrer"
               href="#"
-              className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-400 dark:text-gray-900"
-            >
+              className="px-3 py-1 rounded-sm hover:underline bg-primary">
               #News
             </a>
             <a
               rel="noopener noreferrer"
               href="#"
-              className="px-3 py-1 rounded-sm hover:underline dark:bg-violet-400 dark:text-gray-900"
-            >
+              className="px-3 py-1 rounded-sm hover:underline bg-primary">
               #Concepts
             </a>
           </div>
