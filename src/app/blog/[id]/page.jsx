@@ -39,9 +39,9 @@ function Page() {
 
   return (
     <div style={{
-      backgroundImage: `url(/assets/LandingPage/home-content-bg.png)`,
+      backgroundImage: `url(/assets/LandingPage/home-content-bg.png), url(/assets/LandingPage/home-content-bg-r.png)`,
       backgroundRepeat: "no-repeat",
-      backgroundPosition: "bottom right",
+      backgroundPosition: "left top, right center, left bottom",
     }}>
       <ImmerHeader
         iconUrl={"/assets/blog/immerNews.svg"}
@@ -49,47 +49,42 @@ function Page() {
         iconWidth={190}
         iconHeight={180}
       />
-      <div className="md:max-w-3xl max-w-lg py-16 mx-auto space-y-12 mt-14">
-        <article className="space-y-12 max-h-[600px] p-2 dark:bg-gray-800 dark:text-gray-50">
+      <div className="xl:max-w-5xl md:max-w-3xl max-w-xl py-16 mx-auto space-y-12 mt-14">
+        <article className="space-y-12 xl:max-h-[800px] max-h-[600px] p-2 dark:bg-gray-800 dark:text-gray-50 m-2">
           <div className="m-5">
             <h1 className="text-4xl text-center font-bold ">
               {documentData.title}
             </h1>
-            <div className="grid grid-cols-6 mt-8">
-            <div className={`col-start-1 col-end-4 ${!documentData.imageUrl && 'col-end-6'} md:flex-row md:items-center dark:text-gray-400`}>
+            <div className="justify-center items-center mt-8">
+              <div className="flex flex-col justify-center items-center">
+                <img
+                      src={documentData.imageUrl}
+                      alt="Imagen"
+                      className="xl:max-h-[700px] xl:max-w-[700px] max-h-[500px] min-h-[200px] max-w-[500px] min-w-[200px]"
+                    />
+              </div>
+            <div className={`md:flex-row md:items-center dark:text-gray-400`}>
               <div className="flex mt-10 items-center md:space-x-2">
                 <img
                   src={documentData.profilePic}
                   alt=""
-                  className="w-[50px] h-[50px] border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                  className="w-[55px] h-[55px] border rounded-full dark:bg-gray-500 dark:border-gray-700"
                 />
                 <div> 
-                  <p className="">{documentData.user} • July 19th, 2021</p>
-                  <p className="text-xs md:mt-0">
+                  <p className="ml-3">{documentData.user} • July 19th, 2021</p>
+                  <p className="text-sm md:mt-0 ml-4">
                     4 min read • 1,570 views
                   </p>
                 </div>
               </div>
-              <p className="dark:text-gray-100 mx-3 my-5">{documentData.description}</p>
+              <p className="dark:text-gray-100 ml-20 my-3">{documentData.description}</p>
             </div>
-            {
-              documentData.imageUrl 
-              ? <Image
-                  src={documentData.imageUrl}
-                  width={200}
-                  height={200}
-                  alt="Imagen"
-                  className="ml-[90px] max-h-[300px] min-h-[100px] max-w-[300px] min-w-[100px] col-start-4 col-end-6"
-                />
-              :  ''
-            }
-          
           </div>
           
           </div>
         </article>
         <div>
-          <div className="flex flex-wrap py-6 space-x-2 border-t border-dashed text-white dark:border-gray-400">
+          <div className="flex flex-wrap m-2 py-6 space-x-2 border-t border-dashed text-white dark:border-gray-400">
             <a
               rel="noopener noreferrer"
               href="#"
@@ -109,7 +104,7 @@ function Page() {
               #Concepts
             </a>
           </div>
-          <div className="space-y-2">
+          <div className="space-y-2 m-2">
             <h4 className="text-lg font-semibold">Related posts</h4>
             <ul className="ml-4 space-y-1 list-disc">
               <li>
