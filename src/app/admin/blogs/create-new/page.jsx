@@ -19,106 +19,52 @@ function CreateNew() {
   const [user, setUser] = useState(getAuth().currentUser)
 
   const handleForm = async () => {
-    console.log("Selected image:", image);
+    try {
+      console.log("Selected image:", image);
 
-    // Getting User from Database
+      let user = getAuth().currentUser;
+      console.log(user);
 
-    let userName = "Still not working LMAO";
-    let profilePic = "none";
+      let userName = "Still not working LMAO";
+      let profilePic = "none";
 
+      if (user) {
+        userName = user.displayName;
+        profilePic = user.photoURL;
+      }
     if (user) {
       console.log(user)
       userName = user.displayName;
       profilePic = user.photoURL;
     }
 
-    // Create the data object with title and description
+      let imageURL = null;
 
-    const data = {
-      user: user.displayName,
-
-      profilePic: profilePic,
-
-      title: title,
-
-      category: category,
-
-      description: description,
-
-      image: image,
-
-      imageUrl: imageUrl,
-    };
-
-    try {
       if (image) {
-        // Upload the image to Firebase Storage and get its URL
-        const imageURL = await uploadImage(image);
-        setImageUrl(imageURL);
+        imageURL = await uploadImage(image);
+        console.log("Image uploaded successfully.");
       }
-      // Add the data to the Firestore collection
 
-      await addData("blogs", null, data);
+      if (imageURL !== null) {
+        const data = {
+          user: user.displayName,
+          profilePic: profilePic,
+          title: title,
+          category: category,
+          description: description,
+          imageUrl: imageURL,
+        };
 
-      //
-      return router.push("/admin/blogs");
+        await addData("blogs", null, data);
+
+        return router.push("/admin/blogs");
+      } else {
+        console.error("Image URL is null. Please upload an image.");
+      }
     } catch (error) {
       console.error("Error uploading data:", error);
     }
   };
-
-
-  // Array.from(document.querySelectorAll('.mdEdit')).forEach((el) => {
-  //   el.setAttribute('title', 'Click to change Markdown content')
-  //   el.setAttribute('tabindex', '0')
-
-  //   const display = el.querySelector('div');
-  //   const editEl = el.querySelector('input') ? el.querySelector('input') : el.querySelector('textarea');
-  //   if (editEl.tagName == 'TEXTAREA') {
-  //     el.style.height = '300px';
-  //   }
-  //   editEl.addEventListener('change', applyRegex)
-  //   applyRegex()
-
-  //   el.addEventListener('click', () => {
-  //     editEl.focus();
-  //   })
-
-  //   function applyRegex() {
-  //     let parsed = editEl.value
-   
-  //     if (editEl.tagName == 'TEXTAREA') {
-  //       parsed = parsed.replace(/^###### (.*)/gm, '<h6>$1</h6>')
-  //       parsed = parsed.replace(/^##### (.*)/gm, '<h5>$1</h5>')
-  //       parsed = parsed.replace(/^#### (.*)/gm, '<h4>$1</h4>')
-  //       parsed = parsed.replace(/^### (.*)/gm, '<h3>$1</h3>')
-  //       parsed = parsed.replace(/^## (.*)/gm, '<h2>$1</h2>')
-  //       parsed = parsed.replace(/^# (.*)/gm, '<h1>$1</h1>')
-    
-  //       parsed = parsed.replace(/![(.*?)]((.*?))/g, '<img src="$2">')
-    
-  //       parsed = parsed.replace(/[(.*?)]((.*?))/g, '<a href="$2" target="_blank">$1</a>')
-  //     }
-
-  //     parsed = parsed.replace(/_(.*?)_/gm, '<sub>$1</sub>')
-  //     parsed = parsed.replace(/~(.*?)~/gm, '<del>$1</del>')
-  //     parsed = parsed.replace(/^(.*?)^/gm, '<sup>$1</sup>')
-  //     parsed = parsed.replace(/`(.*?)`/gm, '<code>$1</code>')
-    
-  //     display.innerHTML = parsed
-  //   }
-
-  //   document.addEventListener('keydown', (ev) => {
-  //     if (ev.key == 'Enter' && document.activeElement == el) {
-  //         editEl.focus()
-  //     } else if (ev.key == 'Escape' && document.activeElement == editEl) {
-  //         document.activeElement.blur()
-  //     }
-  //   })
-
-    
-  // })
-
 
   return (
     <div className="p-20">
