@@ -1,8 +1,8 @@
 "use client"
 import ImmerHeader from "@/components/Header";
-import OurMissionHeader from "./components/OurMissionHeader";
 import ImmerFooter from "@/components/Footer";
 import { useEffect, useState } from "react";
+import OurMissionHeader from "@/components/landingPageComponents/OurMissionHeader";
 
 const CTAImg = [
     {
@@ -32,7 +32,7 @@ const OurMission = () => {
         immerIconLink={"/blog"}
         iconWidth={190}
         iconHeight={180}/>
-        <OurMissionHeader titleWhite={'Our'} titleOrange={'Mission'} links={['Home >', ' Our Mission >',' Our Mission']}/>
+        <OurMissionHeader titleWhite={'Our'} titleOrange={'Mission'} links={['Home >', ' About Us >', "Our Mission"]}/>
         <div className="m-5 md:m-20 font-light">
             <p>Effective Date: [Insert Date]</p>
             <p className="mt-4">At <span className=" text-primary font-semibold"> immer</span>, we understand that your privacy is of utmost importance. This Privacy Policy aims to provide you with clear and comprehensive information about how we collect, use, and protect your personal data when you use our website.</p>

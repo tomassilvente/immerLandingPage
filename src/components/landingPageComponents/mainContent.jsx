@@ -65,7 +65,7 @@ const MainContent = () => {
           <p className="text-[#555555] text-justify sm:tracking-wider text-sm sm:text-base xl:text-lg sm:pr-28">
             Challenges in Today's Entertainment Landscape:
           </p>
-          <div className="mt-4 sm:mt-8 flex flex-col gap-2 sm:gap-5">
+          <div id='MainContent' className="mt-4 sm:mt-8 flex flex-col gap-2 sm:gap-5">
             <h2 className="text-[#232323] font-bold text-2xl xl:text-4xl tracking-[0.4%]">
               Live Events Today
             </h2>

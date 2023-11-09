@@ -1,8 +1,8 @@
 "use client"
 import ImmerHeader from "@/components/Header";
-import PrivacyHeader from "../privacy-policy/components/PrivacyHeader";
 import ImmerFooter from "@/components/Footer";
 import { useEffect, useState } from "react";
+import OurMissionHeader from "@/components/landingPageComponents/OurMissionHeader";
 
 const CTAImg = [
     {
@@ -30,7 +30,7 @@ const TermsOfService = () => {
         immerIconLink={"/blog"}
         iconWidth={190}
         iconHeight={180}/>
-        <PrivacyHeader titleWhite={'Terms of '} titleOrange={' Service'} links={['Home >', 'Terms & Conditions >','Terms of Service']}/>
+        <OurMissionHeader titleWhite={'Terms of '} titleOrange={' Service'} links={['Home >', 'Terms & Conditions >','Terms of Service >']}/>
         <div className="m-5 md:m-20 font-light">
             <p>Effective Date: [Insert Date]</p>
             <p className="mt-4">At <span className=" text-primary font-semibold"> immer</span>, Please read these Terms of Service ("Agreement" or "TOS") carefully before using our website or any of ourservices.</p>

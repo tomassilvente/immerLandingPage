@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { getAuth } from "@firebase/auth";
+import { getAdditionalUserInfo, getAuth } from "@firebase/auth";
 import getData from "../../../firebase/firestore/getData";
 import deleteBlog from "../../../firebase/firestore/deleteDoc";
 import Link from "next/link";
@@ -51,9 +51,7 @@ function Blogs() {
     }
   };
 
-
   const [user, setUser] = useState(getAuth().currentUser)
-
   const [loading, setLoading] = useState(true)  
 
   useEffect(() => {

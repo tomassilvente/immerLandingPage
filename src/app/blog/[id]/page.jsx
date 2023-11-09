@@ -38,7 +38,11 @@ function Page() {
   }, []);
 
   return (
-    <>
+    <div style={{
+      backgroundImage: `url(/assets/LandingPage/home-content-bg-r.png)`,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "bottom right",
+    }}>
       <ImmerHeader
         iconUrl={"/assets/blog/immerNews.svg"}
         immerIconLink={"/blog"}
@@ -46,15 +50,14 @@ function Page() {
         iconHeight={180}
       />
       <div className="md:max-w-3xl max-w-lg py-16 mx-auto space-y-12 mt-14">
-        <article className="space-y-8  p-2 dark:bg-gray-800 dark:text-gray-50">
+        <article className="space-y-12 max-h-[600px] p-2 dark:bg-gray-800 dark:text-gray-50">
           <div className="m-5">
             <h1 className="text-4xl text-center font-bold ">
               {documentData.title}
             </h1>
             <div className="grid grid-cols-6 mt-8">
-            
-            <div className="col-start-1 col-end-4 md:flex-row md:items-center dark:text-gray-400">
-              <div className="flex mt-2 items-center md:space-x-2">
+            <div className={`col-start-1 col-end-4 ${!documentData.imageUrl && 'col-end-6'} md:flex-row md:items-center dark:text-gray-400`}>
+              <div className="flex mt-10 items-center md:space-x-2">
                 <img
                   src={documentData.profilePic}
                   alt=""
@@ -76,13 +79,9 @@ function Page() {
                   width={200}
                   height={200}
                   alt="Imagen"
-                  className="ml-[90px] col-start-4 col-end-6"
+                  className="ml-[90px] max-h-[300px] min-h-[100px] max-w-[300px] min-w-[100px] col-start-4 col-end-6"
                 />
-              :  <img
-                  src="https://dummyimage.com/200x200/ffffff/000000"
-                  alt="Imagen"
-                  className="ml-[90px] col-start-4 col-end-6"
-                />
+              :  ''
             }
           
           </div>
@@ -149,7 +148,7 @@ function Page() {
       </div>
       <ImmerCTA />
       <ImmerFooter />
-    </>
+    </div>
   );
 }
 

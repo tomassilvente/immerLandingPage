@@ -16,7 +16,7 @@ export const NavigationList = [
   },
   {
     NavName: "Our Mission",
-    NavAddress: "/our-mission",
+    NavAddress: "/#MainContent",
   },
   {
     NavName: "Contact",

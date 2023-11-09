@@ -1,8 +1,8 @@
 "use client"
 import ImmerHeader from "@/components/Header";
-import PrivacyHeader from "./components/PrivacyHeader";
 import ImmerFooter from "@/components/Footer";
 import { useEffect, useState } from "react";
+import OurMissionHeader from "@/components/landingPageComponents/OurMissionHeader";
 
 const CTAImg = [
     {
@@ -33,7 +33,7 @@ const PrivacyPolicy = () => {
         immerIconLink={"/blog"}
         iconWidth={190}
         iconHeight={180}/>
-        <PrivacyHeader titleWhite={'Privacy'} titleOrange={'Policy'} links={['Home >', ' Privacy >',' Privacy Policy']}/>
+        <OurMissionHeader titleWhite={'Privacy'} titleOrange={'Policy'} links={['Home >', ' Privacy >',' Privacy Policy']}/>
         <div className="m-5 md:m-20 font-light">
             <p>Effective Date: [Insert Date]</p>
             <p className="mt-4">At <span className=" text-primary font-semibold"> immer</span>, we understand that your privacy is of utmost importance. This Privacy Policy aims to provide you with clear and comprehensive information about how we collect, use, and protect your personal data when you use our website.</p>

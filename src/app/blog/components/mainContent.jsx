@@ -40,6 +40,11 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
 
   return (
     <main
+    style={{
+      backgroundImage: `url(/assets/LandingPage/home-content-bg.png), url(/assets/LandingPage/home-content-bg-r.png), url(/assets/LandingPage/what-is-entertainment.png)`,
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "left top, right center, left bottom",
+    }}
       id="main-content"
       className="p-8 sm:p-12 lg:pl-28 lg:pr-28 px-5 sm:px-20"
     >

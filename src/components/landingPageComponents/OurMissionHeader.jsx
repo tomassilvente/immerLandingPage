@@ -2,9 +2,9 @@
 import Link from "next/link";
 import { useState } from "react";
 
-export default function PrivacyHeader({titleWhite, titleOrange, links }){
+export default function OurMissionHeader({titleWhite, titleOrange, links }){
 
-    const [currentLink, setCurrentLink] = useState('/privacy-policy')
+    const [currentLink, setCurrentLink] = useState('')
 
     const BlogHeroImg = [
         {
@@ -33,10 +33,10 @@ export default function PrivacyHeader({titleWhite, titleOrange, links }){
         <div className="flex">
           {links.map(link=><p className="text-white ml-1">{link}</p>)}
         </div>
-        <div className=" flex flex-col">
-          <h1 className="flex text-[11vw] sm:text-[9vw] leading-[1.2] text-[#D9D9D9] drop-shadow-[2px_2px_0px_rgba(255,108,0,0.5)] font-bold">
+        <div className="flex flex-col">
+          <h1 className="text-[11vw] sm:text-[9vw] leading-[1.2] text-[#D9D9D9] drop-shadow-[2px_2px_0px_rgba(255,108,0,0.5)] font-bold">
             {titleWhite}
-            <span className="text-[#FF6C00] ml-4"> {titleOrange}</span>
+            <span className="text-[#FF6C00] ml-4">{titleOrange}</span>
           </h1>
         <p className="text-white my-3">Go to:</p>
           <div className="flex">
@@ -46,6 +46,7 @@ export default function PrivacyHeader({titleWhite, titleOrange, links }){
                 <option value="/privacy-policy">Privacy Policy</option>
                 <option value="/terms-of-service">Terms of Services</option>
                 <option value="/our-mission">Our Mission</option>
+                <option value="/contact-us">Contact</option>
             </select>
             <Link
               href={currentLink}
