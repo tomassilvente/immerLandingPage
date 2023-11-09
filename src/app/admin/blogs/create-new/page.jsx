@@ -16,51 +16,43 @@ function CreateNew() {
   const router = useRouter();
 
   const handleForm = async () => {
-    console.log("Selected image:", image);
-
-    // Getting User from Database
-
-    let user = getAuth().currentUser;
-    console.log(user);
-
-    let userName = "Still not working LMAO";
-    let profilePic = "none";
-
-    if (user) {
-      userName = user.displayName;
-      profilePic = user.photoURL;
-    }
-
-    // Create the data object with title and description
-
-    const data = {
-      user: userName,
-
-      profilePic: profilePic,
-
-      title: title,
-
-      category: category,
-
-      description: description,
-
-      image: image,
-
-      imageUrl: imageUrl,
-    };
-
     try {
-      if (image) {
-        // Upload the image to Firebase Storage and get its URL
-        const imageURL = await uploadImage(image);
-        setImageUrl(imageURL);
+      console.log("Selected image:", image);
+
+      let user = getAuth().currentUser;
+      console.log(user);
+
+      let userName = "Still not working LMAO";
+      let profilePic = "none";
+
+      if (user) {
+        userName = user.displayName;
+        profilePic = user.photoURL;
       }
-      // Add the data to the Firestore collection
 
-      await addData("blogs", null, data);
+      let imageURL = null;
 
-      //
-      return router.push("/admin/blogs");
+      if (image) {
+        imageURL = await uploadImage(image);
+        console.log("Image uploaded successfully.");
+      }
+
+      if (imageURL !== null) {
+        const data = {
+          user: userName,
+          profilePic: profilePic,
+          title: title,
+          category: category,
+          description: description,
+          imageUrl: imageURL,
+        };
+
+        await addData("blogs", null, data);
+
+        return router.push("/admin/blogs");
+      } else {
+        console.error("Image URL is null. Please upload an image.");
+      }
     } catch (error) {
       console.error("Error uploading data:", error);
     }

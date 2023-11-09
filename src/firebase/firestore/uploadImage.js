@@ -4,7 +4,8 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from "@firebase/storage"
 const storage = getStorage(app);
 
 export async function uploadImage(image) {
-    console.log("Received image:", image);
+  console.log("Received image:", image);
+
   try {
     // Generate a unique name for the image based on the current timestamp
     const imageName = Date.now().toString();
@@ -13,7 +14,9 @@ export async function uploadImage(image) {
     const imageRef = ref(storage, `images/${imageName}`);
 
     // Upload the image bytes to Firebase Storage
+    console.log("Uploading image...");
     await uploadBytes(imageRef, image);
+    console.log("Image uploaded successfully.");
 
     // Get the download URL of the uploaded image
     const imageURL = await getDownloadURL(imageRef);
@@ -24,3 +27,4 @@ export async function uploadImage(image) {
     throw error;
   }
 }
+
