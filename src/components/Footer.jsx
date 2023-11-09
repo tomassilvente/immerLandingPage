@@ -31,27 +31,27 @@ const ImmerFooter = () => {
                   Follow Us
                 </p>
                 <div className="flex flex-row lg:ml-8 ml-5 mt-1 gap-4">
-                  <Link href="https://www.instagram.com">
+                  <Link href="https://www.instagram.com/immer.world/">
                     <Image
                       className=""
-                      src="/assets/blog/instagram.svg"
+                      src="/assets/blog/Instagram.svg"
                       width={30}
                       height={30}
                       alt="instagram-icon"
                       priority
                     />
                   </Link>
-                  <Link href="https://www.x.com">
+                  <Link href="https://twitter.com/immerEnt">
                     <Image
                       className=""
-                      src="/assets/blog/x.svg"
+                      src="/assets/blog/X.svg"
                       width={30}
                       height={30}
                       alt="instagram-icon"
                       priority
                     />
                   </Link>
-                  <Link href="https://www.facebook.com">
+                  <Link href="https://www.facebook.com/immerent">
                     <Image
                       className=""
                       src="/assets/blog/fb.svg"
@@ -61,7 +61,7 @@ const ImmerFooter = () => {
                       priority
                     />
                   </Link>
-                  <Link href="https://www.threads.com">
+                  <Link href="https://www.threads.net/@immer.world">
                     <Image
                       className=""
                       src="/assets/blog/Threads.svg"
