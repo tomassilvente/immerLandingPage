@@ -7,14 +7,21 @@ import getData from "@/firebase/firestore/getData";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 function Page() {
+  const [relatedPosts, setRelatedPosts] = useState([]);
 
   const [documentData, setDocumentData] = useState([]);
 
-  const id = useParams().id
-  
-  console.log(documentData)
+  const wordsPerMinute = 200;
+  const totalWords = documentData.description?.split(/\s+/).length;
+  const estimatedReadingTime = Math.ceil(totalWords / wordsPerMinute);
+
+  const id = useParams().id;
+
+  console.log(documentData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,7 +31,7 @@ function Page() {
           console.error("Error fetching document:", error);
         } else {
           // if (Array.isArray(result)) {
-            setDocumentData(result);
+          setDocumentData(result);
           // } else {
           //   console.error("Document data is not valid:", result);
           // }
@@ -37,12 +44,58 @@ function Page() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchRelatedPosts = async () => {
+      try {
+        const { result: currentPost, error: currentPostError } = await getData(
+          "blogs",
+          id
+        );
+        if (currentPostError) {
+          console.error("Error fetching current document:", currentPostError);
+          return;
+        }
+
+        const { result: allPosts, error: allPostsError } = await getData(
+          "blogs"
+        );
+        if (allPostsError) {
+          console.error("Error fetching all documents:", allPostsError);
+          return;
+        }
+
+        const filteredRelatedPosts = allPosts.filter((post) => post.id !== id);
+
+        const randomRelatedPosts = [];
+        while (
+          randomRelatedPosts.length < 3 &&
+          filteredRelatedPosts.length > 0
+        ) {
+          const randomIndex = Math.floor(
+            Math.random() * filteredRelatedPosts.length
+          );
+          randomRelatedPosts.push(
+            filteredRelatedPosts.splice(randomIndex, 1)[0]
+          );
+        }
+
+        setRelatedPosts(randomRelatedPosts);
+      } catch (error) {
+        console.error("Error fetching related posts:", error);
+      }
+    };
+
+    fetchRelatedPosts();
+  }, [id]);
+
   return (
-    <div style={{
-      backgroundImage: `url(/assets/LandingPage/home-content-bg.png), url(/assets/LandingPage/home-content-bg-r.png)`,
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "left top, right center, left bottom",
-    }}>
+    <div
+      style={{
+        backgroundImage: `url(/assets/LandingPage/home-content-bg.png), url(/assets/LandingPage/home-content-bg-r.png)`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "left top, right center, left bottom",
+      }}
+    >
       <ImmerHeader
         iconUrl={"/assets/blog/immerNews.svg"}
         immerIconLink={"/blog"}
@@ -58,83 +111,60 @@ function Page() {
             <div className="justify-center items-center mt-8">
               <div className="flex flex-col justify-center items-center">
                 <img
-                      src={documentData.imageUrl}
-                      alt="Imagen"
-                      className="xl:max-h-[700px] xl:max-w-[700px] max-h-[500px] min-h-[200px] max-w-[500px] min-w-[200px]"
-                    />
-              </div>
-            <div className={`md:flex-row md:items-center dark:text-gray-400`}>
-              <div className="flex mt-10 items-center md:space-x-2">
-                <img
-                  src={documentData.profilePic}
-                  alt=""
-                  className="w-[55px] h-[55px] border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                  src={documentData.imageUrl}
+                  alt="Imagen"
+                  className="xl:max-h-[700px] xl:max-w-[700px] max-h-[500px] min-h-[200px] max-w-[500px] min-w-[200px]"
                 />
-                <div> 
-                  <p className="ml-3">{documentData.user} • July 19th, 2021</p>
-                  <p className="text-sm md:mt-0 ml-4">
-                    4 min read • 1,570 views
-                  </p>
+              </div>
+              <div className={`md:flex-row md:items-center dark:text-gray-400`}>
+                <div className="flex mt-10 items-center md:space-x-2">
+                  <img
+                    src={documentData.profilePic}
+                    alt=""
+                    className="w-[55px] h-[55px] border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                  />
+                  <div>
+                    <p className="ml-3">{documentData.user} </p>
+                    <p className="text-sm md:mt-0 ml-4">
+                      {estimatedReadingTime} min read
+                    </p>
+                  </div>
+                </div>
+
+                <div className="ml-20 my-3 h-100%">
+                  <Markdown remarkPlugins={[remarkGfm]}>
+                    {documentData.description}
+                  </Markdown>
                 </div>
               </div>
-              <p className="dark:text-gray-100 ml-20 my-3">{documentData.description}</p>
             </div>
-          </div>
-          
           </div>
         </article>
         <div>
-          <div className="flex flex-wrap m-2 py-6 space-x-2 border-t border-dashed text-white dark:border-gray-400">
+          <div className="flex flex-wrap m-2 py-6 space-x-2 border-t border-dashed text-white dark:border-gray-400 mt-80">
             <a
               rel="noopener noreferrer"
-              href="#"
-              className="px-3 py-1 rounded-sm hover:underline  bg-primary">
-              #Design
-            </a>
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              className="px-3 py-1 rounded-sm hover:underline bg-primary">
-              #News
-            </a>
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              className="px-3 py-1 rounded-sm hover:underline bg-primary">
-              #Concepts
+              href="/blog"
+              className="px-3 py-1 rounded-sm hover:underline  bg-primary"
+            >
+              {documentData.category}
             </a>
           </div>
           <div className="space-y-2 m-2">
             <h4 className="text-lg font-semibold">Related posts</h4>
-            <ul className="ml-4 space-y-1 list-disc">
-              <li>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="hover:underline"
-                >
-                  Nunc id magna mollis
-                </a>
-              </li>
-              <li>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="hover:underline"
-                >
-                  Duis molestie, neque eget pretium lobortis
-                </a>
-              </li>
-              <li>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  className="hover:underline"
-                >
-                  Mauris nec urna volutpat, aliquam lectus sit amet
-                </a>
-              </li>
-            </ul>
+            <div className="space-y-1 list-disc">
+              {relatedPosts.map((post, index) => (
+                <li key={index}>
+                  <a
+                    rel="noopener noreferrer"
+                    href={`/blog/${post.id}`}
+                    className="hover:underline"
+                  >
+                    {post.title}
+                  </a>
+                </li>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -144,4 +174,4 @@ function Page() {
   );
 }
 
-export default Page;  
+export default Page;

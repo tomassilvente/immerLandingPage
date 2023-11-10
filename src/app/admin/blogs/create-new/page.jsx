@@ -16,7 +16,17 @@ function CreateNew() {
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(getAuth().currentUser)
+  const [user, setUser] = useState(getAuth().currentUser);
+
+  const addMarkdown = (markdownTag) => {
+    const currentCursorPosition =
+      document.getElementById("description").selectionStart;
+    const newDescription =
+      description.substring(0, currentCursorPosition) +
+      markdownTag +
+      description.substring(currentCursorPosition);
+    setDescription(newDescription);
+  };
 
   const handleForm = async () => {
     try {
@@ -101,8 +111,77 @@ function CreateNew() {
           DESCRIPTION
         </label>
 
+        <div className="flex space-x-2">
+          <button
+            onClick={() => addMarkdown("**")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Bold
+          </button>
+          <button
+            onClick={() => addMarkdown("_")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Italic
+          </button>
+          <button
+            onClick={() => addMarkdown("## ")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Heading 2
+          </button>
+          <button
+            onClick={() => addMarkdown("### ")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Heading 3
+          </button>
+          <button
+            onClick={() => addMarkdown("#### ")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Heading 4
+          </button>
+          <button
+            onClick={() => addMarkdown("- ")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Bullet List
+          </button>
+          <button
+            onClick={() => addMarkdown("1. ")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Numbered List
+          </button>
+          <button
+            onClick={() => addMarkdown("> ")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Blockquote
+          </button>
+          <button
+            onClick={() => addMarkdown("`")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Code
+          </button>
+          <button
+            onClick={() => addMarkdown("---")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Horizontal Rule
+          </button>
+          <button
+            onClick={() => addMarkdown("<br />")}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Line Break
+          </button>
+        </div>
+
         <textarea
-          rows="3"
+          rows="5"
           id="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
