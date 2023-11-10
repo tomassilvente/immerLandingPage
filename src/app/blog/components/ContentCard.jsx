@@ -13,7 +13,12 @@ const ContentCard = ({
   showHost,
   id,
 }) => {
-  const truncatedDetails = details.split("\n").slice(0, 3).join("\n");
+
+  const removeMarkdown = (text) => {
+    return text.replace(/([*_`~#])/g, ''); 
+  };
+
+  const truncatedDetails = removeMarkdown(details)?.split("\n").slice(0, 3).join("\n");
 
   return (
     <Link href={`/blog/${id}`}>
@@ -32,7 +37,7 @@ const ContentCard = ({
         <div className="flex justify-end p-3">
           <div className="text-white bg-primary w-20 p-2 h-7 rounded-lg">
             <Link href={`/event/${category}`}>
-              <p className="text-[10px] font-bold uppercase text-center">
+              <p className="text-[6px] font-bold uppercase text-center">
                 {category}
               </p>
             </Link>

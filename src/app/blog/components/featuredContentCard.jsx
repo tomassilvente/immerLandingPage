@@ -13,7 +13,12 @@ const FeaturedContentCard = ({
   showHost,
   id,
 }) => {
-  const truncatedDetails = details.split("\n").slice(0, 3).join("\n");
+
+  const removeMarkdown = (text) => {
+    return text.replace(/([*_`~#])/g, ''); 
+  };
+
+  const truncatedDetails = removeMarkdown(details)?.split("\n").slice(0, 3).join("\n");
   const truncatedTitle = title.split("\n").slice(0, 2).join("\n");
   return (
     <Link href={`/blog/${id}`}>
@@ -33,7 +38,7 @@ const FeaturedContentCard = ({
         <div className="flex justify-end p-3">
           <div className="text-white bg-primary w-20 p-2 h-7 rounded-lg">
             <Link href={`/blog/${category}`}>
-              <p className="text-[10px] font-bold uppercase text-center">
+              <p className="text-[7px] font-bold uppercase text-center">
                 {category}
               </p>
             </Link>
