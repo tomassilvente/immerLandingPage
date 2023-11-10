@@ -4,7 +4,6 @@ import ImmerCTA from "@/components/CTA";
 import ImmerFooter from "@/components/Footer";
 import ImmerHeader from "@/components/Header";
 import getData from "@/firebase/firestore/getData";
-import Image from "next/image";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Markdown from "react-markdown";
@@ -102,8 +101,8 @@ function Page() {
         iconWidth={190}
         iconHeight={180}
       />
-      <div className="xl:max-w-5xl md:max-w-3xl max-w-xl py-16 mx-auto space-y-12 mt-14">
-        <article className="space-y-12 xl:max-h-[800px] max-h-[600px] p-2 dark:bg-gray-800 dark:text-gray-50 m-2">
+      <div className="xl:max-w-5xl md:max-w-3xl max-w-xl pt-16 mx-auto mt-14">
+        <article className="lg:max-h-[1000px] max-h-[600px] p-2 dark:bg-gray-800 dark:text-gray-50 m-2">
           <div className="m-5">
             <h1 className="text-4xl text-center font-bold ">
               {documentData.title}
@@ -113,7 +112,7 @@ function Page() {
                 <img
                   src={documentData.imageUrl}
                   alt="Imagen"
-                  className="xl:max-h-[700px] xl:max-w-[700px] max-h-[500px] min-h-[200px] max-w-[500px] min-w-[200px]"
+                  className="lg:max-h-[500px] max-h-[200px] min-h-[200px] lg:max-w-[500px] max-w-[200px] min-w-[200px]"
                 />
               </div>
               <div className={`md:flex-row md:items-center dark:text-gray-400`}>
@@ -141,7 +140,7 @@ function Page() {
           </div>
         </article>
         <div>
-          <div className="flex flex-wrap m-2 py-6 space-x-2 border-t border-dashed text-white dark:border-gray-400 mt-80">
+          <div className="flex flex-wrap m-2 py-6 space-x-2 border-t border-dashed text-white dark:border-gray-400 mt-10">
             <a
               rel="noopener noreferrer"
               href="/blog"
@@ -150,9 +149,9 @@ function Page() {
               {documentData.category}
             </a>
           </div>
-          <div className="space-y-2 m-2">
+          <div className="m-2">
             <h4 className="text-lg font-semibold">Related posts</h4>
-            <div className="space-y-1 list-disc">
+            <div className="space-y-1 list-disc mb-20">
               {relatedPosts.map((post, index) => (
                 <li key={index}>
                   <a
