@@ -9,13 +9,10 @@ const CTAImg = [
       id: "cta-1",
       img: "/assets/blog/cta.png",
     },
-  ];
-
- 
+];
 
 const PrivacyPolicy = () => {
     const CTABackground = CTAImg;
-
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {

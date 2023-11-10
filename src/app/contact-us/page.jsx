@@ -13,7 +13,6 @@ const CTAImg = [
 
 const ContactUs = () => {
   const CTABackground = CTAImg;
-
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {

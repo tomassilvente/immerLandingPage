@@ -17,10 +17,7 @@ function Page() {
   const wordsPerMinute = 200;
   const totalWords = documentData.description?.split(/\s+/).length;
   const estimatedReadingTime = Math.ceil(totalWords / wordsPerMinute);
-
   const id = useParams().id;
-
-  console.log(documentData);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,11 +26,7 @@ function Page() {
         if (error) {
           console.error("Error fetching document:", error);
         } else {
-          // if (Array.isArray(result)) {
           setDocumentData(result);
-          // } else {
-          //   console.error("Document data is not valid:", result);
-          // }
         }
       } catch (error) {
         console.error("Error fetching document:", error);
@@ -46,21 +39,13 @@ function Page() {
   useEffect(() => {
     const fetchRelatedPosts = async () => {
       try {
-        const { result: currentPost, error: currentPostError } = await getData(
-          "blogs",
-          id
-        );
+        const { result: currentPost, error: currentPostError } = await getData("blogs",id);
         if (currentPostError) {
-          console.error("Error fetching current document:", currentPostError);
-          return;
+          return console.error("Error fetching current document:", currentPostError);
         }
-
-        const { result: allPosts, error: allPostsError } = await getData(
-          "blogs"
-        );
+        const { result: allPosts, error: allPostsError } = await getData("blogs");
         if (allPostsError) {
-          console.error("Error fetching all documents:", allPostsError);
-          return;
+          return console.error("Error fetching all documents:", allPostsError);
         }
 
         const filteredRelatedPosts = allPosts.filter((post) => post.id !== id);
@@ -102,7 +87,7 @@ function Page() {
         iconHeight={180}
       />
       <div className="xl:max-w-5xl md:max-w-3xl max-w-xl pt-16 mx-auto mt-14">
-        <article className=" p-2 dark:bg-gray-800 dark:text-gray-50 m-2">
+        <article className="p-2 dark:bg-gray-800 dark:text-gray-50 m-2">
           <div className="m-5">
             <h1 className="text-4xl text-center font-bold ">
               {documentData.title}

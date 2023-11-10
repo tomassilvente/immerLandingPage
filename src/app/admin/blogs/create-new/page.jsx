@@ -11,12 +11,8 @@ function CreateNew() {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("For Vendors");
   const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState(null);
   const [image, setImage] = useState(null);
   const router = useRouter();
-
-  const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(getAuth().currentUser);
 
   const addMarkdown = (markdownTag) => {
     const currentCursorPosition =
@@ -33,8 +29,6 @@ function CreateNew() {
       console.log("Selected image:", image);
 
       let user = getAuth().currentUser;
-      console.log(user);
-
       let userName = "Still not working LMAO";
       let profilePic = "none";
 
@@ -42,7 +36,6 @@ function CreateNew() {
         userName = user.displayName;
         profilePic = user.photoURL;
       }
-
       let imageURL = null;
 
       if (image) {

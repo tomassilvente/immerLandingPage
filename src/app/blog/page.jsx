@@ -1,5 +1,4 @@
 "use client"
-
 import BlogHero from "./components/blogHero";
 import FeatureContent from "./components/featuredContent";
 import MainContent from "./components/mainContent";
@@ -7,16 +6,11 @@ import React, { useEffect, useState } from "react";
 import ImmerFooter from "@/components/Footer";
 import ImmerCTA from "@/components/CTA";
 import ImmerHeader from "@/components/Header";
-import {
-  DummyContent,
-  BloggersData,
-} from "./components/demoData";
+import {BloggersData} from "./components/demoData";
 
 
 const Blog = () => {
   const mostPopularBloggers = BloggersData
-
-
   const [documentData, setDocumentData] = useState([]);
 
   useEffect(() => {

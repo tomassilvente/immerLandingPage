@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { getAdditionalUserInfo, getAuth } from "@firebase/auth";
+import { getAuth } from "@firebase/auth";
 import getData from "../../../firebase/firestore/getData";
 import deleteBlog from "../../../firebase/firestore/deleteDoc";
 import Link from "next/link";
@@ -16,7 +16,6 @@ function Blogs() {
 
   useEffect(() => {
     // Fetch a specific document from Firestore and set it to the state
-
     const fetchData = async () => {
       try {
         const { result, error } = await getData("blogs", null);
@@ -117,9 +116,7 @@ function Blogs() {
             </div>
 
             <div className="my-5 md:w-[43vw] h-3 bg-gradient-to-r from-[#FF6C00] to-[#FF6C0000]"></div>
-
             <p className="font-semibold mb-5 text-2xl">{blog.title}</p>
-
             <div className="flex md:grid lg:flex justify-items-center ">
               {blog.description ? (
                 <p className="text-[#555555] text-justify font-normal text-sm xl:text-base mr-4 md:mr-0  lg:mr-7 leading-normal">
@@ -128,7 +125,6 @@ function Blogs() {
               ) : (
                 <></>
               )}
-
               {blog.imageUrl ? (
                 <img
                   className="rounded-md max-h-[300px] max-w-[300px] md:mt-5 lg:mt-0"
