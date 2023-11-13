@@ -19,7 +19,6 @@ function Page() {
         if (error) {
           console.error("Error fetching document:", error);
         } else {
-            console.log(result)
           setDocumentData(result);
         }
       } catch (error) {
@@ -48,13 +47,13 @@ function Page() {
           documentData.map(post =>(
             <Link href={`/blog/${post.id}`}>
                 <div className="xl:max-w-5xl md:max-w-3xl max-w-xl mx-auto mt-5">
-                    <article className="p-2 dark:bg-gray-800 dark:text-gray-50 m-2 rounded-xl  max-h-[300px] overflow-clip">
+                    <article className="p-2 dark:bg-gray-800 dark:text-gray-50 m-2 rounded-xl  max-h-[260px] overflow-clip">
                         <div className="m-5">
-                            <div className="grid grid-cols-12 ">
-                                    <h1 className="text-3xl font-bold col-start-1 col-end-9">
+                            <div className="grid grid-cols-12">
+                                    <h1 className="text-3xl font-bold col-start-1 md:col-end-9 col-end-12">
                                         {post.title}
                                     </h1>
-                                    <div className="col-start-9 col-end-12 flex">
+                                    <div className="col-start-9 col-end-12 md:flex hidden">
                                         <img
                                             src={post.profilePic}
                                             alt=""
@@ -64,7 +63,7 @@ function Page() {
                                     </div>
                             </div>
                             <div className="grid grid-cols-6 mt-4">
-                                <div className={`md:flex-row md:items-center dark:text-gray-400 col-start-1 col-end-4`}>
+                                <div className={`md:flex-row md:items-center dark:text-gray-400 col-start-1 md:col-end-4 col-end-6`}>
                                     <div className=" my-3">
                                         <Markdown remarkPlugins={[remarkGfm]}>
                                             {post.description}
@@ -74,7 +73,7 @@ function Page() {
                                     <img
                                     src={post.imageUrl}
                                     alt="Imagen"
-                                    className="col-start-5 col-end-6  ml-2"
+                                    className="col-start-5 col-end-6 ml-2 hidden md:block"
                                     />
                             </div>
                         </div>
