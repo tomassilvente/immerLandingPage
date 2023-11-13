@@ -119,7 +119,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
             <p className="text-2xl font-bold not-italic text-[#1E1E1E] leading-6 tracking-[0.5px]">
               Popular Bloggers
             </p>
-            <Link href="/bloggers" className="hidden sm:block">
+            <Link href="/blog/bloggers" className="hidden sm:block">
               <p className="font-normal text-[#1E1E1E] text-base not-italic tracking-[0.5px] leading-6">
                 View All
               </p>
@@ -142,12 +142,12 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
               content.isAdmin?
                 <BloggersCard
                   id={content.id}
-                  // pinterestLink={content.pinterestLink}
-                  // instagramLink={content.instagramLink}
-                  // twitterLink={content.twitterLink}
-                  // facebookLink={content.facebookLink}
-                  // bio={content.bio}
-                  // followers={content.followers}
+                  pinterestLink={content.pinterest}
+                  instagramLink={content.instagram}
+                  twitterLink={content.X}
+                  facebookLink={content.facebook}
+                  bio={content.bio}
+                  followers={100}
                   bloggerName={content.username}
                   bloggerImage={content.imageURL}
                   key={content.id}

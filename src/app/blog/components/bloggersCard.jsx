@@ -19,7 +19,7 @@ const BloggersCard = ({
   bloggerName,
   bloggerImage,
 }) => {
-  // const bioInfo = bio.split("\n").slice(0, 2).join("\n");
+  const bioInfo = bio.split("\n").slice(0, 2).join("\n");
   const aspectRatio = 24 / 24;
   const calculatedHeight = Math.round(24 / aspectRatio);
 
@@ -35,12 +35,12 @@ const BloggersCard = ({
   return (
     <div
       style={{ boxShadow: " 0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
-      className="flex flex-col bg-white h-[145px] content-center p-2 pb-3 pt-3 mb-7 hover:scale-105 ease-out duration-300 cursor-pointer"
+      className="flex flex-col bg-white h-[145px] content-center p-2 pb-3 pt-3 mb-7 hover:scale-105 ease-out duration-300"
     >
       <div id="TopBloggerProfile" className="mb-3 flex flex-row">
         <div id="imageRow">
           <img
-            className="rounded-full border-none ml-1 h-[80px] w-[80px]"
+            className="rounded-full border-none ml-1 h-[70px] w-[80px]"
             src={bloggerImage}
             alt="blogger-image "
             priority
@@ -50,12 +50,12 @@ const BloggersCard = ({
           <div id="nameAndSocials" className="flex flex-row justify-between">
             <div id="nameRow">
               <Link href={`/${id}`}>
-                <p className="text-primary text-base font-medium not-italic leading-5 tracking-[-0.5px]">
+                <p className="text-primary ml-2 text-base font-medium not-italic leading-5 tracking-[-0.5px]">
                   {bloggerName}
                 </p>
               </Link>
             </div>
-            <div id="socials-raw" className="flex flex-row">
+            <div id="socials-raw" className="flex flex-row" >
               {socialMediaLinks.map((item, index) => (
                 <Link
                   href={'/'}
@@ -69,7 +69,7 @@ const BloggersCard = ({
               ))}
             </div>
           </div>
-          <div id="followers" className="flex flex-row mt-1">
+          <div id="followers" className="flex flex-row mt-1 ml-1">
             <Image
               src="/assets/blog/man.png"
               width={24}
@@ -85,7 +85,7 @@ const BloggersCard = ({
       </div>
       <div id="bio">
         <p className="text-[#747474] text-sm font-normal not not-italic leading-[18px] line-clamp-2">
-          {/* {bioInfo} */}
+          {bioInfo}
         </p>
       </div>
     </div>

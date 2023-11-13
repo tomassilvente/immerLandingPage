@@ -12,6 +12,11 @@ export default function Page() {
     const [email, setEmail] = React.useState("");
     const [Password, setPassword] = React.useState("");
     const [fullName, setFullName] = React.useState("");
+    const [X, setX] = React.useState("");
+    const [instagram, setInstagram] = React.useState("");
+    const [facebook, setFacebook] = React.useState("");
+    const [pinterest, setPinterest] = React.useState("");
+    const [bio, setBio] = React.useState("");
     const [image, setImage] = React.useState(null);
     const [success, setSuccess] = React.useState(false);
     const [error, setError] = React.useState(false);
@@ -27,6 +32,11 @@ export default function Page() {
           email: email,
           username: fullName,
           imageURL: imageURL,
+          instagram: instagram,
+          X:X,
+          facebook:facebook,
+          pinterest:pinterest,
+          bio:bio,
           isAdmin: true
         };
         await addData("users", null, userData);
@@ -49,7 +59,7 @@ export default function Page() {
         }
         <form 
             onSubmit={handleForm} 
-            className="form font-light text-black mt-28"
+            className="form font-light text-black mt-40"
             style={{
               display:
                 success
@@ -104,6 +114,62 @@ export default function Page() {
                 id="profilePic"
               />
             </label>
+            <label className="row-start-1 row-end-2" htmlFor="email">
+              <p className="pb-4 mt-4">Instagram Link</p>
+              <input
+                className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#dddddd]"
+                onChange={(e) => setInstagram(e.target.value)}
+                type="text"
+                name="instagram"
+                id="instagram"
+                placeholder="instagram.com/..."
+              />
+            </label>
+            <label className="row-start-1 row-end-2" htmlFor="email">
+              <p className="pb-4 ">X Link</p>
+              <input
+                className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#dddddd]"
+                onChange={(e) => setX(e.target.value)}
+                type="text"
+                name="x"
+                id="x"
+                placeholder="X.com/..."
+              />
+            </label>
+            <label className="row-start-1 row-end-2" htmlFor="email">
+              <p className="pb-4 ">Pinterest Link</p>
+              <input
+                className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#dddddd]"
+                onChange={(e) => setPinterest(e.target.value)}
+                type="text"
+                name="pinterest"
+                id="pinterest"
+                placeholder="pinterest.com/...."
+              />
+            </label>
+            <label className="row-start-1 row-end-2" htmlFor="email">
+              <p className="pb-4 ">Facebook Link</p>
+              <input
+                className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#dddddd]"
+                onChange={(e) => setFacebook(e.target.value)}
+                type="text"
+                name="facebook"
+                id="facebook"
+                placeholder="facebook.com/..."
+              />
+            </label>
+            <label className="row-start-1 row-end-2" htmlFor="email">
+              <p className="pb-4 ">Biography: Tell us about you</p>
+              <textarea
+                className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#dddddd]"
+                onChange={(e) => setBio(e.target.value)}
+                required
+                type="text"
+                name="bio"
+                id="bio"
+                placeholder="Born in ... I do this..."
+              />
+            </label>
             <label>
               <p className=" text-[#b9b9b9] mt-5">
                 By submitting this form you agree our 
@@ -116,7 +182,7 @@ export default function Page() {
             </label>
             <button 
               onClick={handleForm}
-              className="row-start-3 bg-primary text-white mt-8 py-3 w-[100%] rounded-[8px]" 
+              className="row-start-3 bg-primary text-white my-8 py-3 w-[100%] rounded-[8px]" 
               type="submit" 
               >
                 Sign Up!
