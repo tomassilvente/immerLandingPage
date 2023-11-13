@@ -24,7 +24,7 @@ export default function Page() {
         const imageURL = await uploadImage(image);
         const userData = {
           email: email,
-          username: username,
+          username: fullName,
           imageURL: imageURL,
           isAdmin: true
         };
