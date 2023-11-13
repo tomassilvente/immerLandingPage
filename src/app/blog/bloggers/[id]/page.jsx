@@ -53,17 +53,17 @@ function Page() {
       <div className="xl:max-w-5xl md:max-w-3xl max-w-xl pt-16 mx-auto mt-14">
         <article className="p-2 dark:bg-gray-800 dark:text-gray-50 bg-gray-300 m-2 rounded-lg">
           <div className="m-5">
-              <div className={`md:flex-row md:items-center dark:text-gray-400`}>
+              <div className={`md:items-center dark:text-gray-400`}>
                 <div className="flex mt-5 items-center md:space-x-2">
                   <img
                     src={documentData.imageURL}
                     alt=""
                     className="w-[100px] h-[100px] border rounded-full dark:bg-gray-500 dark:border-gray-700"
                   />
-                  <div>
-                    <p className="ml-3 text-3xl">{documentData.username} </p>
+                  <div >
+                    <p className="ml-3 text-3xl md:mr-[220px]">{documentData.username} </p>
                   </div>
-                  <div className="flex pl-[400px] space-x-3">
+                  <div className="flex ml-12 space-x-4 ">
                     <Link
                         href={documentData.instagram ? documentData.instagram : '/'} 
                         target="_blank"
