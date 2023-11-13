@@ -56,7 +56,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
             <p className="text-2xl font-bold not-italic text-[#1E1E1E] leading-6 tracking-[0.5px]">
               Latest Articles
             </p>
-            <Link href="/bloggers" className="hidden sm:block">
+            <Link href="/blog/all" className="hidden sm:block">
               <p className="font-normal text-[#1E1E1E] text-base not-italic tracking-[0.5px] leading-6">
                 View All
               </p>
