@@ -138,7 +138,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
             </Link>
           </div>
           <div className="grid gap-x-3 md:grid-cols-2 lg:grid-cols-1 lg:gap-x-3 pl-1 pr-1 ">
-            {displayedBloggers.map((content) => (
+            {bloggersData.map((content) => (
               content.isAdmin?
                 <BloggersCard
                   id={content.id}
@@ -149,7 +149,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
                   // bio={content.bio}
                   // followers={content.followers}
                   bloggerName={content.username}
-                  bloggerImage={content.imageUrl}
+                  bloggerImage={content.imageURL}
                   key={content.id}
                 />
                 : ''

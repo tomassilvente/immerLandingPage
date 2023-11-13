@@ -39,12 +39,10 @@ const BloggersCard = ({
     >
       <div id="TopBloggerProfile" className="mb-3 flex flex-row">
         <div id="imageRow">
-          <Image
-            className="rounded-full border-none ml-1"
+          <img
+            className="rounded-full border-none ml-1 h-[80px] w-[80px]"
             src={bloggerImage}
-            width={80}
-            height={80}
-            alt="blogger-image"
+            alt="blogger-image "
             priority
           />
         </div>
