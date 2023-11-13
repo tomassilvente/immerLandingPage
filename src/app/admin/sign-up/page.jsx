@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import signUp from "@/firebase/auth/signup";
 import { uploadImage } from "../../../firebase/firestore/uploadImage";
+import addData from "@/firebase/firestore/addData";
 
 
 export default function Page() {
