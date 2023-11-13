@@ -6,17 +6,6 @@ export default function OurMissionHeader({titleWhite, titleOrange, links }){
 
     const [currentLink, setCurrentLink] = useState('/privacy-policy')
 
-    const BlogHeroImg = [
-        {
-          id: "hero-1",
-          img: "/assets/blog/blog-hero-bg.png",
-        },
-        {
-          id: "hero-2",
-          img: "/assets/blog/blog-hero-guitar.png",
-        },
-      ];
-
     return(
     <div
       className="min-h-[full] bg-white bg-blogHero flex items-stretch min-w-full pt-24"

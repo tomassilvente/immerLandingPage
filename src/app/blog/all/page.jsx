@@ -12,6 +12,10 @@ import remarkGfm from "remark-gfm";
 function Page() {
   const [documentData, setDocumentData] = useState([]);
 
+  const removeMarkdown = (text) => {
+    return text.replace(/([*_`~#])/g, ''); 
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -66,7 +70,7 @@ function Page() {
                                 <div className={`md:flex-row md:items-center dark:text-gray-400 col-start-1 md:col-end-4 col-end-6`}>
                                     <div className=" my-3">
                                         <Markdown remarkPlugins={[remarkGfm]}>
-                                            {post.description}
+                                            {removeMarkdown(post.description)?.split("\n").slice(0, 3).join("\n")}
                                         </Markdown>
                                     </div>
                                 </div>

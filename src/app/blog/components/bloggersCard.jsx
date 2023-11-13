@@ -19,7 +19,7 @@ const BloggersCard = ({
   bloggerName,
   bloggerImage,
 }) => {
-  const bioInfo = bio.split("\n").slice(0, 2).join("\n");
+  // const bioInfo = bio.split("\n").slice(0, 2).join("\n");
   const aspectRatio = 24 / 24;
   const calculatedHeight = Math.round(24 / aspectRatio);
 
@@ -29,6 +29,8 @@ const BloggersCard = ({
     { icon: <FaPinterest />, url: pinterestLink },
     { icon: <FaInstagram />, url: instagramLink },
   ];
+
+  console.log(id)
 
   return (
     <div
@@ -58,7 +60,7 @@ const BloggersCard = ({
             <div id="socials-raw" className="flex flex-row">
               {socialMediaLinks.map((item, index) => (
                 <Link
-                  href={item.url}
+                  href={'/'}
                   key={index}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -85,7 +87,7 @@ const BloggersCard = ({
       </div>
       <div id="bio">
         <p className="text-[#747474] text-sm font-normal not not-italic leading-[18px] line-clamp-2">
-          {bioInfo}
+          {/* {bioInfo} */}
         </p>
       </div>
     </div>

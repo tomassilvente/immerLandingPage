@@ -22,7 +22,13 @@ export default function Page() {
     
         // Upload the image to Firebase Storage and get its URL
         const imageURL = await uploadImage(image);
-
+        const userData = {
+          email: email,
+          username: username,
+          imageURL: imageURL,
+          isAdmin: true
+        };
+        await addData("users", null, userData);
         const { result, error } = await signUp(email, Password, fullName, imageURL);
     
         if (error) {
@@ -86,15 +92,17 @@ export default function Page() {
                 placeholder="password"
               />
             </label>
+            <label>
               <p className="pb-4 ">PROFILE PIC</p>
               <input
                 onChange={(e) => setImage(e.target.files[0])}
                 required
-                accept="image/png, image/jpeg, image/jpg"
                 type="file"
+                accept="image/png, image/jpeg, image/jpg"
                 name="profilePic"
                 id="profilePic"
               />
+            </label>
             <label>
               <p className=" text-[#b9b9b9] mt-5">
                 By submitting this form you agree our 

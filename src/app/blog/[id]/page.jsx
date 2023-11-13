@@ -14,6 +14,7 @@ function Page() {
 
   const [documentData, setDocumentData] = useState([]);
 
+
   const wordsPerMinute = 200;
   const totalWords = documentData.description?.split(/\s+/).length;
   const estimatedReadingTime = Math.ceil(totalWords / wordsPerMinute);
