@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function OurMissionHeader({titleWhite, titleOrange, links }){
 
-    const [currentLink, setCurrentLink] = useState('')
+    const [currentLink, setCurrentLink] = useState('/privacy-policy')
 
     const BlogHeroImg = [
         {
