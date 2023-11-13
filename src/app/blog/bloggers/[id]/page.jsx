@@ -11,6 +11,7 @@ import ImmerHeader from "@/components/Header";
 import getData from "@/firebase/firestore/getData";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import Link from "next/link";
 
 function Page() {
   const [documentData, setDocumentData] = useState([]);
@@ -25,6 +26,7 @@ function Page() {
           console.error("Error fetching document:", error);
         } else {
           setDocumentData(result);
+          console.log(result)
         }
       } catch (error) {
         console.error("Error fetching document:", error);
@@ -49,56 +51,55 @@ function Page() {
         iconHeight={180}
       />
       <div className="xl:max-w-5xl md:max-w-3xl max-w-xl pt-16 mx-auto mt-14">
-        <article className="p-2 dark:bg-gray-800 dark:text-gray-50 m-2">
+        <article className="p-2 dark:bg-gray-800 dark:text-gray-50 bg-gray-300 m-2 rounded-lg">
           <div className="m-5">
               <div className={`md:flex-row md:items-center dark:text-gray-400`}>
-                <div className="flex mt-10 items-center md:space-x-2">
+                <div className="flex mt-5 items-center md:space-x-2">
                   <img
-                    src={documentData.imageUrl}
+                    src={documentData.imageURL}
                     alt=""
                     className="w-[100px] h-[100px] border rounded-full dark:bg-gray-500 dark:border-gray-700"
                   />
                   <div>
                     <p className="ml-3 text-3xl">{documentData.username} </p>
                   </div>
+                  <div className="flex pl-[400px] space-x-3">
                     <Link
-                        href={documentData.instagram}
-                        key={index}
+                        href={documentData.instagram ? documentData.instagram : '/'} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-[26px] h-5 bg-white text-[#232323]"
+                        className=""
                         >
-                        {FaInstagram}
+                        <FaInstagram />
                     </Link>
                     <Link
-                        href={documentData.facebook}
-                        key={index}
+                        href={documentData.facebook ? documentData.facebook : '/'} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-[26px] h-5 bg-white text-[#232323]"
+                        className=""
                         >
-                        {FaFacebook}
+                        <FaFacebook />
                     </Link>
                     <Link
-                        href={documentData.pinterest}
-                        key={index}
+                        href={documentData.pinterest ? documentData.pinterest : '/'} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-[26px] h-5 bg-white text-[#232323]"
+                        className=""
                         >
-                        {FaPinterest}
+                        <FaPinterest />
                     </Link>
                     <Link
-                        href={documentData.X}
-                        key={index}
+                        href={documentData.X ? documentData.X : '/'} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-[26px] h-5 bg-white text-[#232323]"
+                        className="  "
                         >
-                        {FaTwitter}
+                        <FaTwitter />
                     </Link>
+                  </div>
                 </div>
-                <div className="m-2 text-lg">
+                
+                <div className="m-5 text-xl">
                     {documentData.bio}
                 </div>
               </div>

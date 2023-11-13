@@ -45,7 +45,9 @@ function Page() {
       <div className="grid grid-cols-2">
         {documentData.map((content) => (
             content.isAdmin
-            ? <Link href={`/bloggers/${content.id}`}><BloggersCard
+            ? <Link href={`/bloggers/${content.id}`}>
+                {console.log(content.id)}
+                <BloggersCard
                     id={content.id}
                     pinterestLink={content.pinterest}
                     instagramLink={content.instagram}
@@ -56,7 +58,7 @@ function Page() {
                     bloggerName={content.username}
                     bloggerImage={content.imageURL}
                     key={content.id}
-            />
+                />
             </Link>
             : ''
         ))}
