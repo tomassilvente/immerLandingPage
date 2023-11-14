@@ -60,7 +60,7 @@ function Page() {
                         href={documentData.instagram ? documentData.instagram : '/'} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className=""
+                        className={documentData.instagram ? '' : 'hidden'}
                         >
                         <FaInstagram />
                     </Link>
@@ -68,7 +68,7 @@ function Page() {
                         href={documentData.facebook ? documentData.facebook : '/'} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className=""
+                        className={documentData.facebook ? '' : 'hidden'}
                         >
                         <FaFacebook />
                     </Link>
@@ -76,7 +76,7 @@ function Page() {
                         href={documentData.pinterest ? documentData.pinterest : '/'} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className=""
+                        className={documentData.pinteres ? '' : 'hidden'}
                         >
                         <FaPinterest />
                     </Link>
@@ -84,7 +84,7 @@ function Page() {
                         href={documentData.X ? documentData.X : '/'} 
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="  "
+                        className={documentData.X ? '' : 'hidden'}
                         >
                         <FaTwitter />
                     </Link>

@@ -58,11 +58,11 @@ const BloggersCard = ({
             <div id="socials-raw" className="flex flex-row" >
               {socialMediaLinks.map((item, index) => (
                 <Link
-                  href={'/'}
+                  href={`${item.url}`}
                   key={index}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[26px] h-5 bg-white text-[#232323]"
+                  className={`w-[26px] h-5 bg-white text-[#232323] ${item.url ? '' : 'hidden'}`}
                 >
                   {item.icon}
                 </Link>
