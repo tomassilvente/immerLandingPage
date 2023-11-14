@@ -16,10 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - script: |
+      - name: Create .env.local
+        run: |
           echo "JWT_SECRET=$(JWT_SECRET)" >> .env.local
         displayName: "Create .env.local"
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
           submodules: true
           lfs: false
