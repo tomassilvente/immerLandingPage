@@ -42,10 +42,12 @@ function Page() {
         iconHeight={180}
       />
       <hr className="mt-20"/>
-      <div className="grid grid-cols-2">
+      <div className="mt-10 grid md:grid-cols-2 xl:mx-[125px]">
         {documentData.map((content) => (
             content.isAdmin
-            ? <Link href={`/bloggers/${content.id}`}>
+            ? <Link
+                className="lg:w-[500px]" 
+                href={`/blog/bloggers/${content.id}`}>
                 {console.log(content.id)}
                 <BloggersCard
                     id={content.id}

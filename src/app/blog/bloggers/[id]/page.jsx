@@ -54,16 +54,8 @@ function Page() {
         <article className="p-2 dark:bg-gray-800 dark:text-gray-50 bg-gray-300 m-2 rounded-lg">
           <div className="m-5">
               <div className={`md:items-center dark:text-gray-400`}>
-                <div className="flex mt-5 items-center md:space-x-2">
-                  <img
-                    src={documentData.imageURL}
-                    alt=""
-                    className="w-[100px] h-[100px] border rounded-full dark:bg-gray-500 dark:border-gray-700"
-                  />
-                  <div >
-                    <p className="ml-3 text-3xl md:mr-[220px]">{documentData.username} </p>
-                  </div>
-                  <div className="flex ml-12 space-x-4 ">
+                  <p className=" text-center text-5xl ">{documentData.username} </p>
+                  <div className="flex space-x-4 justify-center items-center my-8">
                     <Link
                         href={documentData.instagram ? documentData.instagram : '/'} 
                         target="_blank"
@@ -97,11 +89,16 @@ function Page() {
                         <FaTwitter />
                     </Link>
                   </div>
-                </div>
-                
-                <div className="m-5 text-xl">
-                    {documentData.bio}
-                </div>
+                  <div className="flex ">
+                    <img
+                      src={documentData.imageURL}
+                      alt=""
+                      className="max-h-[400px] max-w-[800px] rounded-lg"
+                    />
+                    <div className="m-5 ml-14 text-xl">
+                        {documentData.bio}
+                    </div>
+                  </div>
               </div>
           </div>
         </article>

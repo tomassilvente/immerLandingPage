@@ -37,10 +37,16 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
     fetchData();
   }, []);
 
-  const [bloggersData, setbloggersData] = useState([]);
+  const [bloggersData, setbloggersData] = useState([]); 
   const maxBloggersToShow = 3;
-  const displayedBloggers = bloggersData.slice(0, maxBloggersToShow);
+  const filteredBloggers = []
+  bloggersData.map((content) => (
+    content.isAdmin?
+    filteredBloggers.push(content)
+    :''))
+  const displayedBloggers = filteredBloggers.slice(0, maxBloggersToShow);
 
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -62,6 +68,8 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
 
     fetchData();
   }, []);
+
+ 
 
   return (
     <main
@@ -138,8 +146,8 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
             </Link>
           </div>
           <div className="grid gap-x-3 md:grid-cols-2 lg:grid-cols-1 lg:gap-x-3 pl-1 pr-1 ">
-            {bloggersData.map((content) => (
-              content.isAdmin?
+            {displayedBloggers.map((content) => (
+              
                 <BloggersCard
                   id={content.id}
                   pinterestLink={content.pinterest}
@@ -152,9 +160,9 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
                   bloggerImage={content.imageURL}
                   key={content.id}
                 />
-                : ''
+                
             ))}
-            {secondBloggers.map((content) => (
+            {/* {displayedBloggers.map((content) => (
               <SecondBloggersCard
                 img={content.img}
                 category={content.category}
@@ -167,7 +175,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
                 hostImage={content.hostImage}
                 key={content.id}
               />
-            ))}
+            ))} */}
           </div>
         </section>
       </div>

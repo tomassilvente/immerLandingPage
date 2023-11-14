@@ -19,7 +19,7 @@ const BloggersCard = ({
   bloggerName,
   bloggerImage,
 }) => {
-  const bioInfo = bio.split("\n").slice(0, 2).join("\n");
+  // const bioInfo = bio.split("\n").slice(0, 2).join("\n");
   const aspectRatio = 24 / 24;
   const calculatedHeight = Math.round(24 / aspectRatio);
 
@@ -35,7 +35,7 @@ const BloggersCard = ({
   return (
     <div
       style={{ boxShadow: " 0px 4px 4px 0px rgba(0, 0, 0, 0.25)" }}
-      className="flex flex-col bg-white h-[145px] content-center p-2 pb-3 pt-3 mb-7 hover:scale-105 ease-out duration-300"
+      className="flex flex-col bg-white h-[145px] content-center p-2 pb-3 pt-3 mb-7 hover:scale-105 ease-out duration-300 overflow-hidden"
     >
       <div id="TopBloggerProfile" className="mb-3 flex flex-row">
         <div id="imageRow">
@@ -49,7 +49,7 @@ const BloggersCard = ({
         <div id="bloggersInfoRow" className="flex flex-col w-full ml-2 mt-2 ">
           <div id="nameAndSocials" className="flex flex-row justify-between">
             <div id="nameRow">
-              <Link href={`/${id}`}>
+              <Link href={`/blog/bloggers/${id}`}>
                 <p className="text-primary ml-2 text-base font-medium not-italic leading-5 tracking-[-0.5px]">
                   {bloggerName}
                 </p>
@@ -84,8 +84,8 @@ const BloggersCard = ({
         </div>
       </div>
       <div id="bio">
-        <p className="text-[#747474] text-sm font-normal not not-italic leading-[18px] line-clamp-2">
-          {bioInfo}
+        <p className="text-[#747474] mx-5 text-sm font-normal not not-italic leading-[18px] line-clamp-2">
+          {bio}
         </p>
       </div>
     </div>
