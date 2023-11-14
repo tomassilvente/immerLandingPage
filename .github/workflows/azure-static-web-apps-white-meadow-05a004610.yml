@@ -1,3 +1,5 @@
+name: Azure Static Web Apps CI/CD
+
 on:
   push:
     branches:
@@ -7,8 +9,8 @@ on:
     branches:
       - main
 
-variables:
-  - group: EnvironmentVariables-Dev
+env:
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
 jobs:
   build_and_deploy_job:
@@ -17,9 +19,7 @@ jobs:
     name: Build and Deploy Job
     steps:
       - name: Create .env.local
-        run: |
-          echo "JWT_SECRET=$(JWT_SECRET)" >> .env.local
-        displayName: "Create .env.local"
+        run: echo "JWT_SECRET=${JWT_SECRET}" >> .env.local
       - name: Checkout code
         uses: actions/checkout@v3
         with:
