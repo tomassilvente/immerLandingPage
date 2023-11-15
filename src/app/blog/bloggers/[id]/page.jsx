@@ -15,19 +15,12 @@ import Link from "next/link";
 
 function Page() {
   const [documentData, setDocumentData] = useState([]);
+  const [blogs, setBlogs] = useState([]);
   const id = useParams().id;
-  let blogs = []
+  let newBlogs = []
   
   useEffect(() => {
-    const fetchBlogs = async (blogId) => {
-        const { result, error } = await getData("blogs", blogId);
-        if (error) {
-          console.error("Error fetching document:", error);
-        } else {
-          blogs.push(result)
-          console.log(blogs)
-        }
-      };
+    
     const fetchData = async () => {
       try {
         const { result, error } = await getData("users", id);
@@ -35,7 +28,7 @@ function Page() {
           console.error("Error fetching document:", error);
         } else {
           setDocumentData(result);
-          result.blogs.map(blog => fetchBlogs(blog.id))
+          setBlogs(result.blogs)
         }
       } catch (error) {
         console.error("Error fetching document:", error);
@@ -44,17 +37,19 @@ function Page() {
 
     fetchData();
   }, []);
+
+  const fetchBlogs = async (blogId) => {
+    const { result, error } = await getData("blogs", blogId);
+    if (error) {
+      console.error("Error fetching document:", error);
+    } else {
+      console.log(result)
+      newBlogs.push(result)
+      setBlogs(newBlogs)
+    }
+  };
   
-  // useEffect(() => {
-  
-
-  //   documentData.blogs.map(blog =>(
-  //     fetchBlogs(blog)
-  //   ))
-
-  //   fetchBlogs();
-  // },[])
-
+  blogs.map(blog => fetchBlogs(blog))
 
   return (
     <div
@@ -119,11 +114,23 @@ function Page() {
                         {documentData.bio}
                     </div>
                   </div>
-                  <p className="text-2xl text-center my-2">Blogs:</p>
-                  <div className="flex text-xl">
+                  <p className="text-2xl text-center my-10">Blogs:</p>
+                  <div className="flex text-xl space-x-5 overflow-clip">
                      {
-                      blogs
-                        
+                      blogs?
+                        blogs.map(blog =>(
+                          <Link href={`/blog/all`}>
+                            <div className="h-[200px] w-[150px] border border-primary text-black rounded-xl p-2 text-sm text-center bg-gray-300 overflow-clip">
+                              {blog.title}
+                              <img
+                                src={blog.imageUrl}
+                                alt=""
+                                className="h-[120px] w-[120px] rounded-lg mt-4 mx-[6px]"
+                              />
+                            </div>
+                          </Link>
+                        ))
+                      : 'NOO'
                      }
                   </div>
               </div>
