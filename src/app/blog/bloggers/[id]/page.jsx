@@ -105,18 +105,18 @@ function Page() {
                         <FaTwitter />
                     </Link>
                   </div>
-                  <div className="flex ">
+                  <div className="md:flex grid justify-center items-center md:justify-start ">
                     <img
                       src={documentData.imageURL}
                       alt=""
-                      className="max-h-[400px] max-w-[800px] rounded-lg"
+                      className="md:max-h-[400px] md:max-w-[800px] max-w-[200px] max-h-[200px] rounded-lg"
                     />
-                    <div className="m-5 ml-14 text-xl">
+                    <div className="m-5 md:ml-14 text-xl text-center md:text-start">
                         {documentData.bio}
                     </div>
                   </div>
                   <p className="text-2xl text-center my-10">BLOGS</p>
-                  <div className="flex text-xl space-x-5 overflow-clip">
+                  <div className="flex text-xl space-x-5 overflow-x-scroll">
                      {
                       blogs?
                         blogs.map(blog =>(
