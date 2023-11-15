@@ -39,10 +39,11 @@ function Page() {
   }, []);
 
   const fetchBlogs = async (blogId) => {
-    const { result, error } = await getData("blogs", blogId);
+    let { result, error } = await getData("blogs", blogId);
     if (error) {
       console.error("Error fetching document:", error);
     } else {
+      result = {...result, id:blogId}
       console.log(result)
       newBlogs.push(result)
       setBlogs(newBlogs)
@@ -114,12 +115,12 @@ function Page() {
                         {documentData.bio}
                     </div>
                   </div>
-                  <p className="text-2xl text-center my-10">Blogs:</p>
+                  <p className="text-2xl text-center my-10">BLOGS</p>
                   <div className="flex text-xl space-x-5 overflow-clip">
                      {
                       blogs?
                         blogs.map(blog =>(
-                          <Link href={`/blog/all`}>
+                          <Link href={`/blog/${blog.id}`}>
                             <div className="h-[200px] w-[150px] border border-primary text-black rounded-xl p-2 text-sm text-center bg-gray-300 overflow-clip">
                               {blog.title}
                               <img
