@@ -147,7 +147,6 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
           </div>
           <div className="grid gap-x-3 md:grid-cols-2 lg:grid-cols-1 lg:gap-x-3 pl-1 pr-1 ">
             {displayedBloggers.map((content) => (
-              
                 <BloggersCard
                   id={content.id}
                   pinterestLink={content.pinterest}
