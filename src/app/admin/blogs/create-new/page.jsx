@@ -2,10 +2,11 @@
 
 import { useRouter } from "next/navigation";
 import { getAuth } from "@firebase/auth";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import addData from "../../../../firebase/firestore/addData";
 import { uploadImage } from "../../../../firebase/firestore/uploadImage";
 import withAuth from "@/app/hoc/withAuth";
+import getData from "@/firebase/firestore/getData";
 
 function CreateNew() {
   const [title, setTitle] = useState("");
@@ -51,10 +52,18 @@ function CreateNew() {
           category: category,
           description: description,
           imageUrl: imageURL,
+          creator: user.email
         };
-
-        await addData("blogs", null, data);
-
+        const usuarios = (await getData('users')).result
+        let {result} = await addData("blogs", null, data);
+        for(let a=0; a<usuarios.length; a++){
+          if(usuarios[a].email === user.email){ 
+            let blogs = usuarios[a].blogs
+            blogs.push(result.id)
+            await addData('users', usuarios[a].id, {blogs:blogs})
+            console.log(usuarios[a].blogs)
+          }
+        }
         return router.push("/admin/blogs");
       } else {
         console.error("Image URL is null. Please upload an image.");

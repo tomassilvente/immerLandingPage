@@ -8,7 +8,7 @@ export default async function signUp(email, password, fullName, photoUrl) {
     let result = null,
         error = null;
     try {
-        createUserWithEmailAndPassword(auth, email, password)
+        result = await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential)=>{
                 const user = userCredential.user
                 updateProfile(user, {

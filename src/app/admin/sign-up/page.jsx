@@ -28,6 +28,7 @@ export default function Page() {
     
         // Upload the image to Firebase Storage and get its URL
         const imageURL = await uploadImage(image);
+        const { result, error } = await signUp(email, Password, fullName, imageURL);
         const userData = {
           email: email,
           username: fullName,
@@ -37,15 +38,14 @@ export default function Page() {
           facebook:facebook,
           pinterest:pinterest,
           bio:bio,
-          isAdmin: true
+          isAdmin: true,
+          blogs:[],
         };
         await addData("users", null, userData);
-        const { result, error } = await signUp(email, Password, fullName, imageURL);
     
         if (error) {
           setError(true)
         }
-
         return router.push("/admin/login");
     }
 

@@ -15,10 +15,19 @@ import Link from "next/link";
 
 function Page() {
   const [documentData, setDocumentData] = useState([]);
-
   const id = useParams().id;
-
+  let blogs = []
+  
   useEffect(() => {
+    const fetchBlogs = async (blogId) => {
+        const { result, error } = await getData("blogs", blogId);
+        if (error) {
+          console.error("Error fetching document:", error);
+        } else {
+          blogs.push(result)
+          console.log(blogs)
+        }
+      };
     const fetchData = async () => {
       try {
         const { result, error } = await getData("users", id);
@@ -26,7 +35,7 @@ function Page() {
           console.error("Error fetching document:", error);
         } else {
           setDocumentData(result);
-          console.log(result)
+          result.blogs.map(blog => fetchBlogs(blog.id))
         }
       } catch (error) {
         console.error("Error fetching document:", error);
@@ -35,6 +44,17 @@ function Page() {
 
     fetchData();
   }, []);
+  
+  // useEffect(() => {
+  
+
+  //   documentData.blogs.map(blog =>(
+  //     fetchBlogs(blog)
+  //   ))
+
+  //   fetchBlogs();
+  // },[])
+
 
   return (
     <div
@@ -98,6 +118,13 @@ function Page() {
                     <div className="m-5 ml-14 text-xl">
                         {documentData.bio}
                     </div>
+                  </div>
+                  <p className="text-2xl text-center my-2">Blogs:</p>
+                  <div className="flex text-xl">
+                     {
+                      blogs
+                        
+                     }
                   </div>
               </div>
           </div>
