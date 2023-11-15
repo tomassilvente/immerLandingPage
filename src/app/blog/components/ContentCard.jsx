@@ -13,12 +13,6 @@ const ContentCard = ({
   id,
 }) => {
 
-  const removeMarkdown = (text) => {
-    return text.replace(/([*_`~#])/g, ''); 
-  };
-
-  const truncatedDetails = removeMarkdown(details)?.split("\n").slice(0, 3).join("\n");
-
   return (
     <Link href={`/blog/${id}`}>
     <div
@@ -51,7 +45,7 @@ const ContentCard = ({
         </p>
       <div className="h-[66px]">
         <p className="text-xs font-normal text-[#232323]  line-clamp-3 text-left ml-1">
-          {truncatedDetails}
+          {details.split("\n").slice(0, 3).join("\n").replace(/([*_`~#])/g, '')}
         </p>
       </div>
       {showHost && (

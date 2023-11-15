@@ -14,12 +14,6 @@ const FeaturedContentCard = ({
   id,
 }) => {
 
-  const removeMarkdown = (text) => {
-    return text.replace(/([*_`~#])/g, ''); 
-  };
-
-  const truncatedDetails = removeMarkdown(details)?.split("\n").slice(0, 3).join("\n");
-  const truncatedTitle = title.split("\n").slice(0, 2).join("\n");
   return (
     <Link href={`/blog/${id}`}>
     <div
@@ -50,10 +44,10 @@ const FeaturedContentCard = ({
       </p>
       
         <p className="mb-3 text-lg font-bold line-clamp-2 text-primary text-left ml-1 whitespace-normal">
-          {truncatedTitle}
+          {title?.split("\n").slice(0, 2).join("\n")}
         </p>
         <p className="text-xs font-normal text-[#232323] line-clamp-3 whitespace-normal text-left mx-2">
-          {truncatedDetails}
+          {details?.split("\n").slice(0, 3).join("\n").replace(/([*_`~#])/g, '')}
         </p>
       {showHost && (
         <Link href="/author">
