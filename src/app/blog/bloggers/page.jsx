@@ -41,8 +41,8 @@ function Page() {
         iconWidth={190}
         iconHeight={180}
       />
-      <hr className="mt-20"/>
-      <div className="mt-10 grid md:grid-cols-2 xl:mx-[125px]">
+      <hr className="mt-20 "/>
+      <div className="mt-10 grid md:grid-cols-2 xl:mx-[125px] m-10">
         {documentData.map((content) => (
             content.isAdmin
             ? <Link

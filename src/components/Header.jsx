@@ -60,7 +60,7 @@ export default function ImmerHeader({
         ?
         <div
         id="Nav-container"
-        className="md:w-[91.5%] sm:w-[87%] w-[95%] lg:hidden rounded-lg absolute bg-white text-center mt-44 py-5 text-2xl space-y-5"
+        className="md:w-[91.5%] sm:w-[87%] w-[93%] lg:hidden rounded-lg absolute bg-white text-center mt-44 py-5 text-2xl space-y-5"
       >
         <img onClick={setFeedOpen} src='../../assets/blog/cross.png' className= " absolute ml-[87%] mt-[4%] w-[40px] h-[36px]"/>
         {NavList.map((NavData) => (

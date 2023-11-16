@@ -65,7 +65,7 @@ const ImmerFooter = () => {
                     <Image
                       className=""
                       src="/assets/blog/Threads.svg"
-                      width={30}
+                      width={27}
                       height={30}
                       alt="instagram-icon"
                       priority
@@ -109,7 +109,7 @@ const ImmerFooter = () => {
         </div>
       </section>
       <hr className="lg:hidden md:hidden block h-px w-full border-slate-800" />
-      <section className="lg:hidden md:hidden flex flex-row w-full mt-4  mb-4">
+      <section className="sm:hidden flex flex-row w-full mt-4  mb-4">
         <div className="w-[46%]">
           <p
             className="text-white lg:text-[28px] text-2xl mt-2 leading-[22px]
@@ -119,46 +119,46 @@ const ImmerFooter = () => {
           </p>
         </div>
         <div className="flex flex-row justify-start w-2/4  lg:ml-8 ml-5 mt-1 gap-4">
-          <Link href="https://www.instagram.com">
-            <Image
-              className=""
-              src="/assets/blog/instagram.png"
-              width={30}
-              height={30}
-              alt="instagram-icon"
-              priority
-            />
-          </Link>
-          <Link href="https://www.x.com">
-            <Image
-              className=""
-              src="/assets/blog/x.png"
-              width={30}
-              height={30}
-              alt="instagram-icon"
-              priority
-            />
-          </Link>
-          <Link href="https://www.facebook.com">
-            <Image
-              className=""
-              src="/assets/blog/fb.svg"
-              width={30}
-              height={30}
-              alt="instagram-icon"
-              priority
-            />
-          </Link>
-          <Link href="https://www.threads.com">
-            <Image
-              className=""
-              src="/assets/blog/Threads.svg"
-              width={27}
-              height={30}
-              alt="instagram-icon"
-              priority
-            />
-          </Link>
+        <Link href="https://www.instagram.com/immer.world/">
+                    <Image
+                      className=""
+                      src="/assets/blog/Instagram.svg"
+                      width={30}
+                      height={30}
+                      alt="instagram-icon"
+                      priority
+                    />
+                  </Link>
+                  <Link href="https://twitter.com/immerEnt">
+                    <Image
+                      className=""
+                      src="/assets/blog/X.svg"
+                      width={30}
+                      height={30}
+                      alt="instagram-icon"
+                      priority
+                    />
+                  </Link>
+                  <Link href="https://www.facebook.com/immerent">
+                    <Image
+                      className=""
+                      src="/assets/blog/fb.svg"
+                      width={30}
+                      height={30}
+                      alt="instagram-icon"
+                      priority
+                    />
+                  </Link>
+                  <Link href="https://www.threads.net/@immer.world">
+                    <Image
+                      className=""
+                      src="/assets/blog/Threads.svg"
+                      width={27}
+                      height={30}
+                      alt="instagram-icon"
+                      priority
+                    />
+                  </Link>
         </div>
       </section>
       <hr className=" h-px w-full border-slate-800" />
