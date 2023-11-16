@@ -51,7 +51,7 @@ const FeatureContent = () => {
       style={{
         background: "var(--light-color-base-tertiary-normal, #EDEEF1)"
       }}
-      className="w-full flex justify-center p-8 sm:p-12 lg:pl-24 lg:pr-24 px-5 sm:px-20"
+      className="w-full flex  p-8 sm:p-12 lg:pl-24 lg:pr-24 px-5 sm:px-20"
     >
       <section className="w-full text-center">
         <div
