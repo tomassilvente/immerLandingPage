@@ -43,7 +43,7 @@ const ImmerCTA = () => {
         <CtaSignUp />
       </div>
       <Link
-        href="/signup"
+        href="/sign-up"
         className="bg-primary p-4 w-full lg:hidden md:hidden block rounded-full mb-16"
       >
         <p className="text-white font-medium text-base not-italic text-center">
