@@ -37,7 +37,7 @@ const ContactUs = () => {
         titleOrange={"Us    "}
         links={["Home >", " Contact >", "Contact Us"]}
       />
-      <div className="w-[80%] m-5 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-800 dark:text-gray-100">
+      <div className="w-[80%] m-5 gap-8 px-8 py-16 mx-auto rounded-lg md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 dark:bg-gray-800 bg-[#EDEEF1] dark:text-gray-100">
         <div className="flex flex-col justify-between">
           <div className="space-y-2">
             <h2 className="text-4xl font-bold leadi lg:text-5xl">

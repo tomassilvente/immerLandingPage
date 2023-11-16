@@ -93,7 +93,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
               </p>
             </Link>
             <Link
-              href="https://www.instagram.com"
+              href="/blog/all"
               className="block lg:hidden md:hidden"
             >
               <Image
@@ -133,7 +133,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
               </p>
             </Link>
             <Link
-              href="https://www.instagram.com"
+              href="/blog/bloggers"
               className="block lg:hidden md:hidden"
             >
               <Image

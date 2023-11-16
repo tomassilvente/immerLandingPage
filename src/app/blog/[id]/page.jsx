@@ -88,7 +88,7 @@ function Page() {
         iconHeight={180}
       />
       <div className="xl:max-w-5xl md:max-w-3xl max-w-xl pt-16 mx-auto mt-14">
-        <article className="p-2 dark:bg-gray-800 dark:text-gray-50 m-2">
+        <article className="p-2 dark:bg-gray-800  bg-[#EDEEF1] dark:text-gray-50 m-2">
           <div className="m-5">
             <h1 className="text-4xl text-center font-bold ">
               {documentData.title}
