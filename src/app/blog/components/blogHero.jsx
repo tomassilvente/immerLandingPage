@@ -44,9 +44,9 @@ const BlogHero = () => {
           </div>
         </div>
         <div className="flex flex-col items-center sm:block md:w-[45%]">
-          <Image
+          <img
             className="rounded-xl sm:rounded-md w-[95%]"
-            src={'/assets/blog/blog-hero-guitar.png'}
+            src={BlogHeroImg[1].img}
             width={460}
             height={260}
             id={BlogHeroImg[1].id}
