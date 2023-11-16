@@ -122,7 +122,7 @@ const ImmerFooter = () => {
           <Link href="https://www.instagram.com">
             <Image
               className=""
-              src="/assets/blog/instagram.svg"
+              src="/assets/blog/instagram.png"
               width={30}
               height={30}
               alt="instagram-icon"
@@ -132,7 +132,7 @@ const ImmerFooter = () => {
           <Link href="https://www.x.com">
             <Image
               className=""
-              src="/assets/blog/x.svg"
+              src="/assets/blog/x.png"
               width={30}
               height={30}
               alt="instagram-icon"
@@ -153,7 +153,7 @@ const ImmerFooter = () => {
             <Image
               className=""
               src="/assets/blog/Threads.svg"
-              width={30}
+              width={27}
               height={30}
               alt="instagram-icon"
               priority

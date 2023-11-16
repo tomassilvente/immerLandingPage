@@ -16,7 +16,7 @@ const BlogHeroImg = [
 const BlogHero = () => {
   return (
     <div
-      className="sm:min-h-[full] bg-white sm:max-w-screen-2xl sm:bg-blogHero flex items-stretch  pt-10 sm:pt-24"
+      className="sm:min-h-[full] bg-white sm:bg-blogHero flex items-stretch min-w-full pt-10 sm:pt-24"
       style={{
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
@@ -46,7 +46,7 @@ const BlogHero = () => {
         <div className="flex flex-col items-center sm:block md:w-[45%]">
           <Image
             className="rounded-xl sm:rounded-md"
-            src={BlogHeroImg[1].img}
+            src={'/assets/blog/blog-hero-guitar.png'}
             width={460}
             height={260}
             id={BlogHeroImg[1].id}
@@ -60,11 +60,10 @@ const BlogHero = () => {
           </div>
           <div className="sm:hidden mt-5 text-center">
             <h2 className="text-primary font-bold text-xl">
-              Lorem ipsum dolor sit amet consectetur.
+              Explore the world of immer
             </h2>
             <p className="text-[#232323] text-justify text-sm mt-4">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil
-              dicta quia possimus pariatur molestias esse voluptatem similique
+             Nihil dicta quia possimus pariatur molestias esse voluptatem similique
               non consequuntur magni veritatis.
             </p>
           </div>
