@@ -98,7 +98,7 @@ function Page() {
                 <img
                   src={documentData.imageUrl}
                   alt="Imagen"
-                  className="lg:max-h-[500px] max-h-[200px] min-h-[200px] lg:max-w-[500px] max-w-[200px] min-w-[200px]"
+                  className="lg:max-h-[500px] max-h-[200px] min-h-[200px] lg:max-w-[500px] max-w-[300px] min-w-[200px]"
                 />
               </div>
               <div className={`md:flex-row md:items-center dark:text-gray-400`}>
