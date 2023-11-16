@@ -16,7 +16,7 @@ const BlogHeroImg = [
 const BlogHero = () => {
   return (
     <div
-      className="sm:min-h-[full] bg-white sm:bg-blogHero flex items-stretch min-w-full pt-10 sm:pt-24"
+      className="sm:min-h-[full] bg-white max-w-[480px] sm:max-w-screen-2xl sm:bg-blogHero flex items-stretch  pt-10 sm:pt-24"
       style={{
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
