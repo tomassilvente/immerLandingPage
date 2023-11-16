@@ -70,7 +70,7 @@ const BloggersCard = ({
             </div>
           </div>
           <div id="followers" className="flex flex-row mt-1 ml-1">
-            <Image
+            <img
               src="/assets/blog/man.png"
               width={24}
               height={calculatedHeight}
