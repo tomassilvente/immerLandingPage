@@ -102,7 +102,7 @@ const ArticlesSection = () => {
               btnTitle={documentData[2]?.category}
               tittle={documentData[2]?.title}
               desc={documentData[2]?.description}
-              learnMoreLink={`/blog/${documentData[3]?.id}`}
+              learnMoreLink={`/blog/${documentData[2]?.id}`}
             />
           </div>
         </div>

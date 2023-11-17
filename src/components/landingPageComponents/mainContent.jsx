@@ -54,7 +54,7 @@ const MainContent = () => {
               meaningful connection between artists and their audiences.
             </p>
             <a
-              href="/about"
+              href="/our-mission"
               className="mt-3 sm:mt-0 text-[#FF7711] hover:underline transition font-bold text-sm xl:text-base"
             >
               Read More
@@ -75,7 +75,7 @@ const MainContent = () => {
               It's time to free creativity and offer genuine experiences.
             </p>
             <a
-              href="/about"
+              href="/our-mission"
               className="text-[#FF7711] hover:underline transition font-bold text-sm xl:text-base"
             >
               Read More
