@@ -53,12 +53,7 @@ const MainContent = () => {
               specialize in crafting indelible experiences that forge a
               meaningful connection between artists and their audiences.
             </p>
-            <a
-              href="/our-mission"
-              className="mt-3 sm:mt-0 text-[#FF7711] hover:underline transition font-bold text-sm xl:text-base"
-            >
-              Read More
-            </a>
+            
           </div>
         </div>
         <div className="mt-16">
@@ -74,12 +69,7 @@ const MainContent = () => {
               Traditional event planning ties down artists and frustrates fans.
               It's time to free creativity and offer genuine experiences.
             </p>
-            <a
-              href="/our-mission"
-              className="text-[#FF7711] hover:underline transition font-bold text-sm xl:text-base"
-            >
-              Read More
-            </a>
+            
           </div>
         </div>
         <div className="mt-24 px-5 sm:px-14 lg:px-20 xl:px-28 flex flex-col gap-10">

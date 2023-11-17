@@ -22,12 +22,7 @@ const AboutSection = () => {
             Shake off the old. Embrace evolution. With Immer, control and
             creativity return to the rightful hands: Yours.
           </p>
-          <a
-            href="/our-mission"
-            className="mt-3 sm:mt-0 text-[#FF7711] hover:underline transition font-bold text-sm xl:text-base"
-          >
-            Read More
-          </a>
+         
         </div>
       </div>
     </section>

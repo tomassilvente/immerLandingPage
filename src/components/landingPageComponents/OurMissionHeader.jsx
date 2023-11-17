@@ -34,7 +34,6 @@ export default function OurMissionHeader({titleWhite, titleOrange, links }){
               className="p-2 w-[70%]">
                 <option value="/privacy-policy">Privacy Policy</option>
                 <option value="/terms-of-service">Terms of Services</option>
-                <option value="/our-mission">Our Mission</option>
                 <option value="/contact-us">Contact</option>
             </select>
             <Link
