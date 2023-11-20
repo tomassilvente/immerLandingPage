@@ -1,17 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import addData from "@/firebase/firestore/addData";
+import React from "react";
 
 const LandingPageCTA = () => {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = React.useState("");
+  const [username, setUser] = React.useState("");
+  const [success, setSuccess] = React.useState(false);
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    // add email to newsletter database
-
-    // clear input
-    setEmail("");
-  }
+  const SignInImg = "/assets/sign/signUp.svg";
+  
+  const handleForm = async (event) => {
+    event.preventDefault();
+  
+    const userData = {
+      email: email,
+      username: username,
+    };
+  
+    const { result, error } = await addData("users", null, userData);
+  
+    if (error) {
+      console.error("Error saving user to Firestore:", error);
+      return;
+    }
+  
+    console.log("User saved successfully:", result);
+    setSuccess(true);
+  };
 
   return (
     <div className="bg-[#000000] py-10 lg:py-20 lg:pl-28 lg:pr-28 px-5 sm:px-20 flex flex-col gap-4 lg:flex-row justify-between items-center">
@@ -24,7 +40,10 @@ const LandingPageCTA = () => {
           for exclusive early access and updates.
         </p>
         <form
-          onSubmit={handleSubmit}
+          style={{
+            display: success ? "none" : "block",
+          }}
+          onSubmit={handleForm}
           className="mt-8 sm:mt-4 flex flex-col gap-4 sm:block overflow-clip sm:rounded-md text-black"
         >
           <input
@@ -41,6 +60,13 @@ const LandingPageCTA = () => {
             Sign up
           </button>
         </form>
+        <p
+          className="text-center rounded-lg bg-[#FF6C00] py-3 text-lg mt-5 font-normal text-white"
+          style={{
+            display: success ? "block" : "none",
+          }}>
+          Thank You for Signing Up!
+        </p>
       </div>
     </div>
   );

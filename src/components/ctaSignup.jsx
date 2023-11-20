@@ -1,54 +1,63 @@
 "use client";
-
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
+import addData from "@/firebase/firestore/addData";
+import React from "react";
 
 const CtaSignUp = () => {
-  // validate form input
-  const initialValues = {
-    email: "",
-  };
-  const validationSchema = Yup.object({
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email Address Required"),
-  });
+  const [email, setEmail] = React.useState("");
+  const [username, setUser] = React.useState("");
+  const [success, setSuccess] = React.useState(false);
 
-  // sign user function
-  const signUpUser = (data) => {
-    console.log("Form data:", data);
+  const SignInImg = "/assets/sign/signUp.svg";
+  
+  const handleForm = async (event) => {
+    event.preventDefault();
+  
+    const userData = {
+      email: email,
+      username: username,
+    };
+  
+    const { result, error } = await addData("users", null, userData);
+  
+    if (error) {
+      console.error("Error saving user to Firestore:", error);
+      return;
+    }
+  
+    console.log("User saved successfully:", result);
+    setSuccess(true);
   };
 
   return (
     <div className="pb-20">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={(values) => signUpUser(values)}
-      >
-        <Form className="flex flex-col gap-0">
-          <ErrorMessage
-            name="email"
-            component="div"
-            className="text-primary font-semibold text-md mt-2"
+     <form
+          style={{
+            display: success ? "none" : "block",
+          }}
+          onSubmit={handleForm}
+          className="mt-8 sm:mt-4 flex flex-col gap-4 sm:block overflow-clip sm:rounded-md text-black"
+        >
+          <input
+            placeholder="Enter your email address"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-[50%] rounded-lg sm:rounded-none px-5 py-3 text-base focus:outline-none bg-gray-100"
           />
-          <div className="flex flex-row">
-          <Field
-  type="email"
-  name="email"
-  className="p-2 bg-white sm:w-[480px] w-[200px] sm:h-16 h-12 rounded-tl-md rounded-bl-md border border-gray-300"
-/>
-
-            <button
-              type="submit"
-              className="bg-primary hover:bg-[#d6844a] text-xl font-bold not-italic
-             border rounded-r-md rounded-br-md text-white px-4 py-2 mr-2 sm:w-[232px] w-[150px] sm:h-16 h-12"
-            >
-              Signup
-            </button>
-          </div>
-        </Form>
-      </Formik>
+          <button
+            type="submit"
+            className="sm:w-1/5 rounded-r-lg bg-[#FF6C00] hover:bg-[#d6844a] px-[auto] py-3 text-base font-normal text-white"
+          >
+            Sign up
+          </button>
+     </form>
+     <p
+     className="text-center rounded-lg bg-[#FF6C00] py-3 text-2xl font-normal text-white"
+      style={{
+        display: success ? "block" : "none",
+      }}>
+          Thank You for Signing Up!
+     </p>
     </div>
   );
 };
