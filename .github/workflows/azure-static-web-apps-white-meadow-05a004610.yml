@@ -18,7 +18,7 @@ env:
   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
   NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
   NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID }}
-  NEXT_PUBLIC_RESEND : ${{ secrets.NEXT_PUBLIC_RESEND  }}
+  NEXT_PUBLIC_RESEND: ${{ secrets.NEXT_PUBLIC_RESEND }}
 
 jobs:
   build_and_deploy_job:
@@ -26,6 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
       - name: Create .env.local
         run: |
           echo "JWT_SECRET=${JWT_SECRET}" >> .env.local
@@ -64,4 +68,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_MEADOW_05A004610 }}
           action: "close"
+
 
