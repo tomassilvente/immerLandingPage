@@ -26,10 +26,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4.0.0
-        with:
-          node-version: '20.9.0'
+      - name: Use Node.js 20.9.0
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y nodejs=20.9.0
+          sudo apt-get install -y npm
       - name: Create .env.local
         run: |
           echo "JWT_SECRET=${JWT_SECRET}" >> .env.local
@@ -68,6 +69,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_MEADOW_05A004610 }}
           action: "close"
-
 
 
