@@ -3,6 +3,7 @@ import ImmerHeader from "@/components/Header";
 import ImmerFooter from "@/components/Footer";
 import { useEffect, useState } from "react";
 import OurMissionHeader from "@/components/landingPageComponents/OurMissionHeader";
+import { Resend } from "resend";
 
 const CTAImg = [
   {
@@ -11,10 +12,27 @@ const CTAImg = [
   },
 ];
 
+const resend = new Resend(process.env.NEXT_PUBLIC_RESEND);
+
 const ContactUs = () => {
   const CTABackground = CTAImg;
   const [loading, setLoading] = useState(true);
-  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: "mail.immeronline@gmail.com",
+      subject: "Contact Us Form Submission",
+      html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
+    });
+  };
+
   useEffect(() => {
     if (loading === true) {
       const timeout = setTimeout(() => {
@@ -47,9 +65,8 @@ const ContactUs = () => {
               Wanna be part of immer world? Get in touch to know you more.
             </div>
           </div>
-          
         </div>
-        <form novalidate="" className="space-y-6 mt-4">
+        <form onSubmit={handleSubmit} novalidate="" className="space-y-6 mt-4">
           <div>
             <label for="name" className="text-xl font-bold">
               Full name
