@@ -26,10 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - name: Use Node.js 18.x
+      - name: Use Node.js 20.9.0
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20.9.0'
       - name: Create .env.local
         run: |
           echo "JWT_SECRET=${JWT_SECRET}" >> .env.local
