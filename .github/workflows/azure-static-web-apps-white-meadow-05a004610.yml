@@ -18,6 +18,7 @@ env:
   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
   NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
   NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID }}
+  NEXT_PUBLIC_RESEND: ${{ secrets.NEXT_PUBLIC_RESEND }}
 
 jobs:
   build_and_deploy_job:
@@ -25,6 +26,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
+      - name: Use Node.js 20.9.0
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl
+          curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+
       - name: Create .env.local
         run: |
           echo "JWT_SECRET=${JWT_SECRET}" >> .env.local
@@ -35,6 +43,7 @@ jobs:
           echo "NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=${NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID}" >> .env.local
           echo "NEXT_PUBLIC_FIREBASE_APP_ID=${NEXT_PUBLIC_FIREBASE_APP_ID}" >> .env.local
           echo "NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=${NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID}" >> .env.local
+          echo "NEXT_PUBLIC_RESEND=${NEXT_PUBLIC_RESEND}" >> .env.local
       - name: Checkout code
         uses: actions/checkout@v3
         with:
@@ -62,4 +71,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_MEADOW_05A004610 }}
           action: "close"
+
 

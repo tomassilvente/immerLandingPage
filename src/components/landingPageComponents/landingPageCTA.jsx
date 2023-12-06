@@ -10,7 +10,7 @@ const LandingPageCTA = () => {
 
   const SignInImg = "/assets/sign/signUp.svg";
   
-  const handleForm = async (event) => {
+  const handleForm = async (event, req) => {
     event.preventDefault();
   
     const userData = {
@@ -18,7 +18,7 @@ const LandingPageCTA = () => {
       username: username,
     };
   
-    const { result, error } = await addData("users", null, userData);
+    const { result, error } = await addData("users", null, userData, req);
   
     if (error) {
       console.error("Error saving user to Firestore:", error);
