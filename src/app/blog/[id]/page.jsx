@@ -116,7 +116,7 @@ function Page() {
                   </div>
                 </div>
 
-                <div className="ml-20 my-3 h-100%">
+                <div className="mx-2 my-3 h-100% overflow-hidden">
                   <Markdown remarkPlugins={[remarkGfm]}>
                     {documentData.description}
                   </Markdown>

@@ -51,11 +51,11 @@ const LandingPageCTA = () => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="sm:w-4/5 rounded-lg sm:rounded-none px-5 py-3 text-base focus:outline-none"
+            className="sm:w-4/5 rounded-l-lg sm:rounded-none px-5 py-3 text-base focus:outline-none"
           />
           <button
             type="submit"
-            className="sm:w-1/5 rounded-[2rem] sm:rounded-none bg-[#FF6C00] hover:bg-[#d6844a] px-[auto] py-3 text-base font-normal text-white"
+            className="sm:w-1/5 rounded-r-lg w-[100px] bg-[#FF6C00] hover:bg-[#d6844a] px-[auto] py-3 text-base font-normal text-white"
           >
             Sign up
           </button>
