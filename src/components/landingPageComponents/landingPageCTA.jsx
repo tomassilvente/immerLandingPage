@@ -44,7 +44,7 @@ const LandingPageCTA = () => {
             display: success ? "none" : "block",
           }}
           onSubmit={handleForm}
-          className="mt-8 sm:mt-4 flex flex-col gap-4 sm:block overflow-clip sm:rounded-md text-black"
+          className="mt-8 sm:mt-4 flex overflow-clip sm:rounded-md text-black"
         >
           <input
             placeholder="Enter your email address"

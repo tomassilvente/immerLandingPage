@@ -105,6 +105,7 @@ function CreateNew() {
           <option value="For Entertainers">For Entertainers</option>
           <option value="For Organizers">For Organizers</option>
           <option value="For Administrator">For Administrator</option>
+          <option value="For Attendees">For Attendees</option>
         </select>
       </div>
 
