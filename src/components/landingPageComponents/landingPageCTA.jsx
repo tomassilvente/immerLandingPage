@@ -41,7 +41,7 @@ const LandingPageCTA = () => {
         </p>
         <form
           style={{
-            display: success ? "none" : "block",
+            display: success ? "none" : "flex",
           }}
           onSubmit={handleForm}
           className="mt-8 sm:mt-4 flex overflow-clip sm:rounded-md text-black"
