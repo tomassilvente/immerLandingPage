@@ -5,15 +5,37 @@ import Link from "next/link";
 import { useState, useEffect } from "react"
 import FeaturedContentCard from "./featuredContentCard";
 import FeatureContentButton from "./contentBtn";
-import { BtnProps } from "./demoData";
 import getData from "../../../firebase/firestore/getData";
 
 // ! Encontré dos bug, el primero: al situarse ligeramente sobre el borde del filtrado aparece todo naranja, no permitiendo leer el texto. Segundo: Deberíamos agregar scheleton dummy pre-loading en varias partes
 
 const FeatureContent = () => {
-  const buttonData = BtnProps;
+
+  const buttonData = [
+    {
+      btnName: "For Entertainers",
+      btnAddress: "/blog",
+    },
+    {
+      btnName: "For Vendors",
+      btnAddress: "/blog",
+    },
+    {
+      btnName: "For Organizers",
+      btnAddress: "/blog",
+    },
+    {
+      btnName: "For Administrator",
+      btnAddress: "/blog",
+    },
+    {
+      btnName: "For Attendees",
+      btnAddress: "/blog",
+    },
+  ];
   const showHost = false;
   const [documentData, setDocumentData] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState('All')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -35,6 +57,7 @@ const FeatureContent = () => {
 
     fetchData();
   }, []);
+
 
   const slideLeft = () => {
     var slider = document.getElementById("slider");
@@ -62,20 +85,26 @@ const FeatureContent = () => {
             className="h-full w-full flex flex-row  gap-[7%] lg:ml-20 pl-1 pr-1
             overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
           >
-            <Link
-              href="/all"
-              className="bg-primary w-full sm:w-[auto] h-auto p-3 pt-2 pb-2 rounded-[8px] "
+            <button
+              onClick={() => setCurrentIndex('All') }
+              className={`${currentIndex === 'All' ? 'text-white text-center gap-2 not-italic lg:text-base text-sm font-bold bg-primary w-full sm:w-[auto] h-auto p-3 pt-2 pb-2 rounded-[8px] ' : 'bg-white text-primary gap-2 not-italic lg:text-base text-sm font-bold  w-full sm:w-[auto] h-auto p-3 pt-2 pb-2 rounded-[8px] hover:bg-primary hover:text-white'}`}
             >
-              <p className="text-white text-center gap-2 not-italic lg:text-base text-sm font-bold">
+              <p 
+                className="">
                 All
               </p>
-            </Link>
+            </button>
             {buttonData.map((button, index) => (
-              <FeatureContentButton
-                key={index}
-                btnAddress={button.btnAddress}
-                btnName={button.btnName}
-              />
+              <div onClick={() => {
+                    setCurrentIndex(button.btnName)
+                  }}>
+                <FeatureContentButton
+                  
+                  key={index}
+                  clicked = {currentIndex === button.btnName}
+                  btnName={button.btnName}
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -97,6 +126,8 @@ const FeatureContent = () => {
               overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
             >
               {documentData.map((content) => (
+                (currentIndex === content.category || currentIndex === 'All')
+                ?
                 <FeaturedContentCard
                   img={content.imageUrl}
                   category={content.category}
@@ -107,6 +138,7 @@ const FeatureContent = () => {
                   showHost={showHost}
                   key={content.id}
                 />
+                : ''
               ))}
             </div>
             <Image

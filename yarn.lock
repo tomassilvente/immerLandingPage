@@ -464,10 +464,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@next/env@13.5.6":
-  version "13.5.6"
-  resolved "https://registry.npmjs.org/@next/env/-/env-13.5.6.tgz"
-  integrity sha512-Yac/bV5sBGkkEXmAX5FWPS9Mmo2rthrOPRQQNfycJPkjUAUclomCPH7QFVCDQ4Mp2k2K1SSM6m0zrxYrOwtFQw==
+"@next/env@14.0.4-canary.47":
+  version "14.0.4-canary.47"
+  resolved "https://registry.npmjs.org/@next/env/-/env-14.0.4-canary.47.tgz"
+  integrity sha512-aZ6DLP5MoB3AIO+HvVb0hdaRkm0ZY6rFn4sqmYe0of2UWqVwcH4px+m72igzYM/rZ+7kgj+N9dlG4FEEd1Khrg==
 
 "@next/eslint-plugin-next@13.5.3":
   version "13.5.3"
@@ -476,10 +476,10 @@
   dependencies:
     glob "7.1.7"
 
-"@next/swc-darwin-arm64@13.5.6":
-  version "13.5.6"
-  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-13.5.6.tgz"
-  integrity sha512-5nvXMzKtZfvcu4BhtV0KH1oGv4XEW+B+jOfmBdpFI3C7FrB/MfujRpWYSBBO64+qbW8pkZiSyQv9eiwnn5VIQA==
+"@next/swc-darwin-arm64@14.0.4-canary.47":
+  version "14.0.4-canary.47"
+  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-14.0.4-canary.47.tgz"
+  integrity sha512-YYGuRRxF5vcdIH4KIsNoW1MK9KENXCPVaozy2jd3ZPglNhXrC5cE+MvzWl3dtTPi5Xz8nazI3DnHTzjERd/k0g==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -1921,7 +1921,7 @@ gopd@^1.0.1:
   dependencies:
     get-intrinsic "^1.1.3"
 
-graceful-fs@^4.1.2, graceful-fs@^4.2.4:
+graceful-fs@^4.1.2, graceful-fs@^4.2.11, graceful-fs@^4.2.4:
   version "4.2.11"
   resolved "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
@@ -2969,28 +2969,34 @@ natural-compare@^1.4.0:
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-next@^13.5.6:
-  version "13.5.6"
-  resolved "https://registry.npmjs.org/next/-/next-13.5.6.tgz"
-  integrity sha512-Y2wTcTbO4WwEsVb4A8VSnOsG1I9ok+h74q0ZdxkwM3EODqrs4pasq7O0iUxbcS9VtWMicG7f3+HAj0r1+NtKSw==
+next@^14.0.4-canary.47:
+  version "14.0.4-canary.47"
+  resolved "https://registry.npmjs.org/next/-/next-14.0.4-canary.47.tgz"
+  integrity sha512-dOnlBUlN3k2OvTa2rI9ygpGqtJqJYbwSEAzV8nsr85zeJ2+g2WVK3uQ4aWP9Dpg454bOYesGii6E5/jazGgJGw==
   dependencies:
-    "@next/env" "13.5.6"
+    "@next/env" "14.0.4-canary.47"
     "@swc/helpers" "0.5.2"
     busboy "1.6.0"
     caniuse-lite "^1.0.30001406"
+    graceful-fs "^4.2.11"
     postcss "8.4.31"
     styled-jsx "5.1.1"
     watchpack "2.4.0"
   optionalDependencies:
-    "@next/swc-darwin-arm64" "13.5.6"
-    "@next/swc-darwin-x64" "13.5.6"
-    "@next/swc-linux-arm64-gnu" "13.5.6"
-    "@next/swc-linux-arm64-musl" "13.5.6"
-    "@next/swc-linux-x64-gnu" "13.5.6"
-    "@next/swc-linux-x64-musl" "13.5.6"
-    "@next/swc-win32-arm64-msvc" "13.5.6"
-    "@next/swc-win32-ia32-msvc" "13.5.6"
-    "@next/swc-win32-x64-msvc" "13.5.6"
+    "@next/swc-darwin-arm64" "14.0.4-canary.47"
+    "@next/swc-darwin-x64" "14.0.4-canary.47"
+    "@next/swc-linux-arm64-gnu" "14.0.4-canary.47"
+    "@next/swc-linux-arm64-musl" "14.0.4-canary.47"
+    "@next/swc-linux-x64-gnu" "14.0.4-canary.47"
+    "@next/swc-linux-x64-musl" "14.0.4-canary.47"
+    "@next/swc-win32-arm64-msvc" "14.0.4-canary.47"
+    "@next/swc-win32-ia32-msvc" "14.0.4-canary.47"
+    "@next/swc-win32-x64-msvc" "14.0.4-canary.47"
+
+node-bin-setup@^1.0.0:
+  version "1.1.3"
+  resolved "https://registry.npmjs.org/node-bin-setup/-/node-bin-setup-1.1.3.tgz"
+  integrity sha512-opgw9iSCAzT2+6wJOETCpeRYAQxSopqQ2z+N6BXwIMsQQ7Zj5M8MaafQY8JMlolRR6R1UXg2WmhKp0p9lSOivg==
 
 node-fetch@2.6.7:
   version "2.6.7"
@@ -3003,6 +3009,13 @@ node-releases@^2.0.13:
   version "2.0.13"
   resolved "https://registry.npmjs.org/node-releases/-/node-releases-2.0.13.tgz"
   integrity sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==
+
+node@^21.2.0:
+  version "21.2.0"
+  resolved "https://registry.npmjs.org/node/-/node-21.2.0.tgz"
+  integrity sha512-oiHX7SXGdO1wyg0/lZ1ZMy1iS7GgumsT5Ptt5BOye1WniC8OJ2TtYRuWfqNoKrUlYzI4+Bv1+NH5eDgxuThU2A==
+  dependencies:
+    node-bin-setup "^1.0.0"
 
 nopt@^7.2.0:
   version "7.2.0"
