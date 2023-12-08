@@ -96,7 +96,7 @@ const ImmerFooter = () => {
                 Contact Us
               </p>
               <p className="w-full mb-4 lg:break-normal break-words sm:text-[17px] text-[13px]  not-italic font-medium leading-[31px] tracking-[-0.42px]">
-                immer.world@gmail.com
+                hello@immer.world
               </p>
               <p className="mb-4 sm:text-[17px] text-[13px] ] sm:break-all not-italic font-medium leading-[31px] tracking-[-0.42px]">
                 5 Union Square West,#1216
