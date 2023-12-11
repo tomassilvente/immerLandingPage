@@ -10,6 +10,17 @@ function SignUp() {
   const [email, setEmail] = React.useState("");
   const [username, setUser] = React.useState("");
   const [success, setSuccess] = React.useState(false);
+
+    const handleEmail = event => {
+      const result = event.target.value.replace(/[^a-z0-9,@.]/gi,'');
+      setEmail(result);
+    };
+
+  const handleChange = event => {
+    const result = event.target.value.replace(/[^a-z, ' ']/gi,'');
+    setUser(result);
+  };
+
   const router = useRouter();
 
   const SignInImg = "/assets/sign/signUp.svg";
@@ -21,19 +32,23 @@ function SignUp() {
       email: email,
       username: username,
     };
-  
-    const { result, error } = await addData("users", null, userData, req);
-  
-    if (error) {
-      console.error("Error saving user to Firestore:", error);
-      return;
+
+    if(username.length < 4 || email.length < 10){
+      console.log('Short')
     }
-  
-    console.log("User saved successfully:", result);
-    setSuccess(true);
-    return router.push("/");
+
+    else{
+      const { result, error } = await addData("users", null, userData, req);
+    
+      if (error) {
+        console.error("Error saving user to Firestore:", error);
+        return;
+      }
+    
+      console.log("User saved successfully:", result);
+      setSuccess(true);
+  }
   };
-  
 
   return (
     <div className="w-full flex flex-row h-screen bg-white">
@@ -112,9 +127,10 @@ function SignUp() {
               </p>
               <input
                 className="w-[100%] mb-4 lg:h-14 h-12 rounded-lg p-5 bg-[#dddddd]"
-                onChange={(e) => setUser(e.target.value)}
+                onChange={handleChange}
                 required
-                type="name"
+                value={username}
+                type="text"
                 name="name"
                 id="name"
                 placeholder="ex: Josh Josh"
@@ -126,10 +142,10 @@ function SignUp() {
               </p>
               <input
                 className="w-[100%] lg:h-14 h-12 rounded-lg p-5 mb-8 bg-[#dddddd]"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={handleEmail}
+                value={email}
                 required
                 type="email"
-                name="email"
                 id="email"
                 placeholder="ex: example@mail.com"
               />
@@ -147,7 +163,7 @@ function SignUp() {
             <button
               className="font-normal text-xl bg-primary text-white mt-8 py-3 w-[100%] rounded-[8px]"
               type="submit"
-              onClick={() => setSuccess(!success)}
+              onClick={handleForm}
             >
               Sign up
             </button>
