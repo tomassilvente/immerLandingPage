@@ -54,16 +54,20 @@ function CreateNew() {
           imageUrl: imageURL,
           creator: user.email
         };
-        const usuarios = (await getData('users')).result
+        const usuarios = (await getData('users'))
+        console.log(usuarios)
         let {result} = await addData("blogs", null, data);
-        for(let a=0; a<usuarios.length; a++){
-          if(usuarios[a].email === user.email){ 
-            let blogs = usuarios[a].blogs
-            blogs.push(result.id)
-            await addData('users', usuarios[a].id, {blogs:blogs})
-            console.log(usuarios[a].blogs)
+        if(usuarios){
+          for(let a=0; a<usuarios.length; a++){
+            if(usuarios[a].email === user.email){ 
+              let blogs = usuarios[a].blogs
+              blogs.push(result.id)
+              await addData('users', usuarios[a].id, {blogs:blogs})
+              console.log(usuarios[a].blogs)
+            }
           }
         }
+        else return
         return router.push("/admin/blogs");
       } else {
         console.error("Image URL is null. Please upload an image.");

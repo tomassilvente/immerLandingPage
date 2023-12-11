@@ -117,20 +117,20 @@ function Blogs() {
 
             <div className="my-5 md:w-[43vw] h-3 bg-gradient-to-r from-[#FF6C00] to-[#FF6C0000]"></div>
             <p className="font-semibold mb-5 text-2xl">{blog.title}</p>
-            <div className="flex md:grid lg:flex justify-items-center ">
+            <div className="grid  justify-items-center ">
+              {blog.imageUrl ? (
+                <img
+                  className="rounded-md max-h-[300px] max-w-[300px] md:mt-5 lg:mt-0 mb-5"
+                  src={blog.imageUrl}
+                  alt={blog.title}
+                />
+              ) : (
+                <></>
+              )}
               {blog.description ? (
                 <p className="text-[#555555] text-justify font-normal text-sm xl:text-base mr-4 md:mr-0  lg:mr-7 leading-normal">
                   {blog.description}
                 </p>
-              ) : (
-                <></>
-              )}
-              {blog.imageUrl ? (
-                <img
-                  className="rounded-md max-h-[300px] max-w-[300px] md:mt-5 lg:mt-0"
-                  src={blog.imageUrl}
-                  alt={blog.title}
-                />
               ) : (
                 <></>
               )}

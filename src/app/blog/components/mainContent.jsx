@@ -41,9 +41,12 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
   const maxBloggersToShow = 3;
   const filteredBloggers = []
   bloggersData.map((content) => (
-    content.isAdmin?
-    filteredBloggers.push(content)
-    :''))
+    (content.username !== 'undefined')
+    ? content.isAdmin?
+      filteredBloggers.push(content)
+      :''
+    : ''
+  ))
   const displayedBloggers = filteredBloggers.slice(0, maxBloggersToShow);
 
   
@@ -161,20 +164,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
                 />
                 
             ))}
-            {/* {displayedBloggers.map((content) => (
-              <SecondBloggersCard
-                img={content.img}
-                category={content.category}
-                eventDate={content.eventDate}
-                title={content.title}
-                details={content.details}
-                id={content.id}
-                hostTitle={content.hostTitle}
-                hostName={content.hostName}
-                hostImage={content.hostImage}
-                key={content.id}
-              />
-            ))} */}
+            
           </div>
         </section>
       </div>

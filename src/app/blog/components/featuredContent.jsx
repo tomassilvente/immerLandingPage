@@ -36,6 +36,7 @@ const FeatureContent = () => {
   const showHost = false;
   const [documentData, setDocumentData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState('All')
+  let totalCont = 0
 
   useEffect(() => {
     const fetchData = async () => {
@@ -99,7 +100,6 @@ const FeatureContent = () => {
                     setCurrentIndex(button.btnName)
                   }}>
                 <FeatureContentButton
-                  
                   key={index}
                   clicked = {currentIndex === button.btnName}
                   btnName={button.btnName}
@@ -128,6 +128,8 @@ const FeatureContent = () => {
               {documentData.map((content) => (
                 (currentIndex === content.category || currentIndex === 'All')
                 ?
+                <>
+                <p className="hidden">{totalCont = 1}</p>
                 <FeaturedContentCard
                   img={content.imageUrl}
                   category={content.category}
@@ -138,9 +140,15 @@ const FeatureContent = () => {
                   showHost={showHost}
                   key={content.id}
                 />
-                : ''
+                </>
+                :  ''
               ))}
             </div>
+              {totalCont === 0
+                  ? <div className="w-full text-xl text-center">
+                      No Articles for this Section
+                    </div>
+                  : ''}
             <Image
               onClick={slideRight}
               className="rounded-full border-none ml-1 cursor-pointer hidden lg:block hover:bg-primary"
