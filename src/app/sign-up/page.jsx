@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import addData from "@/firebase/firestore/addData";
+import getData from "@/firebase/firestore/getData";
 
 
 function SignUp() {
@@ -11,6 +12,7 @@ function SignUp() {
   const [username, setUser] = React.useState("");
   const [success, setSuccess] = React.useState(false);
   const [error, setError] = React.useState(false)
+  let emailRegistered = false
 
     const handleEmail = event => {
       const result = event.target.value.replace(/[^a-z0-9,@.]/gi,'');
@@ -40,15 +42,23 @@ function SignUp() {
     }
 
     else{
-      const { result, error } = await addData("users", null, userData, req);
-    
-      if (error) {
-        console.error("Error saving user to Firestore:", error);
-        return;
+      const registered = (await getData('users')).result
+      for(let user = 0; user<registered.length || emailRegistered; user++){
+        if(registered[user].email === email) {
+          emailRegistered = true
+          return;
+        }
       }
-    
-      console.log("User saved successfully:", result);
-      setSuccess(true);
+      if(!emailRegistered){
+        const { result, error } = await addData("users", null, userData, req);
+        if (error) {
+          console.error("Error saving user to Firestore:", error);
+          return;
+        }
+      
+        console.log("User saved successfully:", result);
+        setSuccess(true);
+      }
   }
   };
 
@@ -95,6 +105,15 @@ function SignUp() {
             </div>
           ) : (
             ""
+          )}
+          {!emailRegistered ? (
+            ''
+          ) : (
+            <div className="text-center text-lg text-[#ff3030] mb-8 rounded-md">
+              <p>
+               {email} Already Registered.
+              </p>
+            </div>
           )}
           <div className="flex justify-center lg:justify-start">
             <Image
@@ -164,7 +183,7 @@ function SignUp() {
             <label>
               <p className="text-[#979797] sm:text-lg text-sm font-normal not-italic">
                 By submitting this form you agree our
-                <Link href="/signin">
+                <Link href="/terms-of-service">
                   <span className="underline pl-2 text-primary">
                     terms and conditions
                   </span>

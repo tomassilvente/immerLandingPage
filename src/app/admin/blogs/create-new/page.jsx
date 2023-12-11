@@ -54,7 +54,7 @@ function CreateNew() {
           imageUrl: imageURL,
           creator: user.email
         };
-        const usuarios = (await getData('users'))
+        const usuarios = (await getData('users')).result
         console.log(usuarios)
         let {result} = await addData("blogs", null, data);
         if(usuarios){
