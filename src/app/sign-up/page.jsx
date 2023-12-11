@@ -10,6 +10,7 @@ function SignUp() {
   const [email, setEmail] = React.useState("");
   const [username, setUser] = React.useState("");
   const [success, setSuccess] = React.useState(false);
+  const [error, setError] = React.useState(false)
 
     const handleEmail = event => {
       const result = event.target.value.replace(/[^a-z0-9,@.]/gi,'');
@@ -35,6 +36,7 @@ function SignUp() {
 
     if(username.length < 4 || email.length < 10){
       console.log('Short')
+      setError(true)
     }
 
     else{
@@ -85,6 +87,15 @@ function SignUp() {
           alt="immer-logo"
         />
         <div className="flex flex-col mt-16 sm:mt-0 w-full sm:pl-32 sm:pr-32 pl-14 pr-14">
+            {error ? (
+            <div className="text-center text-lg text-[#ff3030] mb-8 rounded-md">
+              <p>
+               Name/Email invalid or too short.
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
           <div className="flex justify-center lg:justify-start">
             <Image
               className="hidden sm:hidden md:hidden lg:block lg:mb-8 mb-16"
