@@ -1,35 +1,71 @@
 "use client";
 import addData from "@/firebase/firestore/addData";
+import getData from "@/firebase/firestore/getData";
 import React from "react";
 
 const CtaSignUp = () => {
   const [email, setEmail] = React.useState("");
   const [username, setUser] = React.useState("");
   const [success, setSuccess] = React.useState(false);
+  const [error, setError] = React.useState(false)
+  let emailRegistered = false
 
   const SignInImg = "/assets/sign/signUp.svg";
   
-  const handleForm = async (event) => {
+  const handleForm = async (event, req) => {
     event.preventDefault();
   
     const userData = {
       email: email,
       username: username,
     };
-  
-    const { result, error } = await addData("users", null, userData);
-  
-    if (error) {
-      console.error("Error saving user to Firestore:", error);
-      return;
-    }
-  
-    console.log("User saved successfully:", result);
-    setSuccess(true);
-  };
 
+    if(username.length < 4 || email.length < 10){
+      console.log('Short')
+      setError(true)
+    }
+
+    else{
+      const registered = (await getData('users')).result
+      for(let user = 0; user<registered.length || emailRegistered; user++){
+        if(registered[user].email === email) {
+          emailRegistered = true
+          return;
+        }
+      }
+      if(!emailRegistered){
+        const { result, error } = await addData("users", null, userData, req);
+        if (error) {
+          console.error("Error saving user to Firestore:", error);
+          return;
+        }
+      
+        console.log("User saved successfully:", result);
+        setSuccess(true);
+      }
+  }
+  };
+  
   return (
     <div className="pb-20">
+       {error ? (
+            <div className="text-center text-lg text-[#ff3030] mb-8 rounded-md">
+              <p>
+               Name/Email invalid or too short.
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
+          {!emailRegistered ? (
+            ''
+          ) : (
+            <div className="text-center text-lg text-[#ff3030] mb-8 rounded-md">
+              <p>
+               {email} Already Registered.
+              </p>
+            </div>
+          )}
      <form
           style={{
             display: success ? "none" : "block",

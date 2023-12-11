@@ -7,9 +7,10 @@ const LandingPageCTA = () => {
   const [email, setEmail] = React.useState("");
   const [username, setUser] = React.useState("");
   const [success, setSuccess] = React.useState(false);
+  const [error, setError] = React.useState(false)
+  let emailRegistered = false
 
   const SignInImg = "/assets/sign/signUp.svg";
-  
   const handleForm = async (event, req) => {
     event.preventDefault();
   
@@ -17,16 +18,31 @@ const LandingPageCTA = () => {
       email: email,
       username: username,
     };
-  
-    const { result, error } = await addData("users", null, userData, req);
-  
-    if (error) {
-      console.error("Error saving user to Firestore:", error);
-      return;
+
+    if(username.length < 4 || email.length < 10){
+      console.log('Short')
+      setError(true)
     }
-  
-    console.log("User saved successfully:", result);
-    setSuccess(true);
+
+    else{
+      const registered = (await getData('users')).result
+      for(let user = 0; user<registered.length || emailRegistered; user++){
+        if(registered[user].email === email) {
+          emailRegistered = true
+          return;
+        }
+      }
+      if(!emailRegistered){
+        const { result, error } = await addData("users", null, userData, req);
+        if (error) {
+          console.error("Error saving user to Firestore:", error);
+          return;
+        }
+      
+        console.log("User saved successfully:", result);
+        setSuccess(true);
+      }
+  }
   };
 
   return (
@@ -41,7 +57,7 @@ const LandingPageCTA = () => {
         </p>
         <form
           style={{
-            display: success ? "none" : "flex",
+            display: success ? "none" : "block",
           }}
           onSubmit={handleForm}
           className="mt-8 sm:mt-4 flex overflow-clip sm:rounded-md text-black"
@@ -59,7 +75,26 @@ const LandingPageCTA = () => {
           >
             Sign up
           </button>
+          {error ? (
+            <div className=" text-lg text-[#ff3030] mb-8 rounded-md">
+              <p>
+               Name/Email invalid or too short.
+              </p>
+            </div>
+          ) : (
+            ""
+          )}
+          {!emailRegistered ? (
+            ''
+          ) : (
+            <div className=" text-lg text-[#ff3030] mb-8 rounded-md">
+              <p>
+               {email} Already Registered.
+              </p>
+            </div>
+          )}
         </form>
+        
         <p
           className="text-center rounded-lg bg-[#FF6C00] py-3 text-lg mt-5 font-normal text-white"
           style={{

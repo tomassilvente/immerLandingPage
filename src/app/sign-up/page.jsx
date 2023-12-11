@@ -198,7 +198,6 @@ function SignUp() {
               Sign up
             </button>
           </form>
-
           <Link
             href="/"
             className="text-xl text-center font-normal ml-[5%] sm:ml-0 row-start-3 bg-primary text-white mt-8 py-3 w-[100%] rounded-[8px]"
