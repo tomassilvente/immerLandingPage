@@ -173,7 +173,7 @@ export default function Page() {
             <label>
               <p className=" text-[#b9b9b9] mt-5">
                 By submitting this form you agree our 
-                <Link href='/signin'> 
+                <Link href='/terms-of-service'> 
                   <span className="underline pl-2 text-[#FF6C00]">
                     terms and conditions
                   </span>
