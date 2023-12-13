@@ -88,7 +88,7 @@ function Page() {
         iconHeight={180}
       />
       <div className="xl:max-w-5xl md:max-w-3xl max-w-xl pt-16 mx-auto mt-14">
-        <article className="p-2 dark:bg-gray-800  bg-[#EDEEF1] dark:text-gray-50 m-2">
+        <article className="p-2 bg-[#fefefeb6]  m-2">
           <div className="m-5">
             <h1 className="text-4xl text-center font-bold ">
               {documentData.title}
@@ -98,25 +98,25 @@ function Page() {
                 <img
                   src={documentData.imageUrl}
                   alt="Imagen"
-                  className="lg:max-h-[500px] min-h-[200px] lg:max-w-[500px] max-w-[50%] min-w-[40%]"
+                  className="lg:max-h-[500px] min-h-[200px] lg:max-w-[500px] sm:max-w-[55%] max-w-[70%] min-w-[40%]"
                 />
               </div>
-              <div className={`md:flex-row md:items-center dark:text-gray-400`}>
+              <div className={`md:flex-row md:items-center `}>
                 <div className="flex mt-10 items-center md:space-x-2">
                   <img
                     src={documentData.profilePic}
                     alt=""
-                    className="w-[55px] h-[55px] border rounded-full dark:bg-gray-500 dark:border-gray-700"
+                    className="w-[55px] h-[55px] border rounded-full "
                   />
                   <div>
-                    <p className="ml-3">{documentData.user} </p>
-                    <p className="text-sm md:mt-0 ml-4">
+                    <p className="ml-4">{documentData.user} </p>
+                    <p className="text-xs md:mt-0 ml-4">
                       {estimatedReadingTime} min read
                     </p>
                   </div>
                 </div>
 
-                <div className="mx-2 my-3 h-100% overflow-hidden">
+                <div className=" my-6 h-100% overflow-hidden">
                   <Markdown remarkPlugins={[remarkGfm]}>
                     {documentData.description}
                   </Markdown>

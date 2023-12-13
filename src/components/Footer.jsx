@@ -86,9 +86,6 @@ const ImmerFooter = () => {
     <a href="/blog" className="mb-4 sm:text-[17px] text-[13px] not-italic font-medium leading-[31px] tracking-[-0.42px] hover:text-[#FF6C00]">
         Updates
     </a>
-    <a href="/our-mission" className="mb-4 sm:text-[17px] text-[13px] not-italic font-medium leading-[31px] tracking-[-0.42px] hover:text-[#FF6C00]">
-        Our Mission
-    </a>
 </div>
 
             <div className="lg:w-2/4 md:w-[60%] w-2/4 flex flex-col">
