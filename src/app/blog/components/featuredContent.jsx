@@ -1,13 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect } from "react"
 import FeaturedContentCard from "./featuredContentCard";
 import FeatureContentButton from "./contentBtn";
 import getData from "../../../firebase/firestore/getData";
 
-// ! Encontré dos bug, el primero: al situarse ligeramente sobre el borde del filtrado aparece todo naranja, no permitiendo leer el texto. Segundo: Deberíamos agregar scheleton dummy pre-loading en varias partes
 
 const FeatureContent = () => {
 

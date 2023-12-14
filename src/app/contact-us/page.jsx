@@ -1,9 +1,8 @@
 "use client";
 import ImmerHeader from "@/components/Header";
 import ImmerFooter from "@/components/Footer";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import OurMissionHeader from "@/components/landingPageComponents/OurMissionHeader";
-import { Resend } from "resend";
 
 const CTAImg = [
   {
@@ -12,25 +11,37 @@ const CTAImg = [
   },
 ];
 
-const resend = new Resend(process.env.NEXT_PUBLIC_RESEND);
-
 const ContactUs = () => {
+  const formRef = useRef();
   const CTABackground = CTAImg;
   const [loading, setLoading] = useState(true);
+  const [isSuccess, setIsSuccess] = useState(false);
 
-  const handleSubmit = (e) => {
+  const sendMail = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
+    const fullName = formRef.current["fullName"].value;
+    const email = formRef.current["email"].value;
+    const message = formRef.current["message"].value;
 
-    resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: "mail.immeronline@gmail.com",
-      subject: "Contact Us Form Submission",
-      html: `<p>Name: ${name}</p><p>Email: ${email}</p><p>Message: ${message}</p>`,
+    const response = await fetch("/api/send", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        fullName,
+        email,
+        message,
+      }),
     });
+    console.log(await response.json());
+
+    // Clear form fields
+    formRef.current.reset();
+
+    // Show success tick for a brief moment
+    setIsSuccess(true);
+    setTimeout(() => setIsSuccess(false), 3000);
   };
 
   useEffect(() => {
@@ -66,38 +77,54 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-        <form onSubmit={handleSubmit} novalidate="" className="space-y-6 mt-4">
+        <form
+          ref={formRef}
+          onSubmit={sendMail}
+          noValidate
+          className="space-y-6 mt-4"
+        >
           <div>
-            <label for="name" className="text-xl font-bold">
+            <label htmlFor="fullName" className="text-xl font-bold">
               Full name
             </label>
             <input
-              id="name"
+              id="fullName"
               type="text"
+              name="fullName"
               placeholder=""
               className="w-full p-3 rounded dark:bg-gray-700"
             />
           </div>
           <div>
-            <label for="email" className="text-xl font-bold">
+            <label htmlFor="email" className="text-xl font-bold">
               Email
             </label>
             <input
               id="email"
               type="email"
+              name="email"
               className="w-full p-3 rounded dark:bg-gray-700"
             />
           </div>
           <div>
-            <label for="message" className="text-xl font-bold">
+            <label htmlFor="message" className="text-xl font-bold">
               Message
             </label>
             <textarea
               id="message"
+              name="message"
               rows="3"
               className="w-full p-3 rounded dark:bg-gray-700"
             ></textarea>
           </div>
+          {isSuccess && (
+            <div
+              className="absolute top-0 right-0 mt-2 mr-2 p-2 bg-primary text-white rounded-full"
+              style={{ fontSize: "1.5rem" }}
+            >
+              ✔
+            </div>
+          )}
           <button
             className="row-start-3 bg-primary text-white mt-8 py-3 w-[100%] rounded-[8px]"
             type="submit"
