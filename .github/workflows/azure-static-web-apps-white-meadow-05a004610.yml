@@ -18,7 +18,8 @@ env:
   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
   NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
   NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID }}
-  NEXT_PUBLIC_RESEND: ${{ secrets.NEXT_PUBLIC_RESEND }}
+  NEXT_PUBLIC_MAIL: ${{ secrets.NEXT_PUBLIC_MAIL }}
+  NEXT_PUBLIC_PASSWORD: ${{secrets.NEXT_PUBLIC_PASSWORD}}
 
 jobs:
   build_and_deploy_job:
@@ -43,7 +44,8 @@ jobs:
           echo "NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=${NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID}" >> .env.local
           echo "NEXT_PUBLIC_FIREBASE_APP_ID=${NEXT_PUBLIC_FIREBASE_APP_ID}" >> .env.local
           echo "NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=${NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID}" >> .env.local
-          echo "NEXT_PUBLIC_RESEND=${NEXT_PUBLIC_RESEND}" >> .env.local
+          echo "NEXT_PUBLIC_MAIL=${NEXT_PUBLIC_MAIL}" >> .env.local
+          echo "NEXT_PUBLIC_PASSWORD=${NEXT_PUBLIC_PASSWORD}" >> .env.local
       - name: Checkout code
         uses: actions/checkout@v3
         with:
