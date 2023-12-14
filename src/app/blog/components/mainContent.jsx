@@ -41,7 +41,7 @@ const MainContent = ({ LatestArticles, PopularBloggers }) => {
   const maxBloggersToShow = 3;
   const filteredBloggers = []
   bloggersData.map((content) => (
-    (content.username !== 'undefined')
+    (content.username !== 'undefined' && !content.username.includes('MK'))
     ? content.isAdmin?
       filteredBloggers.push(content)
       :''

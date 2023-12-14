@@ -51,7 +51,6 @@ const ContentCard = ({
       {showHost && (
         <>
         <hr className="my-2" />
-          <Link href="/author">
         <div id="host-section" className="flex flex-row">
             <img
               className="rounded-full border-none ml-1 h-[45px] w-[55px]"
@@ -69,7 +68,6 @@ const ContentCard = ({
               </p>
             </div>
           </div>
-          </Link>
           </>
       )}
     </div>
