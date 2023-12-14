@@ -67,9 +67,9 @@ function Page() {
         iconHeight={180}
       />
       <div className="xl:max-w-5xl md:max-w-3xl max-w-xl pt-16 mx-auto mt-14">
-        <article className="p-2 dark:bg-gray-800 dark:text-gray-50 bg-gray-300 m-2 rounded-lg">
+        <article className="p-2 bg-[#00000026] rounded-2xl m-2">
           <div className="m-5">
-              <div className={`md:items-center dark:text-gray-400`}>
+              <div className={`md:items-center`}>
                   <p className=" text-center text-5xl ">{documentData.username} </p>
                   <div className="flex space-x-4 justify-center items-center my-8">
                     <Link
@@ -105,7 +105,7 @@ function Page() {
                         <FaTwitter />
                     </Link>
                   </div>
-                  <div className="md:flex grid justify-center items-center md:justify-start ">
+                  <div className=" grid justify-center items-center  ">
                     <img
                       src={documentData.imageURL}
                       alt=""

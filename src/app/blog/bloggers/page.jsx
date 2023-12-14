@@ -48,7 +48,7 @@ function Page() {
             ? <Link
                 className="lg:w-[500px]" 
                 href={`/blog/bloggers/${content.id}`}>
-                {console.log(content.id)}
+                {console.log(content)}
                 <BloggersCard
                     id={content.id}
                     pinterestLink={content.pinterest}

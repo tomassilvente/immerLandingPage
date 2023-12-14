@@ -62,8 +62,8 @@ function CreateNew() {
             if(usuarios[a].email === user.email){ 
               let blogs = usuarios[a].blogs
               blogs.push(result.id)
-              await addData('users', usuarios[a].id, {blogs:blogs})
-              console.log(usuarios[a].blogs)
+              await addData('users', usuarios[a].id, {...usuarios[a],blogs:blogs})
+              console.log(usuarios[a])
             }
           }
         }
